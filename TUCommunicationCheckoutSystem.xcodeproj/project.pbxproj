@@ -57,58 +57,6 @@
 		4C78A24C21F38DE200B11F14 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = ../UGrokItiOSSdk/include; sourceTree = "<group>"; };
 		4CA5D13E2200F5430090784C /* Kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kit.swift; sourceTree = "<group>"; };
 		4CA5D1412203A25A0090784C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		4CA5D15F2203B93A0090784C /* UgiTagReadState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiTagReadState.h; sourceTree = "<group>"; };
-		4CA5D1602203B93A0090784C /* UgiTag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiTag.h; sourceTree = "<group>"; };
-		4CA5D1612203B93A0090784C /* UgiRfMicron.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiRfMicron.h; sourceTree = "<group>"; };
-		4CA5D1622203B93A0090784C /* UgiTagCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiTagCell.h; sourceTree = "<group>"; };
-		4CA5D1632203B93A0090784C /* UgiButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiButton.h; sourceTree = "<group>"; };
-		4CA5D1652203B93A0090784C /* UgiTagReadState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiTagReadState.h; sourceTree = "<group>"; };
-		4CA5D1662203B93A0090784C /* UgiTag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiTag.h; sourceTree = "<group>"; };
-		4CA5D1672203B93A0090784C /* UgiRfMicron.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiRfMicron.h; sourceTree = "<group>"; };
-		4CA5D1682203B93A0090784C /* UgiTagCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiTagCell.h; sourceTree = "<group>"; };
-		4CA5D1692203B93A0090784C /* UgiButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiButton.h; sourceTree = "<group>"; };
-		4CA5D16A2203B93A0090784C /* UgiConfigurationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiConfigurationDelegate.h; sourceTree = "<group>"; };
-		4CA5D16B2203B93A0090784C /* UgiTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiTitleView.h; sourceTree = "<group>"; };
-		4CA5D16C2203B93A0090784C /* UgiFarsens.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiFarsens.h; sourceTree = "<group>"; };
-		4CA5D16D2203B93A0090784C /* UgiSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiSegmentedControl.h; sourceTree = "<group>"; };
-		4CA5D16E2203B93A0090784C /* UgiInventory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiInventory.h; sourceTree = "<group>"; };
-		4CA5D16F2203B93A0090784C /* UgiSwiftBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiSwiftBridgingHeader.h; sourceTree = "<group>"; };
-		4CA5D1702203B93A0090784C /* UgiBarcodeConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiBarcodeConfiguration.h; sourceTree = "<group>"; };
-		4CA5D1712203B93A0090784C /* UgiUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiUtil.h; sourceTree = "<group>"; };
-		4CA5D1722203B93A0090784C /* UgiEpc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiEpc.h; sourceTree = "<group>"; };
-		4CA5D1732203B93A0090784C /* UgiUiUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiUiUtil.h; sourceTree = "<group>"; };
-		4CA5D1742203B93A0090784C /* UgiFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiFooterView.h; sourceTree = "<group>"; };
-		4CA5D1752203B93A0090784C /* UgiJson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiJson.h; sourceTree = "<group>"; };
-		4CA5D1762203B93A0090784C /* UgiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiViewController.h; sourceTree = "<group>"; };
-		4CA5D1772203B93A0090784C /* Ugi_firmwareUpdate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ugi_firmwareUpdate.h; sourceTree = "<group>"; };
-		4CA5D1782203B93A0090784C /* UgiDefaultConfigurationUi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiDefaultConfigurationUi.h; sourceTree = "<group>"; };
-		4CA5D1792203B93A0090784C /* UgiRfidConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiRfidConfiguration.h; sourceTree = "<group>"; };
-		4CA5D17A2203B93A0090784C /* UgiTagReadHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiTagReadHistoryView.h; sourceTree = "<group>"; };
-		4CA5D17B2203B93A0090784C /* UgiFooterView.textClipping */ = {isa = PBXFileReference; lastKnownFileType = text; path = UgiFooterView.textClipping; sourceTree = "<group>"; };
-		4CA5D17C2203B93A0090784C /* UgiInventoryDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiInventoryDelegate.h; sourceTree = "<group>"; };
-		4CA5D17D2203B93A0090784C /* Ugi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ugi.h; sourceTree = "<group>"; };
-		4CA5D17E2203B93A0090784C /* UgiStatusImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiStatusImageView.h; sourceTree = "<group>"; };
-		4CA5D17F2203B93A0090784C /* UgiConfigurationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiConfigurationDelegate.h; sourceTree = "<group>"; };
-		4CA5D1802203B93A0090784C /* UgiTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiTitleView.h; sourceTree = "<group>"; };
-		4CA5D1812203B93A0090784C /* UgiFarsens.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiFarsens.h; sourceTree = "<group>"; };
-		4CA5D1822203B93A0090784C /* UgiSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiSegmentedControl.h; sourceTree = "<group>"; };
-		4CA5D1832203B93A0090784C /* UgiInventory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiInventory.h; sourceTree = "<group>"; };
-		4CA5D1842203B93A0090784C /* UgiSwiftBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiSwiftBridgingHeader.h; sourceTree = "<group>"; };
-		4CA5D1852203B93A0090784C /* UgiBarcodeConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiBarcodeConfiguration.h; sourceTree = "<group>"; };
-		4CA5D1862203B93A0090784C /* UgiUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiUtil.h; sourceTree = "<group>"; };
-		4CA5D1872203B93A0090784C /* UgiEpc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiEpc.h; sourceTree = "<group>"; };
-		4CA5D1882203B93A0090784C /* UgiUiUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiUiUtil.h; sourceTree = "<group>"; };
-		4CA5D1892203B93A0090784C /* UgiFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiFooterView.h; sourceTree = "<group>"; };
-		4CA5D18A2203B93A0090784C /* UgiJson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiJson.h; sourceTree = "<group>"; };
-		4CA5D18B2203B93A0090784C /* UgiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiViewController.h; sourceTree = "<group>"; };
-		4CA5D18C2203B93A0090784C /* Ugi_firmwareUpdate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ugi_firmwareUpdate.h; sourceTree = "<group>"; };
-		4CA5D18D2203B93A0090784C /* UgiDefaultConfigurationUi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiDefaultConfigurationUi.h; sourceTree = "<group>"; };
-		4CA5D18E2203B93A0090784C /* UgiRfidConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiRfidConfiguration.h; sourceTree = "<group>"; };
-		4CA5D18F2203B93A0090784C /* UgiTagReadHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiTagReadHistoryView.h; sourceTree = "<group>"; };
-		4CA5D1902203B93A0090784C /* UgiFooterView.textClipping */ = {isa = PBXFileReference; lastKnownFileType = text; path = UgiFooterView.textClipping; sourceTree = "<group>"; };
-		4CA5D1912203B93A0090784C /* UgiInventoryDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiInventoryDelegate.h; sourceTree = "<group>"; };
-		4CA5D1922203B93A0090784C /* Ugi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ugi.h; sourceTree = "<group>"; };
-		4CA5D1932203B93A0090784C /* UgiStatusImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiStatusImageView.h; sourceTree = "<group>"; };
 		4CA5D1942203C0220090784C /* libUGrokItApi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUGrokItApi.a; sourceTree = "<group>"; };
 		4CA5D1962203C0310090784C /* UGrokItApiResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UGrokItApiResources.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,7 +115,6 @@
 		4C1CE01A21EEA6F8000C45CD /* TUCommunicationCheckoutSystem */ = {
 			isa = PBXGroup;
 			children = (
-				4CA5D15E2203B93A0090784C /* include */,
 				4C1CE01B21EEA6F8000C45CD /* AppDelegate.swift */,
 				4C1CE01D21EEA6F8000C45CD /* ViewController.swift */,
 				4C1CE01F21EEA6F8000C45CD /* Main.storyboard */,
@@ -204,74 +151,6 @@
 				4CA5D1412203A25A0090784C /* libz.tbd */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4CA5D15E2203B93A0090784C /* include */ = {
-			isa = PBXGroup;
-			children = (
-				4CA5D15F2203B93A0090784C /* UgiTagReadState.h */,
-				4CA5D1602203B93A0090784C /* UgiTag.h */,
-				4CA5D1612203B93A0090784C /* UgiRfMicron.h */,
-				4CA5D1622203B93A0090784C /* UgiTagCell.h */,
-				4CA5D1632203B93A0090784C /* UgiButton.h */,
-				4CA5D1642203B93A0090784C /* include */,
-				4CA5D17F2203B93A0090784C /* UgiConfigurationDelegate.h */,
-				4CA5D1802203B93A0090784C /* UgiTitleView.h */,
-				4CA5D1812203B93A0090784C /* UgiFarsens.h */,
-				4CA5D1822203B93A0090784C /* UgiSegmentedControl.h */,
-				4CA5D1832203B93A0090784C /* UgiInventory.h */,
-				4CA5D1842203B93A0090784C /* UgiSwiftBridgingHeader.h */,
-				4CA5D1852203B93A0090784C /* UgiBarcodeConfiguration.h */,
-				4CA5D1862203B93A0090784C /* UgiUtil.h */,
-				4CA5D1872203B93A0090784C /* UgiEpc.h */,
-				4CA5D1882203B93A0090784C /* UgiUiUtil.h */,
-				4CA5D1892203B93A0090784C /* UgiFooterView.h */,
-				4CA5D18A2203B93A0090784C /* UgiJson.h */,
-				4CA5D18B2203B93A0090784C /* UgiViewController.h */,
-				4CA5D18C2203B93A0090784C /* Ugi_firmwareUpdate.h */,
-				4CA5D18D2203B93A0090784C /* UgiDefaultConfigurationUi.h */,
-				4CA5D18E2203B93A0090784C /* UgiRfidConfiguration.h */,
-				4CA5D18F2203B93A0090784C /* UgiTagReadHistoryView.h */,
-				4CA5D1902203B93A0090784C /* UgiFooterView.textClipping */,
-				4CA5D1912203B93A0090784C /* UgiInventoryDelegate.h */,
-				4CA5D1922203B93A0090784C /* Ugi.h */,
-				4CA5D1932203B93A0090784C /* UgiStatusImageView.h */,
-			);
-			name = include;
-			path = ../../UGrokItiOSSdk/include;
-			sourceTree = "<group>";
-		};
-		4CA5D1642203B93A0090784C /* include */ = {
-			isa = PBXGroup;
-			children = (
-				4CA5D1652203B93A0090784C /* UgiTagReadState.h */,
-				4CA5D1662203B93A0090784C /* UgiTag.h */,
-				4CA5D1672203B93A0090784C /* UgiRfMicron.h */,
-				4CA5D1682203B93A0090784C /* UgiTagCell.h */,
-				4CA5D1692203B93A0090784C /* UgiButton.h */,
-				4CA5D16A2203B93A0090784C /* UgiConfigurationDelegate.h */,
-				4CA5D16B2203B93A0090784C /* UgiTitleView.h */,
-				4CA5D16C2203B93A0090784C /* UgiFarsens.h */,
-				4CA5D16D2203B93A0090784C /* UgiSegmentedControl.h */,
-				4CA5D16E2203B93A0090784C /* UgiInventory.h */,
-				4CA5D16F2203B93A0090784C /* UgiSwiftBridgingHeader.h */,
-				4CA5D1702203B93A0090784C /* UgiBarcodeConfiguration.h */,
-				4CA5D1712203B93A0090784C /* UgiUtil.h */,
-				4CA5D1722203B93A0090784C /* UgiEpc.h */,
-				4CA5D1732203B93A0090784C /* UgiUiUtil.h */,
-				4CA5D1742203B93A0090784C /* UgiFooterView.h */,
-				4CA5D1752203B93A0090784C /* UgiJson.h */,
-				4CA5D1762203B93A0090784C /* UgiViewController.h */,
-				4CA5D1772203B93A0090784C /* Ugi_firmwareUpdate.h */,
-				4CA5D1782203B93A0090784C /* UgiDefaultConfigurationUi.h */,
-				4CA5D1792203B93A0090784C /* UgiRfidConfiguration.h */,
-				4CA5D17A2203B93A0090784C /* UgiTagReadHistoryView.h */,
-				4CA5D17B2203B93A0090784C /* UgiFooterView.textClipping */,
-				4CA5D17C2203B93A0090784C /* UgiInventoryDelegate.h */,
-				4CA5D17D2203B93A0090784C /* Ugi.h */,
-				4CA5D17E2203B93A0090784C /* UgiStatusImageView.h */,
-			);
-			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
