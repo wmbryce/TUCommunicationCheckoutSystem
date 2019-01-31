@@ -16,9 +16,10 @@
 		4C1CE03421EEA6FD000C45CD /* TUCommunicationCheckoutSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE03321EEA6FD000C45CD /* TUCommunicationCheckoutSystemTests.swift */; };
 		4C1CE03F21EEA6FD000C45CD /* TUCommunicationCheckoutSystemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE03E21EEA6FD000C45CD /* TUCommunicationCheckoutSystemUITests.swift */; };
 		4C78A24D21F38DE200B11F14 /* include in Resources */ = {isa = PBXBuildFile; fileRef = 4C78A24C21F38DE200B11F14 /* include */; };
-		4C78A24F21F38E0100B11F14 /* UGrokItApiResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C78A24E21F38E0100B11F14 /* UGrokItApiResources.bundle */; };
 		4CA5D13F2200F5430090784C /* Kit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA5D13E2200F5430090784C /* Kit.swift */; };
 		4CA5D1422203A25A0090784C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CA5D1412203A25A0090784C /* libz.tbd */; };
+		4CA5D1952203C0220090784C /* libUGrokItApi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CA5D1942203C0220090784C /* libUGrokItApi.a */; };
+		4CA5D1972203C0310090784C /* UGrokItApiResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4CA5D1962203C0310090784C /* UGrokItApiResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,9 +54,7 @@
 		4C1CE03A21EEA6FD000C45CD /* TUCommunicationCheckoutSystemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TUCommunicationCheckoutSystemUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1CE03E21EEA6FD000C45CD /* TUCommunicationCheckoutSystemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUCommunicationCheckoutSystemUITests.swift; sourceTree = "<group>"; };
 		4C1CE04021EEA6FD000C45CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4C78A24A21F38BDE00B11F14 /* libUGrokItApi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUGrokItApi.a; path = ../UGrokItiOSSdk/libUGrokItApi.a; sourceTree = "<group>"; };
 		4C78A24C21F38DE200B11F14 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = ../UGrokItiOSSdk/include; sourceTree = "<group>"; };
-		4C78A24E21F38E0100B11F14 /* UGrokItApiResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = UGrokItApiResources.bundle; path = ../UGrokItiOSSdk/UGrokItApiResources.bundle; sourceTree = "<group>"; };
 		4CA5D13E2200F5430090784C /* Kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kit.swift; sourceTree = "<group>"; };
 		4CA5D1412203A25A0090784C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4CA5D15F2203B93A0090784C /* UgiTagReadState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiTagReadState.h; sourceTree = "<group>"; };
@@ -110,6 +109,8 @@
 		4CA5D1912203B93A0090784C /* UgiInventoryDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiInventoryDelegate.h; sourceTree = "<group>"; };
 		4CA5D1922203B93A0090784C /* Ugi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ugi.h; sourceTree = "<group>"; };
 		4CA5D1932203B93A0090784C /* UgiStatusImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UgiStatusImageView.h; sourceTree = "<group>"; };
+		4CA5D1942203C0220090784C /* libUGrokItApi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUGrokItApi.a; sourceTree = "<group>"; };
+		4CA5D1962203C0310090784C /* UGrokItApiResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UGrokItApiResources.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CA5D1952203C0220090784C /* libUGrokItApi.a in Frameworks */,
 				4CA5D1422203A25A0090784C /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,9 +143,9 @@
 		4C1CE00F21EEA6F7000C45CD = {
 			isa = PBXGroup;
 			children = (
-				4C78A24E21F38E0100B11F14 /* UGrokItApiResources.bundle */,
+				4CA5D1962203C0310090784C /* UGrokItApiResources.bundle */,
+				4CA5D1942203C0220090784C /* libUGrokItApi.a */,
 				4C78A24C21F38DE200B11F14 /* include */,
-				4C78A24A21F38BDE00B11F14 /* libUGrokItApi.a */,
 				4C1CE01A21EEA6F8000C45CD /* TUCommunicationCheckoutSystem */,
 				4C1CE03221EEA6FD000C45CD /* TUCommunicationCheckoutSystemTests */,
 				4C1CE03D21EEA6FD000C45CD /* TUCommunicationCheckoutSystemUITests */,
@@ -376,7 +378,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C78A24F21F38E0100B11F14 /* UGrokItApiResources.bundle in Resources */,
+				4CA5D1972203C0310090784C /* UGrokItApiResources.bundle in Resources */,
 				4C1CE02921EEA6FD000C45CD /* LaunchScreen.storyboard in Resources */,
 				4C1CE02621EEA6FD000C45CD /* Assets.xcassets in Resources */,
 				4C1CE02121EEA6F8000C45CD /* Main.storyboard in Resources */,
@@ -587,7 +589,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = TrinityUniversityEngineering.TUCommunicationCheckoutSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -607,7 +612,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = TrinityUniversityEngineering.TUCommunicationCheckoutSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
