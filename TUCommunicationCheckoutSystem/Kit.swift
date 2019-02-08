@@ -23,7 +23,7 @@ class Kit: NSObject{
     // Archiving Paths
     
     static let DocumentsDirectory = FileManager().urls( for: .documentDirectory, in:.userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("meals")
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("Kits")
     
     // Types
     

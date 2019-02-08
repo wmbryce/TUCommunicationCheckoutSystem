@@ -20,6 +20,7 @@
 		4CA5D1952203C0220090784C /* libUGrokItApi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CA5D1942203C0220090784C /* libUGrokItApi.a */; };
 		4CA5D1972203C0310090784C /* UGrokItApiResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4CA5D1962203C0310090784C /* UGrokItApiResources.bundle */; };
 		4CA5D1992203C16B0090784C /* include in Resources */ = {isa = PBXBuildFile; fileRef = 4CA5D1982203C16B0090784C /* include */; };
+		4CB2143D220CD38E00FBD719 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2143C220CD38E00FBD719 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		4CA5D1942203C0220090784C /* libUGrokItApi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUGrokItApi.a; sourceTree = "<group>"; };
 		4CA5D1962203C0310090784C /* UGrokItApiResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UGrokItApiResources.bundle; sourceTree = "<group>"; };
 		4CA5D1982203C16B0090784C /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		4CB2143C220CD38E00FBD719 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				4C1CE01D21EEA6F8000C45CD /* ViewController.swift */,
 				4C1CE01F21EEA6F8000C45CD /* Main.storyboard */,
 				4CA5D13E2200F5430090784C /* Kit.swift */,
+				4CB2143C220CD38E00FBD719 /* User.swift */,
 				4C1CE02521EEA6FD000C45CD /* Assets.xcassets */,
 				4C1CE02721EEA6FD000C45CD /* LaunchScreen.storyboard */,
 				4C1CE02A21EEA6FD000C45CD /* Info.plist */,
@@ -289,6 +292,7 @@
 				4C1CE01E21EEA6F8000C45CD /* ViewController.swift in Sources */,
 				4CA5D13F2200F5430090784C /* Kit.swift in Sources */,
 				4C1CE02421EEA6F8000C45CD /* TUCommunicationCheckoutSystem.xcdatamodeld in Sources */,
+				4CB2143D220CD38E00FBD719 /* User.swift in Sources */,
 				4C1CE01C21EEA6F8000C45CD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
