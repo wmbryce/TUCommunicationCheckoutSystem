@@ -21,6 +21,7 @@
 		4CA5D1972203C0310090784C /* UGrokItApiResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4CA5D1962203C0310090784C /* UGrokItApiResources.bundle */; };
 		4CA5D1992203C16B0090784C /* include in Resources */ = {isa = PBXBuildFile; fileRef = 4CA5D1982203C16B0090784C /* include */; };
 		4CB2143D220CD38E00FBD719 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2143C220CD38E00FBD719 /* User.swift */; };
+		C0D60CE0221F1D79001DB660 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0D60CDF221F1D79001DB660 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		4CA5D1962203C0310090784C /* UGrokItApiResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UGrokItApiResources.bundle; sourceTree = "<group>"; };
 		4CA5D1982203C16B0090784C /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
 		4CB2143C220CD38E00FBD719 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C0D60CDF221F1D79001DB660 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				4C1CE02521EEA6FD000C45CD /* Assets.xcassets */,
 				4C1CE02721EEA6FD000C45CD /* LaunchScreen.storyboard */,
 				4C1CE02A21EEA6FD000C45CD /* Info.plist */,
+				C0D60CDF221F1D79001DB660 /* GoogleService-Info.plist */,
 				4C1CE02221EEA6F8000C45CD /* TUCommunicationCheckoutSystem.xcdatamodeld */,
 			);
 			path = TUCommunicationCheckoutSystem;
@@ -265,6 +268,7 @@
 				4C1CE02621EEA6FD000C45CD /* Assets.xcassets in Resources */,
 				4CA5D1992203C16B0090784C /* include in Resources */,
 				4C1CE02121EEA6F8000C45CD /* Main.storyboard in Resources */,
+				C0D60CE0221F1D79001DB660 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
