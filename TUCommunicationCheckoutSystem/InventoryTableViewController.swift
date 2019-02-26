@@ -51,8 +51,8 @@ class InventoryTableViewController: UITableViewController {
         
         let kit = kits[indexPath.row]
         
-        /*cell.kitNameLabel.text = kit.kitName
-        cell.kitAvailabilityLabel.text = availableString(available: kit.available)*/
+        cell.kitNameLabel.text = kit.kitName
+        cell.availabilityLabel.text = availableString(available: kit.available)
         
         
         return cell

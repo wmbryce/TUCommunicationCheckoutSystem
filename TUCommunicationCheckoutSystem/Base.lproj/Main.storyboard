@@ -297,6 +297,10 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="AvaliabilityLabel" destination="vby-bz-I9K" id="krv-Pv-GK7"/>
+                                    <outlet property="kitNameLabel" destination="1Oa-zt-0oF" id="SOV-Nh-k0F"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

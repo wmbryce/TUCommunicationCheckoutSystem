@@ -10,6 +10,8 @@ import UIKit
 
 class InventoryTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var kitNameLabel: UILabel!
+    @IBOutlet weak var availabilityLabel: UILabel!
     
     
     override func awakeFromNib() {
