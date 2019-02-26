@@ -23,6 +23,7 @@
 		4CB2143D220CD38E00FBD719 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2143C220CD38E00FBD719 /* User.swift */; };
 		4CDA88F42224EA26009B0F4F /* InventoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */; };
 		4CDA88F62224EA7D009B0F4F /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */; };
+		4CDA88F82225B63C009B0F4F /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		4CB2143C220CD38E00FBD719 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewController.swift; sourceTree = "<group>"; };
 		4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
+		4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				4C1CE01D21EEA6F8000C45CD /* ViewController.swift */,
 				4C1CE01F21EEA6F8000C45CD /* Main.storyboard */,
 				4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */,
+				4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */,
 				4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */,
 				4CA5D13E2200F5430090784C /* Kit.swift */,
 				4CB2143C220CD38E00FBD719 /* User.swift */,
@@ -303,6 +306,7 @@
 				4CDA88F42224EA26009B0F4F /* InventoryTableViewController.swift in Sources */,
 				4C1CE02421EEA6F8000C45CD /* TUCommunicationCheckoutSystem.xcdatamodeld in Sources */,
 				4CDA88F62224EA7D009B0F4F /* InventoryTableViewCell.swift in Sources */,
+				4CDA88F82225B63C009B0F4F /* AddItemViewController.swift in Sources */,
 				4CB2143D220CD38E00FBD719 /* User.swift in Sources */,
 				4C1CE01C21EEA6F8000C45CD /* AppDelegate.swift in Sources */,
 			);
