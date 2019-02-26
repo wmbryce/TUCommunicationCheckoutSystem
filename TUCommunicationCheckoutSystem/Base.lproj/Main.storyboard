@@ -313,7 +313,6 @@
                         <barButtonItem key="leftBarButtonItem" title="Back" id="cOr-QC-9AR">
                             <connections>
                                 <action selector="BackButton:" destination="DBj-Uh-zwh" id="lsZ-0a-oaT"/>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="BKA-JF-cQC"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Item" id="aHn-TD-eYs">
@@ -346,12 +345,11 @@
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Dmj-Dy-Sfq">
                                             <connections>
                                                 <action selector="CancelButton:" destination="lVP-yd-hJN" id="9VT-nw-ODK"/>
-                                                <segue destination="vTN-aj-efk" kind="show" id="Gg3-rS-2wH"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="7jY-jt-wnV">
                                             <connections>
-                                                <action selector="AddItem:" destination="lVP-yd-hJN" id="hep-xO-429"/>
+                                                <segue destination="EXj-tL-D43" kind="unwind" unwindAction="unwindToInventoryTableViewController:" id="zc4-qO-Z1k"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -459,8 +457,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="R6R-SH-2It"/>
                     </view>
+                    <connections>
+                        <outlet property="AddItem" destination="7jY-jt-wnV" id="EA4-5b-Er7"/>
+                        <outlet property="Item1Input" destination="sI9-2x-uRj" id="biC-ka-aFJ"/>
+                        <outlet property="Item2Input" destination="QQl-ik-Xz7" id="dUa-25-pez"/>
+                        <outlet property="Item3Input" destination="Hnb-ti-Swl" id="XWi-2l-loX"/>
+                        <outlet property="Item4Input" destination="GRX-gW-Tbx" id="E4n-HC-dH1"/>
+                        <outlet property="Item5Input" destination="d2O-Bo-y2G" id="qnD-Ll-iYr"/>
+                        <outlet property="Item6Input" destination="jof-6g-YdU" id="k7K-7N-i5x"/>
+                        <outlet property="NameInput" destination="BKO-E0-bAi" id="x7y-Mf-9GR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mod-zf-AkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="EXj-tL-D43" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3574.6402877697842" y="-675.5395683453238"/>
         </scene>
@@ -690,8 +699,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="DIh-gA-43E"/>
-        <segue reference="Gg3-rS-2wH"/>
         <segue reference="Rv6-dm-D7p"/>
-        <segue reference="BKA-JF-cQC"/>
+        <segue reference="Dbf-aG-0AS"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,7 +21,7 @@ class Kit: NSObject, NSCoding {
         aCoder.encode(available, forKey: PropertyKey.available)
     }
     
-    init?(kitName:String, items:Array<(Int,String)>, checkIn: Int, checkOut: Int, lastUsers: Array<Int>, available: Bool){
+    init?(kitName:String, items:Array<Int>, checkIn: NSDate, checkOut: NSDate, lastUsers: Array<Int>, available: Bool){
         
         self.kitName = kitName
         self.items = items
@@ -38,24 +38,24 @@ class Kit: NSObject, NSCoding {
             return nil
             
         }
-        let items = aDecoder.decodeObject(forKey: PropertyKey.items) as? Array<(Int,String)>
+        let items = aDecoder.decodeObject(forKey: PropertyKey.items) as? Array<Int>
         
-        let checkIn = aDecoder.decodeInteger(forKey: PropertyKey.checkIn)
+        let checkIn = aDecoder.decodeObject(forKey: PropertyKey.checkIn)
         
-        let checkOut = aDecoder.decodeInteger(forKey: PropertyKey.checkOut)
+        let checkOut = aDecoder.decodeObject(forKey: PropertyKey.checkOut)
         
         let lastUsers = aDecoder.decodeObject(forKey: PropertyKey.lastUsers) as? Array<Int>
         
         let available = aDecoder.decodeBool(forKey: PropertyKey.available)
         
-        self.init(kitName: name, items: items!, checkIn: checkIn, checkOut: checkOut, lastUsers: lastUsers!, available: available)
+        self.init(kitName: name, items: items ?? [], checkIn: checkIn as! NSDate, checkOut: checkOut as! NSDate, lastUsers: lastUsers!, available: available)
     }   ;
     // Properties
     
     var kitName: String
-    var items: Array<(Int,String)>
-    var checkIn: Int
-    var checkOut: Int
+    var items: Array<Int>
+    var checkIn: NSDate
+    var checkOut: NSDate
     var lastUsers: Array<Int>
     var available: Bool
     

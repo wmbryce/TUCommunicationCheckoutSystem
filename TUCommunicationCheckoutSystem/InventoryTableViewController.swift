@@ -7,14 +7,34 @@
 //
 
 import UIKit
+import os.log
 
 class InventoryTableViewController: UITableViewController {
-
-    @IBAction func BackButton(_ sender: UIBarButtonItem) {
-    
-    }
     
     var kits = [Kit]()
+    
+    @IBAction func BackButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func unwindToInventoryTableViewController(_ sender: UIStoryboardSegue){
+        if let sourceViewController = sender.source as? AddItemViewController, let
+            newKit = sourceViewController.newKit {
+            
+            if let selectedIndexPath = tableView.indexPathForSelectedRow{
+                kits[selectedIndexPath.row] = newKit
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                
+            }
+            else {
+            
+                let newIndexPath = IndexPath(row: kits.count, section:0)
+                
+                kits.append(newKit)
+                tableView.insertRows(at: [newIndexPath],with: .automatic)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
