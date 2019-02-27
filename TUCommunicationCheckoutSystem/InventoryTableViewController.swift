@@ -21,8 +21,8 @@ class InventoryTableViewController: UITableViewController {
             kits += savedKits
         }
         loadSampleKits()
-        InventoryTableView.delegate = self
-        InventoryTableView.dataSource = self
+        //InventoryTableView.delegate = self
+        //InventoryTableView.dataSource = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
