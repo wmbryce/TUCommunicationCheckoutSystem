@@ -11,7 +11,24 @@ import os.log
 
 class InventoryTableViewController: UITableViewController {
     
+    @IBOutlet var InventoryTableView: UITableView!
+    
     var kits = [Kit]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let savedKits = loadKits(){
+            kits += savedKits
+        }
+        loadSampleKits()
+        InventoryTableView.delegate = self
+        InventoryTableView.dataSource = self
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
     
     @IBAction func BackButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -33,20 +50,8 @@ class InventoryTableViewController: UITableViewController {
                 kits.append(newKit)
                 tableView.insertRows(at: [newIndexPath],with: .automatic)
             }
+            saveKits()
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if let savedKits = loadKits(){
-            kits += savedKits
-        }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     // MARK: - Table view data source
@@ -61,23 +66,44 @@ class InventoryTableViewController: UITableViewController {
         return kits.count
     }
     
+    private func saveKits() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(kits, toFile:Kit.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save meals... ", log: OSLog.default, type: .error)
+        }
+    }
+    
     private func loadKits() -> [Kit]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Kit.ArchiveURL.path) as? [Kit]
     }
     
+     private func loadSampleKits() {
+        let today = Date()
+        guard let kit1 = Kit(kitName: "Kit 101", items:[101000001,101000002,101000003,101000004,101000005,101000006], checkIn: today as NSDate, checkOut: today as NSDate, lastUsers: [], available: true)else {
+     fatalError("kit1 didn't load")
+     }
+        guard let kit2 = Kit(kitName: "Kit 102", items:[102000001,102000002,102000003,102000004,102000005,102000006], checkIn: today as NSDate, checkOut:today as NSDate, lastUsers: [], available: true)else {
+            fatalError("kit2 didn't load")
+        }
+        guard let kit3 = Kit(kitName: "Kit 103", items:[103000001,103000002,103000003,103000004,103000005,103000006], checkIn: today as NSDate, checkOut: today as NSDate, lastUsers: [], available: true)else {
+            fatalError("kit3 didn't load")
+        }
+        kits += [kit1,kit2,kit3]
+     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as? InventoryTableViewCell else { fatalError("The dequeued cell is not an instance of InventoryTableViewCell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell", for: indexPath) as? InventoryTableViewCell else { fatalError("The dequeued cell is not an instance of InventoryTableViewCell")
             
         }
-        
-        let kit = kits[indexPath.row]
-        
-        cell.kitNameLabel.text = kit.kitName
-        cell.availabilityLabel.text = availableString(available: kit.available)
-        
+        os_log(" successfully dequeued cell now trying to set them.", log: OSLog.default, type: .debug)
+        let currentKit = kits[indexPath.row]
+        let ava = availableString(available: currentKit.available)
+        cell.setLabels(name: currentKit.kitName, available: ava)
+        os_log("setting the labels works", log: OSLog.default, type: .debug)
         
         return cell
     }

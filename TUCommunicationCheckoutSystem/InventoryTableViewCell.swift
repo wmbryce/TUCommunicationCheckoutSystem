@@ -13,6 +13,11 @@ class InventoryTableViewCell: UITableViewCell {
     @IBOutlet weak var kitNameLabel: UILabel!
     @IBOutlet weak var availabilityLabel: UILabel!
     
+    func setLabels (name: String, available:String){
+        kitNameLabel.text = name
+        availabilityLabel.text = available
+    }
+        
     
     override func awakeFromNib() {
         super.awakeFromNib()
