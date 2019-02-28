@@ -20,6 +20,7 @@
 		4CA5D1972203C0310090784C /* UGrokItApiResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4CA5D1962203C0310090784C /* UGrokItApiResources.bundle */; };
 		4CA5D1992203C16B0090784C /* include in Resources */ = {isa = PBXBuildFile; fileRef = 4CA5D1982203C16B0090784C /* include */; };
 		4CB2143D220CD38E00FBD719 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2143C220CD38E00FBD719 /* User.swift */; };
+		4CBFDE8A2227882100A94137 /* KitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBFDE892227882000A94137 /* KitDetailsViewController.swift */; };
 		4CDA88F42224EA26009B0F4F /* InventoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */; };
 		4CDA88F62224EA7D009B0F4F /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */; };
 		4CDA88F82225B63C009B0F4F /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */; };
@@ -62,6 +63,7 @@
 		4CA5D1962203C0310090784C /* UGrokItApiResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UGrokItApiResources.bundle; sourceTree = "<group>"; };
 		4CA5D1982203C16B0090784C /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
 		4CB2143C220CD38E00FBD719 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4CBFDE892227882000A94137 /* KitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitDetailsViewController.swift; sourceTree = "<group>"; };
 		4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewController.swift; sourceTree = "<group>"; };
 		4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
 		4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */,
 				4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */,
 				4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */,
+				4CBFDE892227882000A94137 /* KitDetailsViewController.swift */,
 				4CB2143C220CD38E00FBD719 /* User.swift */,
 				4C1CE02521EEA6FD000C45CD /* Assets.xcassets */,
 				4C1CE02721EEA6FD000C45CD /* LaunchScreen.storyboard */,
@@ -304,6 +307,7 @@
 				4CDA88F62224EA7D009B0F4F /* InventoryTableViewCell.swift in Sources */,
 				4CDA88F82225B63C009B0F4F /* AddItemViewController.swift in Sources */,
 				4CB2143D220CD38E00FBD719 /* User.swift in Sources */,
+				4CBFDE8A2227882100A94137 /* KitDetailsViewController.swift in Sources */,
 				4C1CE01C21EEA6F8000C45CD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
