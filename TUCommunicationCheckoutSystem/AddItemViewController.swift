@@ -32,7 +32,7 @@ class AddItemViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         
         // configure the destination view controller only when the save button is pressed.
-        guard let button = sender as? UIButton, button === AddItem
+        guard let button = sender as? UIBarButtonItem, button === AddItem
             else {
                 os_log("the save button was not pressed cancelling", log: OSLog.default, type: .debug)
                 return

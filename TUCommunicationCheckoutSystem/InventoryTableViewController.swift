@@ -19,8 +19,10 @@ class InventoryTableViewController: UITableViewController {
         super.viewDidLoad()
         if let savedKits = loadKits(){
             kits += savedKits
+        } else {
+            loadSampleKits()
         }
-        loadSampleKits()
+        
         //InventoryTableView.delegate = self
         //InventoryTableView.dataSource = self
         // Uncomment the following line to preserve selection between presentations
@@ -37,7 +39,7 @@ class InventoryTableViewController: UITableViewController {
     @IBAction func unwindToInventoryTableViewController(_ sender: UIStoryboardSegue){
         if let sourceViewController = sender.source as? AddItemViewController, let
             newKit = sourceViewController.newKit {
-            
+            os_log("Recieved Proper ViewController.", log: OSLog.default, type: .debug)
             if let selectedIndexPath = tableView.indexPathForSelectedRow{
                 kits[selectedIndexPath.row] = newKit
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
