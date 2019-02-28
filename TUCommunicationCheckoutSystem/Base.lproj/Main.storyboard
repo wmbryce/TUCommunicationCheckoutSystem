@@ -312,7 +312,8 @@
                     <navigationItem key="navigationItem" title="Inventory" id="hax-W6-ubO">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="cOr-QC-9AR">
                             <connections>
-                                <action selector="BackButton:" destination="DBj-Uh-zwh" id="lsZ-0a-oaT"/>
+                                <action selector="BackButton:" destination="DBj-Uh-zwh" id="1NA-Q8-PEI"/>
+                                <segue destination="7pG-rO-8PV" kind="show" id="yN1-eS-o26"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Item" id="aHn-TD-eYs">
@@ -489,7 +490,7 @@
                 <navigationController title="Manage Inventory Navigation" id="7pG-rO-8PV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="d9H-vo-jb0">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="1112" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -709,6 +710,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ddr-8U-gdZ"/>
+        <segue reference="yN1-eS-o26"/>
         <segue reference="e45-Tc-7Oa"/>
         <segue reference="Dbf-aG-0AS"/>
     </inferredMetricsTieBreakers>
