@@ -44,6 +44,27 @@ class KitDetailsViewController: UIViewController {
         Item5ID.text = String(ID_5)
         let ID_6 = kitOfInterest?.items[5] as! Int
         Item6ID.text = String(ID_6)
+        
+        checkOutDate.text = formatedDate(dateInfo: kitOfInterest?.checkOut ?? Date() as NSDate)
+        checkInDate.text = formatedDate(dateInfo: kitOfInterest?.checkIn ?? Date() as NSDate)
+        
+        AvailabilityLabel.text = availableString(available: kitOfInterest?.available ?? true)
+    }
+    
+    func formatedDate(dateInfo:NSDate) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter.string(from: dateInfo as Date)
+    }
+    
+    func availableString(available:Bool) -> String {
+        if available {
+            return "available"
+        }
+        else {
+            return "unavailable"
+        }
     }
     
     override func viewDidLoad() {
