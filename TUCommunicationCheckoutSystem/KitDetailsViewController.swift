@@ -24,6 +24,28 @@ class KitDetailsViewController: UIViewController {
     
     @IBOutlet weak var AvailabilityLabel: UILabel!
     
+    var kitOfInterest: Kit? {
+        didSet{
+            refreshUI()
+        }
+    }
+    
+    func refreshUI(){
+        TitleKitNameLabel.text = kitOfInterest?.kitName
+        let ID_1 = kitOfInterest?.items[0] as! Int
+        Item1ID.text = String(ID_1) 
+        let ID_2 = kitOfInterest?.items[1] as! Int
+        Item2ID.text = String(ID_2)
+        let ID_3 = kitOfInterest?.items[2] as! Int
+        Item3ID.text = String(ID_3)
+        let ID_4 = kitOfInterest?.items[3] as! Int
+        Item4ID.text = String(ID_4)
+        let ID_5 = kitOfInterest?.items[4] as! Int
+        Item5ID.text = String(ID_5)
+        let ID_6 = kitOfInterest?.items[5] as! Int
+        Item6ID.text = String(ID_6)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
