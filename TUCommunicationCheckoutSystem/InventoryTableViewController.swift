@@ -39,23 +39,32 @@ class InventoryTableViewController: UITableViewController {
     @IBAction func unwindToInventoryTableViewController(_ sender: UIStoryboardSegue){
         if let sourceViewController = sender.source as? AddItemViewController, let
             newKit = sourceViewController.newKit {
-            os_log("Recieved Proper ViewController.", log: OSLog.default, type: .debug)
-            if let selectedIndexPath = tableView.indexPathForSelectedRow{
-                kits[selectedIndexPath.row] = newKit
-                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-                
-            }
-            else {
-            
+            if checkForValidKit(testKit: newKit){
+                os_log("Recieved Proper ViewController.", log: OSLog.default, type: .debug)
                 let newIndexPath = IndexPath(row: kits.count, section:0)
-                
                 kits.append(newKit)
                 tableView.insertRows(at: [newIndexPath],with: .automatic)
+                saveKits()
             }
-            saveKits()
+            else {
+                os_log("Kit is invalid", log: OSLog.default, type: .debug)
+            }
         }
     }
     
+    func checkForValidKit(testKit:Kit) -> Bool{
+        
+        for i in kits{
+            if testKit.kitName == i.kitName{
+                return false
+            }
+            //if testKit.items == i.items{
+            //    return false
+            //}
+            
+        }
+        return true
+    }
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
