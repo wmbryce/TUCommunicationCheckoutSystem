@@ -12,6 +12,16 @@ class MasterManageInventoryViewController: UISplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = self as? UISplitViewControllerDelegate
+        self.preferredDisplayMode = .allVisible
+        guard let leftNavController = splitViewController?.viewControllers.first as? UINavigationController,
+            let InventoryTableView = leftNavController.topViewController as? InventoryTableViewController,
+            let detailViewController = splitViewController?.viewControllers.last as? KitDetailsViewController
+            else{
+                fatalError()
+        }
+        let firstKit = InventoryTableView.kits.first
+        detailViewController.kitOfInterest = firstKit ?? Kit(kitName: "Error", items: [0,0,0,0,0,0], checkIn: Date() as NSDate, checkOut: Date()as NSDate, lastUsers: [], available: false)!
 
         // Do any additional setup after loading the view.
     }

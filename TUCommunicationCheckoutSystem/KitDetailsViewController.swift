@@ -24,31 +24,34 @@ class KitDetailsViewController: UIViewController {
     
     @IBOutlet weak var AvailabilityLabel: UILabel!
     
-    var kitOfInterest: Kit? {
+    var kitOfInterest: Kit! {
         didSet{
             refreshUI()
         }
     }
     
     func refreshUI(){
-        TitleKitNameLabel.text = kitOfInterest?.kitName
-        let ID_1 = kitOfInterest?.items[0] as! Int
-        Item1ID.text = String(ID_1) 
-        let ID_2 = kitOfInterest?.items[1] as! Int
+        loadViewIfNeeded()
+        let name = kitOfInterest.kitName
+        TitleKitNameLabel.text = name
+        let ID_1 = kitOfInterest.items[0]
+        Item1ID.text = String(ID_1)
+        let ID_2 = kitOfInterest.items[1]
         Item2ID.text = String(ID_2)
-        let ID_3 = kitOfInterest?.items[2] as! Int
+        let ID_3 = kitOfInterest.items[2]
         Item3ID.text = String(ID_3)
-        let ID_4 = kitOfInterest?.items[3] as! Int
+        let ID_4 = kitOfInterest.items[3]
         Item4ID.text = String(ID_4)
-        let ID_5 = kitOfInterest?.items[4] as! Int
+        let ID_5 = kitOfInterest.items[4]
         Item5ID.text = String(ID_5)
-        let ID_6 = kitOfInterest?.items[5] as! Int
+        let ID_6 = kitOfInterest.items[5]
         Item6ID.text = String(ID_6)
         
-        checkOutDate.text = formatedDate(dateInfo: kitOfInterest?.checkOut ?? Date() as NSDate)
-        checkInDate.text = formatedDate(dateInfo: kitOfInterest?.checkIn ?? Date() as NSDate)
+            
+        checkOutDate.text = formatedDate(dateInfo: kitOfInterest.checkOut )
+        checkInDate.text = formatedDate(dateInfo: kitOfInterest.checkIn )
         
-        AvailabilityLabel.text = availableString(available: kitOfInterest?.available ?? true)
+        AvailabilityLabel.text = availableString(available: kitOfInterest.available )
     }
     
     func formatedDate(dateInfo:NSDate) -> String {
@@ -84,4 +87,9 @@ class KitDetailsViewController: UIViewController {
     }
     */
 
+}
+extension KitDetailsViewController: KitSelectionDelegate{
+    func kitSelected(_ newKit: Kit) {
+        kitOfInterest = newKit
+    }
 }

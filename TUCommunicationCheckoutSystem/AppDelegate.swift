@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        /*guard let splitViewController = MasterManageInventoryViewController.self as? UISplitViewController,
+            let leftNavController = splitViewController.viewControllers.first as? UINavigationController,
+            let masterViewController = leftNavController.topViewController as? InventoryTableViewController,
+            let detailViewController = splitViewController.viewControllers.last as? KitDetailsViewController
+        else { fatalError() }
+        let firstKit = masterViewController.kits.first
+        detailViewController.kitOfInterest = firstKit
+        masterViewController.delegate = detailViewController*/
         return true
     }
 

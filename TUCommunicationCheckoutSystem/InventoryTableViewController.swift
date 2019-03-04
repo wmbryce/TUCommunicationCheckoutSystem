@@ -9,9 +9,15 @@
 import UIKit
 import os.log
 
+protocol KitSelectionDelegate:class {
+    func kitSelected(_ newKit: Kit)
+}
+
 class InventoryTableViewController: UITableViewController {
     
     @IBOutlet var InventoryTableView: UITableView!
+    
+    weak var delegate: KitSelectionDelegate?
     
     var kits = [Kit]()
     
@@ -51,6 +57,7 @@ class InventoryTableViewController: UITableViewController {
             }
         }
     }
+    
     
     func checkForValidKit(testKit:Kit) -> Bool{
         
@@ -127,7 +134,11 @@ class InventoryTableViewController: UITableViewController {
             return "unavailable"
         }
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedKit = kits[indexPath.row]
+        delegate?.kitSelected(selectedKit)
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
