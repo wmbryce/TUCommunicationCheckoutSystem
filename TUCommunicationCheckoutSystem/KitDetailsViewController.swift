@@ -39,22 +39,22 @@ class KitDetailsViewController: UIViewController {
         
         let ID_1 = kitOfInterest?.items[0]
         Item1ID.text = String(ID_1!)
-        /*let ID_2 = kitOfInterest.items[1]
-        Item2ID.text = String(ID_2)
-        let ID_3 = kitOfInterest.items[2]
-        Item3ID.text = String(ID_3)
-        let ID_4 = kitOfInterest.items[3]
-        Item4ID.text = String(ID_4)
-        let ID_5 = kitOfInterest.items[4]
-        Item5ID.text = String(ID_5)
-        let ID_6 = kitOfInterest.items[5]
-        Item6ID.text = String(ID_6)
+        let ID_2 = kitOfInterest?.items[1]
+        Item1ID.text = String(ID_2!)
+        let ID_3 = kitOfInterest?.items[2]
+        Item1ID.text = String(ID_3!)
+        let ID_4 = kitOfInterest?.items[3]
+        Item1ID.text = String(ID_4!)
+        let ID_5 = kitOfInterest?.items[4]
+        Item5ID.text = String(ID_5!)
+        let ID_6 = kitOfInterest?.items[5]
+        Item6ID.text = String(ID_6!)
         
             
-        checkOutDate.text = formatedDate(dateInfo: kitOfInterest.checkOut )
-        checkInDate.text = formatedDate(dateInfo: kitOfInterest.checkIn )
+        checkOutDate.text = formatedDate(dateInfo: kitOfInterest?.checkOut ?? Date() as NSDate)
+        checkInDate.text = formatedDate(dateInfo: kitOfInterest?.checkIn ?? Date() as NSDate)
         
-        AvailabilityLabel.text = availableString(available: kitOfInterest.available )*/
+        AvailabilityLabel.text = availableString(available: kitOfInterest?.available ?? false)
     }
     
     func formatedDate(dateInfo:NSDate) -> String {
