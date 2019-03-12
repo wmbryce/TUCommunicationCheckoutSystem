@@ -22,9 +22,11 @@ class KitDetailsViewController: UIViewController {
     @IBOutlet weak var checkOutDate: UILabel!
     @IBOutlet weak var checkInDate: UILabel!
     
+    
+    
     @IBOutlet weak var AvailabilityLabel: UILabel!
     
-    var kitOfInterest: Kit! {
+    var kitOfInterest: Kit? {
         didSet{
             refreshUI()
         }
@@ -32,11 +34,12 @@ class KitDetailsViewController: UIViewController {
     
     func refreshUI(){
         loadViewIfNeeded()
-        let name = kitOfInterest.kitName
+        let name = kitOfInterest?.kitName
         TitleKitNameLabel.text = name
-        let ID_1 = kitOfInterest.items[0]
-        Item1ID.text = String(ID_1)
-        let ID_2 = kitOfInterest.items[1]
+        
+        let ID_1 = kitOfInterest?.items[0]
+        Item1ID.text = String(ID_1!)
+        /*let ID_2 = kitOfInterest.items[1]
         Item2ID.text = String(ID_2)
         let ID_3 = kitOfInterest.items[2]
         Item3ID.text = String(ID_3)
@@ -51,7 +54,7 @@ class KitDetailsViewController: UIViewController {
         checkOutDate.text = formatedDate(dateInfo: kitOfInterest.checkOut )
         checkInDate.text = formatedDate(dateInfo: kitOfInterest.checkIn )
         
-        AvailabilityLabel.text = availableString(available: kitOfInterest.available )
+        AvailabilityLabel.text = availableString(available: kitOfInterest.available )*/
     }
     
     func formatedDate(dateInfo:NSDate) -> String {
@@ -88,6 +91,7 @@ class KitDetailsViewController: UIViewController {
     */
 
 }
+
 extension KitDetailsViewController: KitSelectionDelegate{
     func kitSelected(_ newKit: Kit) {
         kitOfInterest = newKit

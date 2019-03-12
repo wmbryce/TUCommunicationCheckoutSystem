@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C16E0CD22288DDA0058B14F /* MasterManageInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16E0CC22288DDA0058B14F /* MasterManageInventoryViewController.swift */; };
+		4C16E14F223854DD0058B14F /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16E14E223854DD0058B14F /* MainMenuViewController.swift */; };
 		4C1CE01C21EEA6F8000C45CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE01B21EEA6F8000C45CD /* AppDelegate.swift */; };
 		4C1CE02121EEA6F8000C45CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE01F21EEA6F8000C45CD /* Main.storyboard */; };
 		4C1CE02421EEA6F8000C45CD /* TUCommunicationCheckoutSystem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE02221EEA6F8000C45CD /* TUCommunicationCheckoutSystem.xcdatamodeld */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		4C16E0CC22288DDA0058B14F /* MasterManageInventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterManageInventoryViewController.swift; sourceTree = "<group>"; };
+		4C16E14E223854DD0058B14F /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		4C1CE01821EEA6F8000C45CD /* TUCommunicationCheckoutSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TUCommunicationCheckoutSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1CE01B21EEA6F8000C45CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C1CE02021EEA6F8000C45CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				4C1CE01B21EEA6F8000C45CD /* AppDelegate.swift */,
 				4C1CE01F21EEA6F8000C45CD /* Main.storyboard */,
+				4C16E14E223854DD0058B14F /* MainMenuViewController.swift */,
 				4CA5D13E2200F5430090784C /* Kit.swift */,
 				4C16E0CC22288DDA0058B14F /* MasterManageInventoryViewController.swift */,
 				4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */,
@@ -310,6 +313,7 @@
 				4C1CE02421EEA6F8000C45CD /* TUCommunicationCheckoutSystem.xcdatamodeld in Sources */,
 				4CDA88F62224EA7D009B0F4F /* InventoryTableViewCell.swift in Sources */,
 				4CDA88F82225B63C009B0F4F /* AddItemViewController.swift in Sources */,
+				4C16E14F223854DD0058B14F /* MainMenuViewController.swift in Sources */,
 				4CB2143D220CD38E00FBD719 /* User.swift in Sources */,
 				4CBFDE8A2227882100A94137 /* KitDetailsViewController.swift in Sources */,
 				4C1CE01C21EEA6F8000C45CD /* AppDelegate.swift in Sources */,

@@ -13,14 +13,13 @@
         <!--Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Main" id="BYZ-38-t0r" customClass="ViewController" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainMenu" title="Main" id="BYZ-38-t0r" customClass="MainMenuViewController" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaZ-vZ-90P">
-                                <rect key="frame" x="335" y="165" width="442" height="121"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaZ-vZ-90P">
+                                <rect key="frame" x="278" y="174.5" width="556" height="125"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -31,9 +30,8 @@
                                     <segue destination="5iH-jP-jjY" kind="show" id="Ddr-8U-gdZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mby-RZ-6hZ">
-                                <rect key="frame" x="335" y="535" width="442" height="121"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mby-RZ-6hZ">
+                                <rect key="frame" x="278" y="534.5" width="556" height="125"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,9 +42,8 @@
                                     <segue destination="7Sf-4S-usW" kind="presentation" id="e45-Tc-7Oa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TO1-9x-cuk">
-                                <rect key="frame" x="335" y="345" width="442" height="121"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TO1-9x-cuk">
+                                <rect key="frame" x="278" y="354.5" width="556" height="125"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -59,6 +56,20 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mby-RZ-6hZ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="1e1-HD-rP0"/>
+                            <constraint firstItem="TO1-9x-cuk" firstAttribute="centerX" secondItem="aaZ-vZ-90P" secondAttribute="centerX" id="2Vl-S6-rxM"/>
+                            <constraint firstItem="TO1-9x-cuk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="Dqm-RI-YJD"/>
+                            <constraint firstItem="mby-RZ-6hZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="OIv-2q-1w0"/>
+                            <constraint firstItem="aaZ-vZ-90P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PzB-bg-HtC"/>
+                            <constraint firstItem="aaZ-vZ-90P" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="fzf-zn-wmx"/>
+                            <constraint firstItem="TO1-9x-cuk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gVZ-ht-gOR"/>
+                            <constraint firstItem="TO1-9x-cuk" firstAttribute="top" secondItem="aaZ-vZ-90P" secondAttribute="bottom" constant="55" id="mZZ-6H-ZAX"/>
+                            <constraint firstItem="aaZ-vZ-90P" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="ohY-9C-Lge"/>
+                            <constraint firstItem="TO1-9x-cuk" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="rvX-7W-bxa"/>
+                            <constraint firstItem="mby-RZ-6hZ" firstAttribute="top" secondItem="TO1-9x-cuk" secondAttribute="bottom" constant="55" id="uC2-Pv-bIi"/>
+                            <constraint firstItem="mby-RZ-6hZ" firstAttribute="centerX" secondItem="TO1-9x-cuk" secondAttribute="centerX" id="xFO-Z8-XNB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -275,11 +286,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Users" id="sEH-vp-td2">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="xcg-im-viq">
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="Igv-2R-P9e"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="xcg-im-viq"/>
                         <barButtonItem key="rightBarButtonItem" title="Add User" id="hLE-m3-aHb">
                             <connections>
                                 <segue destination="VVj-cn-EQw" kind="popoverPresentation" popoverAnchorBarButtonItem="hLE-m3-aHb" id="mEU-zZ-175">
@@ -417,7 +424,7 @@
         <scene sceneID="oNt-Dk-RD5">
             <objects>
                 <tableViewController title="Manage Inventory Table" clearsSelectionOnViewWillAppear="NO" id="DBj-Uh-zwh" customClass="InventoryTableViewController" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GHm-Wv-xBN">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="InventoryViewController" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GHm-Wv-xBN">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -659,7 +666,7 @@
         <!--Manage Inventory Split View Controller-->
         <scene sceneID="AGo-Da-7kv">
             <objects>
-                <splitViewController title="Manage Inventory Split View Controller" id="vTN-aj-efk" sceneMemberID="viewController">
+                <splitViewController title="Manage Inventory Split View Controller" id="vTN-aj-efk" customClass="MasterManageInventoryViewController" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="7pG-rO-8PV" kind="relationship" relationship="masterViewController" id="Dfd-XA-gXz"/>
                         <segue destination="Lmy-gN-VKL" kind="relationship" relationship="detailViewController" id="pVR-UQ-MBJ"/>
@@ -717,11 +724,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="oNY-Oe-uob">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="0m2-jR-agL">
-                                            <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="Dbf-aG-0AS"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="0m2-jR-agL"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -859,6 +862,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="Ddr-8U-gdZ"/>
         <segue reference="e45-Tc-7Oa"/>
-        <segue reference="Dbf-aG-0AS"/>
     </inferredMetricsTieBreakers>
 </document>

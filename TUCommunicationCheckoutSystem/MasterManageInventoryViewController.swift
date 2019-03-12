@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class MasterManageInventoryViewController: UISplitViewController {
 
@@ -14,16 +15,20 @@ class MasterManageInventoryViewController: UISplitViewController {
         super.viewDidLoad()
         self.delegate = self as? UISplitViewControllerDelegate
         self.preferredDisplayMode = .allVisible
-        guard let leftNavController = splitViewController?.viewControllers.first as? UINavigationController,
+        guard let leftNavController = self.viewControllers.first as? UINavigationController,
+        
             let InventoryTableView = leftNavController.topViewController as? InventoryTableViewController,
-            let detailViewController = splitViewController?.viewControllers.last as? KitDetailsViewController
+            
+            let detailViewController = self.viewControllers.last as? KitDetailsViewController
             else{
                 fatalError()
         }
         let firstKit = InventoryTableView.kits.first
         detailViewController.kitOfInterest = firstKit ?? Kit(kitName: "Error", items: [0,0,0,0,0,0], checkIn: Date() as NSDate, checkOut: Date()as NSDate, lastUsers: [], available: false)!
-
-        // Do any additional setup after loading the view.
+        os_log("Does this code even run?", log: OSLog.default, type: .debug)
+        InventoryTableView.selectionDelegate = detailViewController
+        // Do any additional setup after loading the view.*/
+        
     }
     
 

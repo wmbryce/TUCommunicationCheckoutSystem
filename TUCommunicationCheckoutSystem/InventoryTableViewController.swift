@@ -17,7 +17,7 @@ class InventoryTableViewController: UITableViewController {
     
     @IBOutlet var InventoryTableView: UITableView!
     
-    weak var delegate: KitSelectionDelegate?
+    weak var selectionDelegate: KitSelectionDelegate?
     
     var kits = [Kit]()
     
@@ -137,7 +137,9 @@ class InventoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedKit = kits[indexPath.row]
-        delegate?.kitSelected(selectedKit)
+        os_log("New Kit selected", log: OSLog.default, type: .debug);
+        
+        selectionDelegate?.kitSelected(selectedKit)
     }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -61,8 +61,8 @@ class AddItemViewController: UIViewController {
     
     private func updateSaveButtonState() {
         //let text = NameInput.text ?? ""
-        //AddItem.isEnabled = !text.isEmpty
-        AddItem.isEnabled = true
+        AddItem.isEnabled = !(NameInput.text?.isEmpty ?? true)
+        //AddItem.isEnabled = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
