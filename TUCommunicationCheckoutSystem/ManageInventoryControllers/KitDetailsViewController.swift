@@ -34,7 +34,7 @@ class KitDetailsViewController: UIViewController {
     
     func refreshUI(){
         loadViewIfNeeded()
-        let name = kitOfInterest?.kitName
+        let name = kitOfInterest?.kitNumber
         TitleKitNameLabel.text = name
         
         let ID_1 = kitOfInterest?.items[0]
@@ -51,8 +51,8 @@ class KitDetailsViewController: UIViewController {
         Item6ID.text = String(ID_6!)
         
             
-        checkOutDate.text = formatedDate(dateInfo: kitOfInterest?.checkOut ?? Date() as NSDate)
-        checkInDate.text = formatedDate(dateInfo: kitOfInterest?.checkIn ?? Date() as NSDate)
+        checkOutDate.text = kitOfInterest?.checkOut ?? "" 
+        checkInDate.text =  kitOfInterest?.checkIn ?? ""
         
         AvailabilityLabel.text = availableString(available: kitOfInterest?.available ?? false)
     }

@@ -13,7 +13,7 @@ class AddItemViewController: UIViewController {
 
     var newKit:Kit?
     
-    @IBOutlet weak var NameInput: UITextField!
+    @IBOutlet weak var NumberInput: UITextField!
     @IBOutlet weak var Item1Input: UITextField!
     @IBOutlet weak var Item2Input: UITextField!
     @IBOutlet weak var Item3Input: UITextField!
@@ -21,6 +21,21 @@ class AddItemViewController: UIViewController {
     @IBOutlet weak var Item5Input: UITextField!
     @IBOutlet weak var Item6Input: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NumberInput.delegate = self as? UITextFieldDelegate
+        //NameInput.delegate = self
+        /*Item1Input.delegate = (self as! UITextFieldDelegate)
+         Item2Input.delegate = (self as! UITextFieldDelegate)
+         Item3Input.delegate = (self as! UITextFieldDelegate)
+         Item4Input.delegate = (self as! UITextFieldDelegate)
+         Item5Input.delegate = (self as! UITextFieldDelegate)
+         Item6Input.delegate = (self as! UITextFieldDelegate)*/
+        updateSaveButtonState()
+        
+        // Do any additional setup after loading the view.
+    }
     
     @IBAction func CancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -37,7 +52,7 @@ class AddItemViewController: UIViewController {
                 os_log("the save button was not pressed cancelling", log: OSLog.default, type: .debug)
                 return
         }
-        let kitName = NameInput.text ?? ""
+        let kitNumber = NumberInput.text ?? ""
         let Item1 = Int(Item1Input.text ?? "")
         let Item2 = Int(Item2Input.text ?? "")
         let Item3 = Int(Item3Input.text ?? "")
@@ -45,9 +60,9 @@ class AddItemViewController: UIViewController {
         let Item5 = Int(Item5Input.text ?? "")
         let Item6 = Int(Item6Input.text ?? "")
         let Items = [Item1,Item2,Item3,Item4,Item5,Item6]
-        let Checkin_out_Date = Date()
+        let Checkin_out_Date = formattedDate()
         
-        newKit = Kit(kitName: kitName, items: Items as! Array<Int>, checkIn: Checkin_out_Date as NSDate, checkOut: Checkin_out_Date as NSDate, lastUsers: [], available: true)
+        newKit = Kit(kitNumber: kitNumber, items: Items as! Array<Int>, checkIn: Checkin_out_Date, checkOut: Checkin_out_Date, lastUsers: [], available: true)
         
     }
     func formattedDate() -> String{
@@ -61,7 +76,7 @@ class AddItemViewController: UIViewController {
     
     private func updateSaveButtonState() {
         //let text = NameInput.text ?? ""
-        AddItem.isEnabled = !(NameInput.text?.isEmpty ?? true)
+        AddItem.isEnabled = !(NumberInput.text?.isEmpty ?? true)
         //AddItem.isEnabled = true
     }
     
@@ -72,25 +87,21 @@ class AddItemViewController: UIViewController {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        if textField == NumberInput && !(NumberInput.text?.isEmpty ?? true) {
+            let baseNum = NumberInput.text
+            Item1Input.text = baseNum! + "0001"
+            Item2Input.text = baseNum! + "0002"
+            Item3Input.text = baseNum! + "0003"
+            Item4Input.text = baseNum! + "0004"
+            Item5Input.text = baseNum! + "0005"
+            Item6Input.text = baseNum! + "0006"
+            
+        }
         updateSaveButtonState()
         navigationItem.title = textField.text
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        NameInput.delegate = self as? UITextFieldDelegate
-        //NameInput.delegate = self
-        /*Item1Input.delegate = (self as! UITextFieldDelegate)
-        Item2Input.delegate = (self as! UITextFieldDelegate)
-        Item3Input.delegate = (self as! UITextFieldDelegate)
-        Item4Input.delegate = (self as! UITextFieldDelegate)
-        Item5Input.delegate = (self as! UITextFieldDelegate)
-        Item6Input.delegate = (self as! UITextFieldDelegate)*/
-        updateSaveButtonState()
- 
-        // Do any additional setup after loading the view.
-    }
+
     
 
     /*

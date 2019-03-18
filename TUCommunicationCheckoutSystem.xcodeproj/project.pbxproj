@@ -147,16 +147,11 @@
 		4C1CE01A21EEA6F8000C45CD /* TUCommunicationCheckoutSystem */ = {
 			isa = PBXGroup;
 			children = (
+				4C3D9909223C0A92008CAFA3 /* DataStructures */,
 				4C1CE01B21EEA6F8000C45CD /* AppDelegate.swift */,
 				4C1CE01F21EEA6F8000C45CD /* Main.storyboard */,
 				4C16E14E223854DD0058B14F /* MainMenuViewController.swift */,
-				4CA5D13E2200F5430090784C /* Kit.swift */,
-				4C16E0CC22288DDA0058B14F /* MasterManageInventoryViewController.swift */,
-				4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */,
-				4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */,
-				4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */,
-				4CBFDE892227882000A94137 /* KitDetailsViewController.swift */,
-				4CB2143C220CD38E00FBD719 /* User.swift */,
+				4C3D9907223C0A51008CAFA3 /* ManageInventoryControllers */,
 				4C1CE02521EEA6FD000C45CD /* Assets.xcassets */,
 				4C1CE02721EEA6FD000C45CD /* LaunchScreen.storyboard */,
 				4C1CE02A21EEA6FD000C45CD /* Info.plist */,
@@ -182,6 +177,27 @@
 				4C1CE04021EEA6FD000C45CD /* Info.plist */,
 			);
 			path = TUCommunicationCheckoutSystemUITests;
+			sourceTree = "<group>";
+		};
+		4C3D9907223C0A51008CAFA3 /* ManageInventoryControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C16E0CC22288DDA0058B14F /* MasterManageInventoryViewController.swift */,
+				4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */,
+				4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */,
+				4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */,
+				4CBFDE892227882000A94137 /* KitDetailsViewController.swift */,
+			);
+			path = ManageInventoryControllers;
+			sourceTree = "<group>";
+		};
+		4C3D9909223C0A92008CAFA3 /* DataStructures */ = {
+			isa = PBXGroup;
+			children = (
+				4CA5D13E2200F5430090784C /* Kit.swift */,
+				4CB2143C220CD38E00FBD719 /* User.swift */,
+			);
+			path = DataStructures;
 			sourceTree = "<group>";
 		};
 		4CA5D1402203A25A0090784C /* Frameworks */ = {

@@ -524,9 +524,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Item" id="aHn-TD-eYs">
                             <connections>
-                                <segue destination="lVP-yd-hJN" kind="popoverPresentation" popoverAnchorBarButtonItem="aHn-TD-eYs" id="Owa-y7-Q07">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <action selector="AddKit:" destination="DBj-Uh-zwh" id="PQT-qF-C2S"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -544,11 +542,11 @@
             <objects>
                 <viewController title="Add Item View Controller" id="lVP-yd-hJN" customClass="AddItemViewController" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="96U-ty-hoz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pM3-aS-KHU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Add Kit" id="7Bo-6M-2h3">
