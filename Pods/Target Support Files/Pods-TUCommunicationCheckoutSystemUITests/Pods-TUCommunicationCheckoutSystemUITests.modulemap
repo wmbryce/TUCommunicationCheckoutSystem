@@ -1,0 +1,6 @@
+framework module Pods_TUCommunicationCheckoutSystemUITests {
+  umbrella header "Pods-TUCommunicationCheckoutSystemUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
