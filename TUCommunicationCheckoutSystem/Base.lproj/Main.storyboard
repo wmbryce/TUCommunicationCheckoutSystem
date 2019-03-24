@@ -801,7 +801,7 @@
         <!--Scan-->
         <scene sceneID="GhN-NY-4pj">
             <objects>
-                <viewController title="Scan" id="5iH-jP-jjY" customClass="ViewController" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Scan" id="5iH-jP-jjY" customClass="CheckinoutViewController" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tl5-0f-8eT">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -985,7 +985,6 @@
         <image name="trinity-university_416x416" width="416" height="416"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n5e-lK-Igg"/>
         <segue reference="Ddr-8U-gdZ"/>
         <segue reference="Rv6-dm-D7p"/>
     </inferredMetricsTieBreakers>
