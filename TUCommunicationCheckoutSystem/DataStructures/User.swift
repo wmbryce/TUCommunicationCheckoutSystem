@@ -37,26 +37,21 @@ struct User {
         
     }
     
-    /*init?(snapshot: DataSnapshot) {
+    init?(snapshot: DataSnapshot) {
         guard
-            let ID_number: 
-            let
-            let
-            let
-            let
-            let
-            let
-            else {
-                print("returning nil")
-                return nil
+        let value = snapshot.value as? [String: AnyObject],
+        let ID_num = value["ID_number"] as? Int,
+        let name_entry = value["name"] as? String,
+        let entry_email = value["email"] as? String,
+        let classId_entry = value["classID"] as? String,
+        else {
+            print("returning nil")
+            return nil
         }
-    //Initialization function
-    init?(Id_num:Int, name:String, entry_email:String, classId:String,  ){
-        
         self.ID_number = Id_num
-        self.name = name
+        self.name = name_entry
         self.email = entry_email
-        self.classId = classId
+        self.classId = classId_entry
         
-    }*/
+    }
 }
