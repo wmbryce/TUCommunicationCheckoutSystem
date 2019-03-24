@@ -22,9 +22,10 @@ struct User {
     var classId:String
     var isAdmin:Bool
     var authorized:Bool
+    var password:String
 
     //Definition of variable keys
-    init(Id_num:Int, name:String, entry_email:String, classId:String, isAdmin:Bool, authorized:Bool){
+    init(Id_num:Int, name:String, entry_email:String, classId:String, isAdmin:Bool, authorized:Bool, password:String){
         
         self.ref = nil
         self.key = ""
@@ -34,6 +35,7 @@ struct User {
         self.classId = classId
         self.isAdmin = isAdmin
         self.authorized = authorized
+        self.password = password
         
     }
     
@@ -44,6 +46,7 @@ struct User {
         let name = value["name"] as? String,
         let entry_email = value["email"] as? String,
         let classId = value["classID"] as? String,
+            let password = value["password"] as? String,
         let isAdmin = value["isAdmin"] as? Bool,
         let authorized = value["authorized"] as? Bool
         else {
@@ -58,6 +61,7 @@ struct User {
         self.key = snapshot.key
         self.isAdmin = isAdmin
         self.authorized = authorized
+        self.password = password
         
     }
     
@@ -68,7 +72,8 @@ struct User {
             "email": email,
             "classID":classId,
             "isAdmin":isAdmin,
-            "authorized":authorized
+            "authorized":authorized,
+            "password":password
         ]
     }
 }
