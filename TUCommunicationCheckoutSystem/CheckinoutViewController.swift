@@ -5,7 +5,7 @@
 //  Created by Suarez IPhone on 3/24/19.
 //  Copyright © 2019 CheckoutGurus. All rights reserved.
 //
-/*
+
 import UIKit
 
 class CheckinoutViewController: UIViewController {
@@ -50,4 +50,3 @@ class CheckinoutViewController: UIViewController {
     */
 
 }
-*/
