@@ -41,17 +41,34 @@ struct User {
         guard
         let value = snapshot.value as? [String: AnyObject],
         let ID_num = value["ID_number"] as? Int,
-        let name_entry = value["name"] as? String,
+        let name = value["name"] as? String,
         let entry_email = value["email"] as? String,
-        let classId_entry = value["classID"] as? String,
+        let classId = value["classID"] as? String,
+        let isAdmin = value["isAdmin"] as? Bool,
+        let authorized = value["authorized"] as? Bool
         else {
             print("returning nil")
             return nil
         }
-        self.ID_number = Id_num
-        self.name = name_entry
+        self.ID_number = ID_num
+        self.name = name
         self.email = entry_email
-        self.classId = classId_entry
+        self.classId = classId
+        self.ref = snapshot.ref
+        self.key = snapshot.key
+        self.isAdmin = isAdmin
+        self.authorized = authorized
         
+    }
+    
+    func toAnyObject() -> Any {
+        return [
+            "ID_number": ID_number,
+            "name": name,
+            "email": email,
+            "classID":classId,
+            "isAdmin":isAdmin,
+            "authorized":authorized
+        ]
     }
 }
