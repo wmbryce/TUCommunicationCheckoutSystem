@@ -21,6 +21,10 @@
 		4C3D9904223BF355008CAFA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C3D9903223BF355008CAFA3 /* GoogleService-Info.plist */; };
 		4C3D9905223BF355008CAFA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C3D9903223BF355008CAFA3 /* GoogleService-Info.plist */; };
 		4C3D9906223BF355008CAFA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C3D9903223BF355008CAFA3 /* GoogleService-Info.plist */; };
+		4C452D1D224834BE008D8601 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C452D1C224834BE008D8601 /* UserTableViewController.swift */; };
+		4C452D1F224834DE008D8601 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C452D1E224834DE008D8601 /* UserTableViewCell.swift */; };
+		4C452D2122483518008D8601 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C452D2022483518008D8601 /* UserDetailViewController.swift */; };
+		4C452D2322483580008D8601 /* MasterManageUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C452D2222483580008D8601 /* MasterManageUserViewController.swift */; };
 		4C464276224410D00045498F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C464275224410D00045498F /* LoginViewController.swift */; };
 		4CA5D13F2200F5430090784C /* Kit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA5D13E2200F5430090784C /* Kit.swift */; };
 		4CA5D1422203A25A0090784C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CA5D1412203A25A0090784C /* libz.tbd */; };
@@ -73,6 +77,10 @@
 		4C1CE03E21EEA6FD000C45CD /* TUCommunicationCheckoutSystemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUCommunicationCheckoutSystemUITests.swift; sourceTree = "<group>"; };
 		4C1CE04021EEA6FD000C45CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C3D9903223BF355008CAFA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4C452D1C224834BE008D8601 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		4C452D1E224834DE008D8601 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		4C452D2022483518008D8601 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		4C452D2222483580008D8601 /* MasterManageUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterManageUserViewController.swift; sourceTree = "<group>"; };
 		4C464275224410D00045498F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4CA5D13E2200F5430090784C /* Kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kit.swift; sourceTree = "<group>"; };
 		4CA5D1412203A25A0090784C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -149,6 +157,7 @@
 		4C1CE01A21EEA6F8000C45CD /* TUCommunicationCheckoutSystem */ = {
 			isa = PBXGroup;
 			children = (
+				4C452D1B22483474008D8601 /* ManageUserControllers */,
 				4C1CE01B21EEA6F8000C45CD /* AppDelegate.swift */,
 				4C1CE01F21EEA6F8000C45CD /* Main.storyboard */,
 				4C464275224410D00045498F /* LoginViewController.swift */,
@@ -201,6 +210,17 @@
 				4CB2143C220CD38E00FBD719 /* User.swift */,
 			);
 			path = DataStructures;
+			sourceTree = "<group>";
+		};
+		4C452D1B22483474008D8601 /* ManageUserControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C452D1C224834BE008D8601 /* UserTableViewController.swift */,
+				4C452D1E224834DE008D8601 /* UserTableViewCell.swift */,
+				4C452D2022483518008D8601 /* UserDetailViewController.swift */,
+				4C452D2222483580008D8601 /* MasterManageUserViewController.swift */,
+			);
+			path = ManageUserControllers;
 			sourceTree = "<group>";
 		};
 		4CA5D1402203A25A0090784C /* Frameworks */ = {
@@ -467,16 +487,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C452D2122483518008D8601 /* UserDetailViewController.swift in Sources */,
 				4CA5D13F2200F5430090784C /* Kit.swift in Sources */,
 				4CDA88F42224EA26009B0F4F /* InventoryTableViewController.swift in Sources */,
 				4C16E0CD22288DDA0058B14F /* MasterManageInventoryViewController.swift in Sources */,
 				4C1CE02421EEA6F8000C45CD /* TUCommunicationCheckoutSystem.xcdatamodeld in Sources */,
+				4C452D1F224834DE008D8601 /* UserTableViewCell.swift in Sources */,
 				4CDA88F62224EA7D009B0F4F /* InventoryTableViewCell.swift in Sources */,
 				4CDA88F82225B63C009B0F4F /* AddItemViewController.swift in Sources */,
 				4C16E14F223854DD0058B14F /* MainMenuViewController.swift in Sources */,
 				4CB2143D220CD38E00FBD719 /* User.swift in Sources */,
 				4CBFDE8A2227882100A94137 /* KitDetailsViewController.swift in Sources */,
 				4C1CE01C21EEA6F8000C45CD /* AppDelegate.swift in Sources */,
+				4C452D2322483580008D8601 /* MasterManageUserViewController.swift in Sources */,
+				4C452D1D224834BE008D8601 /* UserTableViewController.swift in Sources */,
 				4C464276224410D00045498F /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
