@@ -5,7 +5,7 @@
 //  Created by Suarez IPhone on 3/24/19.
 //  Copyright © 2019 CheckoutGurus. All rights reserved.
 //
-
+/*
 import UIKit
 
 class CheckinoutViewController: UIViewController {
@@ -33,7 +33,7 @@ class CheckinoutViewController: UIViewController {
     
     func getkitnum(help:UgiTag) -> String{
        // var helped = String(help)
-        var helped = String(help)
+        var helped = String(help.epc)
         helped = helped.replacingOccurrences(of: "0", with: "", options: NSString.CompareOptions.literal, range: nil)
         return helped
     }
@@ -50,3 +50,4 @@ class CheckinoutViewController: UIViewController {
     */
 
 }
+*/
