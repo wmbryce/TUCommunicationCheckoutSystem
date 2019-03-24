@@ -22,8 +22,6 @@ class KitDetailsViewController: UIViewController {
     @IBOutlet weak var checkOutDate: UILabel!
     @IBOutlet weak var checkInDate: UILabel!
     
-    
-    
     @IBOutlet weak var AvailabilityLabel: UILabel!
     
     var kitOfInterest: Kit? {
@@ -35,16 +33,15 @@ class KitDetailsViewController: UIViewController {
     func refreshUI(){
         loadViewIfNeeded()
         let name = kitOfInterest?.kitNumber
-        TitleKitNameLabel.text = name
-        
+        TitleKitNameLabel.text = "Kit " + name!
         let ID_1 = kitOfInterest?.items[0]
         Item1ID.text = String(ID_1!)
         let ID_2 = kitOfInterest?.items[1]
-        Item1ID.text = String(ID_2!)
+        Item2ID.text = String(ID_2!)
         let ID_3 = kitOfInterest?.items[2]
-        Item1ID.text = String(ID_3!)
+        Item3ID.text = String(ID_3!)
         let ID_4 = kitOfInterest?.items[3]
-        Item1ID.text = String(ID_4!)
+        Item4ID.text = String(ID_4!)
         let ID_5 = kitOfInterest?.items[4]
         Item5ID.text = String(ID_5!)
         let ID_6 = kitOfInterest?.items[5]

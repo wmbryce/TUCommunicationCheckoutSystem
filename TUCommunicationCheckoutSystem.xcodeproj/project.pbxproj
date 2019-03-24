@@ -21,6 +21,7 @@
 		4C3D9904223BF355008CAFA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C3D9903223BF355008CAFA3 /* GoogleService-Info.plist */; };
 		4C3D9905223BF355008CAFA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C3D9903223BF355008CAFA3 /* GoogleService-Info.plist */; };
 		4C3D9906223BF355008CAFA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C3D9903223BF355008CAFA3 /* GoogleService-Info.plist */; };
+		4C464276224410D00045498F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C464275224410D00045498F /* LoginViewController.swift */; };
 		4CA5D13F2200F5430090784C /* Kit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA5D13E2200F5430090784C /* Kit.swift */; };
 		4CA5D1422203A25A0090784C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CA5D1412203A25A0090784C /* libz.tbd */; };
 		4CA5D1952203C0220090784C /* libUGrokItApi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CA5D1942203C0220090784C /* libUGrokItApi.a */; };
@@ -72,6 +73,7 @@
 		4C1CE03E21EEA6FD000C45CD /* TUCommunicationCheckoutSystemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUCommunicationCheckoutSystemUITests.swift; sourceTree = "<group>"; };
 		4C1CE04021EEA6FD000C45CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C3D9903223BF355008CAFA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4C464275224410D00045498F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4CA5D13E2200F5430090784C /* Kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kit.swift; sourceTree = "<group>"; };
 		4CA5D1412203A25A0090784C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4CA5D1942203C0220090784C /* libUGrokItApi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUGrokItApi.a; sourceTree = "<group>"; };
@@ -147,10 +149,11 @@
 		4C1CE01A21EEA6F8000C45CD /* TUCommunicationCheckoutSystem */ = {
 			isa = PBXGroup;
 			children = (
-				4C3D9909223C0A92008CAFA3 /* DataStructures */,
 				4C1CE01B21EEA6F8000C45CD /* AppDelegate.swift */,
 				4C1CE01F21EEA6F8000C45CD /* Main.storyboard */,
+				4C464275224410D00045498F /* LoginViewController.swift */,
 				4C16E14E223854DD0058B14F /* MainMenuViewController.swift */,
+				4C3D9909223C0A92008CAFA3 /* DataStructures */,
 				4C3D9907223C0A51008CAFA3 /* ManageInventoryControllers */,
 				4C1CE02521EEA6FD000C45CD /* Assets.xcassets */,
 				4C1CE02721EEA6FD000C45CD /* LaunchScreen.storyboard */,
@@ -474,6 +477,7 @@
 				4CB2143D220CD38E00FBD719 /* User.swift in Sources */,
 				4CBFDE8A2227882100A94137 /* KitDetailsViewController.swift in Sources */,
 				4C1CE01C21EEA6F8000C45CD /* AppDelegate.swift in Sources */,
+				4C464276224410D00045498F /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

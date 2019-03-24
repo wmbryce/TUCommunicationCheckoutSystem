@@ -18,10 +18,10 @@ struct Kit {
     var items: Array<Int>
     var checkIn: String
     var checkOut: String
-    var lastUsers: Array<Int>
+    var lastUsers: Array<String>
     var available: Bool
     
-    init(kitNumber:String, items:Array<Int>, checkIn: String, checkOut: String, lastUsers: Array<Int>, available: Bool){
+    init(kitNumber:String, items:Array<Int>, checkIn: String, checkOut: String, lastUsers: Array<String>, available: Bool){
         self.ref = nil
         self.key = ""
         self.kitNumber = kitNumber
@@ -30,7 +30,6 @@ struct Kit {
         self.checkOut = checkOut
         self.lastUsers = lastUsers
         self.available = available
-        
     }
     
     init?(snapshot: DataSnapshot) {
@@ -40,7 +39,7 @@ struct Kit {
             let items = value["items"] as? Array<Int>,
             let checkIn = value["checkIn"] as? String,
             let checkOut = value["checkOut"] as? String,
-            //let lastUsers = value["LastUsers"] as? Array<Int>,
+            let lastUsers = value["LastUsers"] as? Array<String>,
             let available = value["avaliable"] as? Bool
             else {
                 print("returning nil")
@@ -53,7 +52,7 @@ struct Kit {
         self.items = items
         self.checkIn = checkIn
         self.checkOut = checkOut
-        //self.lastUsers = lastUsers
+        self.lastUsers = lastUsers
         self.lastUsers = []
         self.available = available
     }

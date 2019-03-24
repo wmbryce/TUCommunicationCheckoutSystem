@@ -23,8 +23,8 @@ class MasterManageInventoryViewController: UISplitViewController {
             else{
                 fatalError()
         }
-        let firstKit = InventoryTableView.kits.first
-        detailViewController.kitOfInterest = firstKit ?? Kit(kitNumber: "Error", items: [0,0,0,0,0,0], checkIn: "", checkOut: "", lastUsers: [], available: false)
+        //let firstKit = InventoryTableView.kits.first
+        //detailViewController.kitOfInterest = firstKit ?? Kit(kitNumber: "Error", items: [0,0,0,0,0,0], checkIn: "", checkOut: "", lastUsers: [], available: false)
         os_log("Does this code even run?", log: OSLog.default, type: .debug)
         InventoryTableView.selectionDelegate = detailViewController
         // Do any additional setup after loading the view.*/

@@ -7,33 +7,56 @@
 //
 
 import Foundation
-
+import Firebase
 import UIKit
 import Foundation
 import os.log
 
-class User: NSObject{
-
+struct User {
+    
+    let ref:DatabaseReference?
+    let key:String
     var ID_number:Int
     var name:String
     var email:String
     var classId:String
+    var isAdmin:Bool
+    var authorized:Bool
 
     //Definition of variable keys
-    struct PropertyKey {
-        static let ID_number = "ID"
-        static let name = "name"
-        static let email = "email"
-        static let classId = "classId"
-
+    init(Id_num:Int, name:String, entry_email:String, classId:String, isAdmin:Bool, authorized:Bool){
+        
+        self.ref = nil
+        self.key = ""
+        self.ID_number = Id_num
+        self.name = name
+        self.email = entry_email
+        self.classId = classId
+        self.isAdmin = isAdmin
+        self.authorized = authorized
+        
     }
+    
+    /*init?(snapshot: DataSnapshot) {
+        guard
+            let ID_number: 
+            let
+            let
+            let
+            let
+            let
+            let
+            else {
+                print("returning nil")
+                return nil
+        }
     //Initialization function
-    init?(Id_num:Int, name:String, entry_email:String, classId:String ){
+    init?(Id_num:Int, name:String, entry_email:String, classId:String,  ){
         
         self.ID_number = Id_num
         self.name = name
         self.email = entry_email
         self.classId = classId
         
-    }
+    }*/
 }

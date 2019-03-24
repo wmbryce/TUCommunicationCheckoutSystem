@@ -43,16 +43,25 @@ class InventoryTableViewController: UITableViewController {
             self.kits = newKits
             os_log("Observer works", log: OSLog.default, type: .debug);
             print(self.kits.count)
+            self.selectionDelegate?.kitSelected(self.kits[0])
             self.tableView.reloadData()
         })
 
         InventoryTableView.delegate = self
         InventoryTableView.dataSource = self
+        //selectionDelegate?.kitSelected(self.kits[0])
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         //self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let deleteKit = kits[indexPath.row]
+            deleteKit.ref?.removeValue()
+        }
     }
     
     @IBAction func BackButton(_ sender: UIBarButtonItem) {
@@ -79,7 +88,7 @@ class InventoryTableViewController: UITableViewController {
                 let Items = [Item1,Item2,Item3,Item4,Item5,Item6]
                 let Checkin_out_Date = self.formatedDate(dateInfo:Date() as NSDate)
                 
-                let newKit = Kit(kitNumber: newkitNumber, items: Items as! Array<Int>, checkIn: Checkin_out_Date as String, checkOut: Checkin_out_Date as String, lastUsers: [], available: true)
+                let newKit = Kit(kitNumber: newkitNumber, items: Items as! Array<Int>, checkIn: Checkin_out_Date as String, checkOut: Checkin_out_Date as String, lastUsers: ["None"], available: true)
                 //Add new kit to database
                 let kitRef = self.ref.child(newkitNumber.lowercased())
                 kitRef.setValue(newKit.toAnyObject())
@@ -150,21 +159,27 @@ class InventoryTableViewController: UITableViewController {
     
     // Make sure new Kits are valid
     func checkForValidKitNumber(testKit:String) -> Bool{
-        
+        if Int(testKit) == nil || (999 < Int(testKit) ?? 0 ) || ( 100 > (Int(testKit) ?? 0)){
+            ThrowError(reason: "Kit number must be and integer between 100 and 999")
+            return false
+        }
         for i in kits{
             if testKit == i.kitNumber{
-                let alert = UIAlertController(title: "Invaild Kit",
-                                              message: "That Kit Number has already been used.",
-                                              preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "Cancel",
-                                                 style: .cancel)
-                alert.addAction(cancelAction)
-                present(alert, animated: true, completion: nil)
+                ThrowError(reason: "That number is already in use")
                 return false
             }
         
         }
         return true
+    }
+    func ThrowError(reason:String) {
+        let alert = UIAlertController(title: "Invaild Kit",
+                                      message: reason,
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     /*
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
