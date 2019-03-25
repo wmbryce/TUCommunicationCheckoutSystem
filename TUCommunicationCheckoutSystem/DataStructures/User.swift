@@ -22,9 +22,10 @@ struct User {
     var classId:String
     var isAdmin:Bool
     var authorized:Bool
+    var password:String
 
     //Definition of variable keys
-    init(Id_num:Int, name:String, entry_email:String, classId:String, isAdmin:Bool, authorized:Bool){
+    init(Id_num:Int, name:String, entry_email:String, classId:String, isAdmin:Bool, authorized:Bool, password:String){
         
         self.ref = nil
         self.key = ""
@@ -34,29 +35,45 @@ struct User {
         self.classId = classId
         self.isAdmin = isAdmin
         self.authorized = authorized
+        self.password = password
         
     }
     
-    /*init?(snapshot: DataSnapshot) {
+    init?(snapshot: DataSnapshot) {
         guard
-            let ID_number: 
-            let
-            let
-            let
-            let
-            let
-            let
-            else {
-                print("returning nil")
-                return nil
+        let value = snapshot.value as? [String: AnyObject],
+        let ID_num = value["ID_number"] as? Int,
+        let name = value["name"] as? String,
+        let entry_email = value["email"] as? String,
+        let classId = value["classID"] as? String,
+            let password = value["password"] as? String,
+        let isAdmin = value["isAdmin"] as? Bool,
+        let authorized = value["authorized"] as? Bool
+        else {
+            print("returning nil")
+            return nil
         }
-    //Initialization function
-    init?(Id_num:Int, name:String, entry_email:String, classId:String,  ){
-        
-        self.ID_number = Id_num
+        self.ID_number = ID_num
         self.name = name
         self.email = entry_email
         self.classId = classId
+        self.ref = snapshot.ref
+        self.key = snapshot.key
+        self.isAdmin = isAdmin
+        self.authorized = authorized
+        self.password = password
         
-    }*/
+    }
+    
+    func toAnyObject() -> Any {
+        return [
+            "ID_number": ID_number,
+            "name": name,
+            "email": email,
+            "classID":classId,
+            "isAdmin":isAdmin,
+            "authorized":authorized,
+            "password":password
+        ]
+    }
 }

@@ -15,7 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    override init() {
+        Ugi.createSingleton()
+      //  Ugi.singleton().openConnection()
+    }
+    
+ /*   func applicationWillTerminate(application: UIApplication) {
+        Ugi.singleton().closeConnection()
+    }*/
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         /*guard let mainMenuViewController = window?.rootViewController as? MainMenuViewController,
             let leftNavController = splitViewController.viewControllers.first as? UINavigationController,
