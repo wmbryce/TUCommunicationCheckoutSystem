@@ -10,13 +10,52 @@ import UIKit
 
 class UserDetailViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
+    @IBOutlet weak var UserNameLabel: UILabel!
+    
+    @IBOutlet weak var TrinityIDLabel: UILabel!
+    @IBOutlet weak var EmailLabel: UILabel!
+    @IBOutlet weak var CourseLabel: UILabel!
+    @IBOutlet weak var AuthorizedLabel: UILabel!
+    @IBOutlet weak var AdminLabel: UILabel!
+    
+    @IBOutlet weak var IDvalue: UILabel!
+    @IBOutlet weak var EmailValue: UILabel!
+    @IBOutlet weak var CourseValue: UILabel!
+    @IBOutlet weak var AuthorizedSwitch: UISwitch!
+    @IBOutlet weak var AdminSwitch: UISwitch!
+   
+    var userOfInterest: User? {
+        didSet{
+            refershUI()
+        }
+    }
 
+    func refershUI(){
+        loadViewIfNeeded()
+        let name = userOfInterest?.name
+        UserNameLabel.text = name!
+        let ID = userOfInterest?.ID_number
+        IDvalue.text = String(ID!)
+        let email = userOfInterest?.email
+        EmailValue.text = email!
+        let course = userOfInterest?.classId
+        CourseValue.text = course!
+        let isAdmin = userOfInterest?.isAdmin
+        AdminSwitch.setOn(isAdmin!,animated: false)
+        let isAuthorized = userOfInterest?.authorized
+        AuthorizedSwitch.setOn(isAuthorized!,animated:false)
+    }
+
+    @IBAction func AuthorizedChange(_ sender: UISwitch) {
+    let FBAuthorized = AuthorizedSwitch.isOn
+        
+    }
+   
+    @IBAction func AdminChange(_ sender: UISwitch) {
+    let FBAdmin = AdminSwitch.isOn
+    }
+    //Functions to pass to Firbase.  Will update when it detectes a change in switch state.  Needs to comfirm that current user is an admin.  Stil needs command to pass value to firebase
     /*
     // MARK: - Navigation
 
