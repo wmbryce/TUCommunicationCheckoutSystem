@@ -17,7 +17,7 @@ class CheckinoutViewController: UIViewController {
         super.viewDidLoad()
         Ugi.singleton().openConnection()
         
-       let inventory = Ugi.singleton().startInventory(self as! UgiInventoryDelegate, with:UgiRfidConfiguration.config(withInventoryType: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE))
+   //    let inventory = Ugi.singleton().startInventory(self as! UgiInventoryDelegate, with:UgiRfidConfiguration.config(withInventoryType: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE))
 
         Ugi.singleton().activeInventory?.stop {
             // Code to run when inventory is stopped
@@ -33,8 +33,10 @@ class CheckinoutViewController: UIViewController {
     
     func getkitnum(help:UgiTag) -> String{
        // var helped = String(help)
-        var helped = String(help.epc)
+        var helped = help.hfName
+        print(helped)
         helped = helped.replacingOccurrences(of: "0", with: "", options: NSString.CompareOptions.literal, range: nil)
+        print(helped)
         return helped
     }
     
