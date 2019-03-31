@@ -16,9 +16,7 @@ class MasterManageUserViewController: UISplitViewController {
         self.delegate = self as? UISplitViewControllerDelegate
         self.preferredDisplayMode = .allVisible
         guard let UserleftNavController = self.viewControllers.first as? UINavigationController,
-            
             let UserTableView = UserleftNavController.topViewController as? UserTableViewController,
-            
             let UserdetailViewController = self.viewControllers.last as? UserDetailViewController
             else{
                 fatalError()

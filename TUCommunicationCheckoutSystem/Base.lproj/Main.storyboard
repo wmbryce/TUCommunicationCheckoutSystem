@@ -112,7 +112,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7Sf-4S-usW" kind="presentation" id="e45-Tc-7Oa"/>
+                                    <segue destination="7Sf-4S-usW" kind="presentation" id="RXM-xh-F2G"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TO1-9x-cuk">
@@ -637,18 +637,13 @@
         <!--Manage Users Split View Controller-->
         <scene sceneID="zIV-4W-3Ts">
             <objects>
-                <splitViewController title="Manage Users Split View Controller" id="7Sf-4S-usW" customClass="MasterManageInventoryViewController" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController title="Manage Users Split View Controller" id="7Sf-4S-usW" customClass="MasterManageUserViewController" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="O6E-pr-VFX" kind="relationship" relationship="masterViewController" id="iu9-h6-Y2e"/>
                         <segue destination="aL1-it-YY6" kind="relationship" relationship="detailViewController" id="0KU-J1-jAC"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVg-Rq-r7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchBar contentMode="redraw" placeholder="search" id="wvt-tj-yMF">
-                    <rect key="frame" x="0.0" y="0.0" width="1112" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
             </objects>
             <point key="canvasLocation" x="1312" y="1118"/>
         </scene>
