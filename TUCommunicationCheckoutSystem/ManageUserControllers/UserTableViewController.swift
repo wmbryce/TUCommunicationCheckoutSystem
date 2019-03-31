@@ -93,7 +93,7 @@ class UserTableViewController: UITableViewController {
                 let newEmail = textField.text
                 let newClassID = textField.text
                 
-                let newUser = User(Id_num: newIDNumber, name: newName, entry_email: newEmail, classId: newClassID, isAdmin: false, authorized: false)
+                let newUser = User(Id_num: newIDNumber, name: newName!, entry_email: newEmail!, classId: newClassID!, isAdmin: false, authorized: false, password: "")
                 //Add new user to database
                 let userRef = self.ref.child(newIDNumber.lowercased())
                 userRef.setValue(newUser.toAnyObject())
@@ -113,10 +113,10 @@ class UserTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    //override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+    //    return 1
+    //}
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -125,12 +125,12 @@ class UserTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell", for: indexPath) as? InventoryTableViewCell else { fatalError("The dequeued cell is not an instance of InventoryTableViewCell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell", for: indexPath) as? UserTableViewCell else { fatalError("The dequeued cell is not an instance of InventoryTableViewCell")
             
         }
         os_log(" successfully dequeued cell now trying to set them.", log: OSLog.default, type: .debug)
         let currentUser = users[indexPath.row]
-        cell.setLabels(ID: currentUser.ID_number, Name: currentUser.name,)
+        cell.setLabels(ID: currentUser.ID_number, Name: currentUser.name)
         //os_log("setting the labels works", log: OSLog.default, type: .debug)
         
         return cell

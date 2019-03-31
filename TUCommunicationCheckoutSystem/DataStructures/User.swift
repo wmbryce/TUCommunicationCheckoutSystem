@@ -16,7 +16,7 @@ struct User {
     
     let ref:DatabaseReference?
     let key:String
-    var ID_number:Int
+    var ID_number:String
     var name:String
     var email:String
     var classId:String
@@ -25,7 +25,7 @@ struct User {
     var password:String
 
     //Definition of variable keys
-    init(Id_num:Int, name:String, entry_email:String, classId:String, isAdmin:Bool, authorized:Bool, password:String){
+    init(Id_num:String, name:String, entry_email:String, classId:String, isAdmin:Bool, authorized:Bool, password:String){
         
         self.ref = nil
         self.key = ""
@@ -42,7 +42,7 @@ struct User {
     init?(snapshot: DataSnapshot) {
         guard
         let value = snapshot.value as? [String: AnyObject],
-        let ID_num = value["ID_number"] as? Int,
+        let ID_num = value["ID_number"] as? String,
         let name = value["name"] as? String,
         let entry_email = value["email"] as? String,
         let classId = value["classID"] as? String,

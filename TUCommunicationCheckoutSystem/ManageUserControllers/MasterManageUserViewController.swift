@@ -11,20 +11,21 @@ import UIKit
 class MasterManageUserViewController: UISplitViewController {
     
     override func viewDidLoad() {
+        print("Does this even run?")
         super.viewDidLoad()
         self.delegate = self as? UISplitViewControllerDelegate
         self.preferredDisplayMode = .allVisible
-        guard let leftNavController = self.viewControllers.first as? UINavigationController,
+        guard let UserleftNavController = self.viewControllers.first as? UINavigationController,
             
-            let UserTableView = leftNavController.topViewController as? UserTableViewController,
+            let UserTableView = UserleftNavController.topViewController as? UserTableViewController,
             
-            let detailViewController = self.viewControllers.last as? UserDetailViewController
+            let UserdetailViewController = self.viewControllers.last as? UserDetailViewController
             else{
                 fatalError()
         }
-        //let firstKit = InventoryTableView.kits.first
-        //detailViewController.kitOfInterest = firstKit ?? Kit(kitNumber: "Error", items: [0,0,0,0,0,0], checkIn: "", checkOut: "", lastUsers: [], available: false)
-        UserTableView.selectionDelegate = detailViewController
+        print("In MasterManageUser")
+        //UserTableView.selectionDelegate = UserdetailViewController
+        
         // Do any additional setup after loading the view.*/
         
     }

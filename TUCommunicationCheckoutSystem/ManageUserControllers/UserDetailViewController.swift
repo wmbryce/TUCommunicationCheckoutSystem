@@ -48,12 +48,12 @@ class UserDetailViewController: UIViewController {
     }
 
     @IBAction func AuthorizedChange(_ sender: UISwitch) {
-    let FBAuthorized = AuthorizedSwitch.isOn
+        let FBAuthorized = AuthorizedSwitch.isOn
         
     }
    
     @IBAction func AdminChange(_ sender: UISwitch) {
-    let FBAdmin = AdminSwitch.isOn
+        let FBAdmin = AdminSwitch.isOn
     }
     //Functions to pass to Firbase.  Will update when it detectes a change in switch state.  Needs to comfirm that current user is an admin.  Stil needs command to pass value to firebase
     /*
