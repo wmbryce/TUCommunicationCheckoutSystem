@@ -35,7 +35,13 @@ class CheckinoutViewController: UIViewController {
        // var helped = String(help)
         var helped = help.hfName
         print(helped)
-        helped = helped.replacingOccurrences(of: "0", with: "", options: NSString.CompareOptions.literal, range: nil)
+        var i = helped.count
+        i=i-1
+        while(i>6){
+            helped.removeFirst()
+            i=i-1
+        }
+       // helped = helped.replacingOccurrences(of: "0", with: "", options: NSString.CompareOptions.literal, range: nil)
         print(helped)
         return helped
     }
