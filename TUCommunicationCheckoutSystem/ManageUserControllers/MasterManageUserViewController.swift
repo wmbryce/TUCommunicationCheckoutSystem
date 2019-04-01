@@ -22,7 +22,7 @@ class MasterManageUserViewController: UISplitViewController {
                 fatalError()
         }
         print("In MasterManageUser")
-        //UserTableView.selectionDelegate = UserdetailViewController
+        UserTableView.selectionDelegate = UserdetailViewController
         
         // Do any additional setup after loading the view.*/
         
