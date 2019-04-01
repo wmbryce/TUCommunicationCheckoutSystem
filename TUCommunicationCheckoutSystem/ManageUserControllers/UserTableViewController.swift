@@ -58,12 +58,12 @@ class UserTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+  //  override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+    //    return 0
+   // }
 
-   // override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   //override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
    //     return 0
    // }
@@ -87,7 +87,7 @@ class UserTableViewController: UITableViewController {
             // 1
             guard let textField = alert.textFields?.first,
                 let newIDNumber = textField.text else { return }
-            if self.checkForValidUserNumber(testUser:newIDNumber){
+            if self.checkForValidUser(testUserID:newIDNumber){
                 //Create new user
                 let newName = textField.text
                 let newEmail = textField.text
@@ -113,10 +113,10 @@ class UserTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    //override func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-    //    return 1
-    //}
+        return 1
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -162,14 +162,14 @@ class UserTableViewController: UITableViewController {
     }
     
     // Make sure new users are valid
-    func checkForValidUserNumber(testUser:String) -> Bool{
-        if Int(testUser) == nil || (999 < Int(testUser) ?? 0 ) || ( 100 > (Int(testUser) ?? 0)){
-            ThrowError(reason: "User number must be and integer between 100 and 999")
+    func checkForValidUser(testUserID:String) -> Bool{
+        if Int(testUserID) == nil || (100000000 < Int(testUserID) ?? 0 ) || ( 999999 > (Int(testUserID) ?? 0)){
+            ThrowError(reason: "User number must be a 7 digit integer")
             return false
         }
         for i in users{
-            if testUser == i.ID_number{
-                ThrowError(reason: "That number is already in use")
+            if testUserID == i.ID_number{
+                ThrowError(reason: "That user ID number is already in use")
                 return false
             }
             
