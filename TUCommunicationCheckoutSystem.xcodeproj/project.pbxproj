@@ -38,6 +38,7 @@
 		4CDA88F82225B63C009B0F4F /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */; };
 		D5724D7FC900D9E94BE81ABC /* Pods_TUCommunicationCheckoutSystemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C1DF249FC9C4DC0D1CF66C /* Pods_TUCommunicationCheckoutSystemTests.framework */; };
 		E05CAF1C22483FCF00D78186 /* CheckinoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05CAF1B22483FCF00D78186 /* CheckinoutViewController.swift */; };
+		F447CC132251797700F2F7DD /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F447CC122251797700F2F7DD /* AddUserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		CCB8248C1ED0F368646E5E25 /* Pods_TUCommunicationCheckoutSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TUCommunicationCheckoutSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05CAF1B22483FCF00D78186 /* CheckinoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinoutViewController.swift; sourceTree = "<group>"; };
 		E4C1DF249FC9C4DC0D1CF66C /* Pods_TUCommunicationCheckoutSystemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TUCommunicationCheckoutSystemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F447CC122251797700F2F7DD /* AddUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 		4C452D1B22483474008D8601 /* ManageUserControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F447CC122251797700F2F7DD /* AddUserViewController.swift */,
 				4C452D1C224834BE008D8601 /* UserTableViewController.swift */,
 				4C452D1E224834DE008D8601 /* UserTableViewCell.swift */,
 				4C452D2022483518008D8601 /* UserDetailViewController.swift */,
@@ -490,6 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F447CC132251797700F2F7DD /* AddUserViewController.swift in Sources */,
 				4C452D2122483518008D8601 /* UserDetailViewController.swift in Sources */,
 				4CA5D13F2200F5430090784C /* Kit.swift in Sources */,
 				4CDA88F42224EA26009B0F4F /* InventoryTableViewController.swift in Sources */,
