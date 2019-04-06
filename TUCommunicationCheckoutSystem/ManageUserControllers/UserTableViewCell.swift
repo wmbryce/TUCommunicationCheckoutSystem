@@ -10,11 +10,12 @@ import UIKit
 
 class UserTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var UserID: UILabel!
+
+    @IBOutlet weak var UserIDnum: UILabel!
     @IBOutlet weak var UserName: UILabel!
     
     func setLabels (ID: String, Name: String){
-        UserID.text = ID
+        UserIDnum.text = ID
         UserName.text = Name
     }
     

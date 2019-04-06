@@ -470,46 +470,41 @@
         <scene sceneID="yOg-5O-702">
             <objects>
                 <tableViewController title="Manage Users Table" clearsSelectionOnViewWillAppear="NO" id="f3x-i2-vRL" customClass="UserTableViewController" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xDG-dM-JMX">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xDG-dM-JMX">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="80" id="xv8-F4-f6l" customClass="UserTableViewCell" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="1112" height="80"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="70" id="xv8-F4-f6l" customClass="UserTableViewCell" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="1112" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xv8-F4-f6l" id="hJh-4I-ZZf">
-                                    <rect key="frame" x="0.0" y="0.0" width="1112" height="79.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1112" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NT2-OD-5cz">
-                                            <rect key="frame" x="20" y="11" width="127" height="32"/>
+                                            <rect key="frame" x="20" y="11" width="127" height="31.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0798513" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQe-Mx-kLp">
-                                            <rect key="frame" x="20" y="46" width="71" height="22"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="22" id="AJK-xH-JIu"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0777512" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahF-8O-zfy" userLabel="idNumber">
+                                            <rect key="frame" x="20" y="39" width="58" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="NT2-OD-5cz" firstAttribute="leading" secondItem="hJh-4I-ZZf" secondAttribute="leadingMargin" id="3p0-1s-Pqp"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="MQe-Mx-kLp" secondAttribute="bottom" constant="1" id="KwT-5u-TkT"/>
+                                        <constraint firstItem="ahF-8O-zfy" firstAttribute="leading" secondItem="NT2-OD-5cz" secondAttribute="leading" id="NbZ-Kp-Dhv"/>
                                         <constraint firstItem="NT2-OD-5cz" firstAttribute="top" secondItem="hJh-4I-ZZf" secondAttribute="topMargin" id="S7g-cd-dH7"/>
-                                        <constraint firstItem="MQe-Mx-kLp" firstAttribute="top" secondItem="NT2-OD-5cz" secondAttribute="bottom" constant="3" id="j68-Ei-P5Y"/>
-                                        <constraint firstItem="NT2-OD-5cz" firstAttribute="leading" secondItem="MQe-Mx-kLp" secondAttribute="leading" id="tTX-nX-UlE"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ahF-8O-zfy" secondAttribute="bottom" constant="2" id="lJi-nj-yoK"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="UserID" destination="MQe-Mx-kLp" id="gLX-aT-zYw"/>
+                                    <outlet property="UserIDnum" destination="ahF-8O-zfy" id="qAl-OD-0ZP"/>
                                     <outlet property="UserName" destination="NT2-OD-5cz" id="eyz-0F-xLe"/>
-                                    <outlet property="accessoryView" destination="MQe-Mx-kLp" id="mlJ-Ar-6Xg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
