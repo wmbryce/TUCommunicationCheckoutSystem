@@ -176,12 +176,12 @@ class UserTableViewController: UITableViewController {
             ThrowError(reason: "User number must be a 7 digit integer")
             return false
         }*/
-        /*if (testEmail.hasSuffix("@trinity.edu")) || (testEmail.hasSuffix("@Trinity.edu")){
+        if (testEmail.hasSuffix("@trinity.edu")) || (testEmail.hasSuffix("@Trinity.edu")){
             //is valid email
         }else{
             ThrowError(reason: "Invalid Email. User must have a Trinity.edu email")
             return false
-        }*/
+        }
         /*for i in users{
             if testUserID == i.ID_number{
                 ThrowError(reason: "That user ID number is already in use")
