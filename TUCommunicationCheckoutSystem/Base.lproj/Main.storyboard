@@ -943,52 +943,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please Scan an Item..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MzF-SF-w2K">
-                                <rect key="frame" x="324" y="281" width="464" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Scan an Item..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MzF-SF-w2K">
+                                <rect key="frame" x="324" y="270" width="464" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKh-Gh-oem">
-                                <rect key="frame" x="335" y="411" width="442" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Manual Check-In">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Sai-eo-ohc" kind="popoverPresentation" popoverAnchorView="SKh-Gh-oem" id="qzC-OY-a5V">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7by-lv-OMZ">
-                                <rect key="frame" x="335" y="557" width="442" height="101"/>
+                                <rect key="frame" x="335" y="457" width="442" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Manual Check-Out">
+                                <state key="normal" title="Manually enter kit number">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="RPT-3C-ncy" kind="popoverPresentation" popoverAnchorView="7by-lv-OMZ" id="jMp-dq-dtz">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOx-Er-rmB">
-                                <rect key="frame" x="0.0" y="20" width="1112" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem id="oNY-Oe-uob">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="0m2-jR-agL"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tw-0N-rZQ">
+                                <rect key="frame" x="335" y="597" width="442" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MzF-SF-w2K" firstAttribute="centerX" secondItem="tl5-0f-8eT" secondAttribute="centerX" id="ReE-UI-y5x"/>
+                            <constraint firstItem="MzF-SF-w2K" firstAttribute="top" secondItem="5E2-do-0bZ" secondAttribute="top" constant="250" id="j6x-ii-zZn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5E2-do-0bZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="Abu-FI-7VB"/>
@@ -1002,19 +986,15 @@
             <objects>
                 <viewController id="Sai-eo-ohc" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pss-wv-0I9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXP-dT-kjm">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1112" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Check In" id="cHg-26-0vc">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="1la-Eb-bCh">
-                                            <connections>
-                                                <segue destination="5iH-jP-jjY" kind="show" id="DIh-gA-43E"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="1la-Eb-bCh"/>
                                         <barButtonItem key="rightBarButtonItem" title="Submit" id="Whc-ad-EZy"/>
                                     </navigationItem>
                                 </items>
@@ -1062,19 +1042,15 @@
             <objects>
                 <viewController id="RPT-3C-ncy" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jTT-7M-7AD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qua-Mp-5Sq">
-                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="20" width="1112" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Check Out" id="krJ-bf-cMm">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="E2u-GC-MOu">
-                                            <connections>
-                                                <segue destination="5iH-jP-jjY" kind="show" id="f9U-GO-P28"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="E2u-GC-MOu"/>
                                         <barButtonItem key="rightBarButtonItem" title="Submit" id="Gh8-V3-gEJ"/>
                                     </navigationItem>
                                 </items>
@@ -1121,7 +1097,4 @@
     <resources>
         <image name="trinity-university_416x416" width="416" height="416"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ddr-8U-gdZ"/>
-    </inferredMetricsTieBreakers>
 </document>

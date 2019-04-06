@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class UserDetailViewController: UIViewController {
 
+    let ref = Database.database().reference(withPath: "users")
+    
     
     @IBOutlet weak var UserNameLabel: UILabel!
     
@@ -48,12 +51,27 @@ class UserDetailViewController: UIViewController {
     }
 
     @IBAction func AuthorizedChange(_ sender: UISwitch) {
-        userOfInterest?.authorized = AuthorizedSwitch.isOn
-        
+        let switchState = AuthorizedSwitch.isOn
+        ref.child((userOfInterest?.ID_number)!).updateChildValues(["authorized": switchState]) {
+            (error:Error?, ref:DatabaseReference) in
+            if let error = error {
+                print("Authorized data could not be saved: \(error).")
+            } else {
+                print("Data saved successfully!")
+            }
+        }
     }
    
     @IBAction func AdminChange(_ sender: UISwitch) {
-        userOfInterest?.isAdmin = AdminSwitch.isOn
+        let switchState = AdminSwitch.isOn
+        ref.child((userOfInterest?.ID_number)!).updateChildValues(["isAdmin": switchState]) {
+            (error:Error?, ref:DatabaseReference) in
+            if let error = error {
+                print("Authorized data could not be saved: \(error).")
+            } else {
+                print("Data saved successfully!")
+            }
+        }
     }
     //Functions to pass to Firbase.  Will update when it detectes a change in switch state.  Needs to comfirm that current user is an admin.  Stil needs command to pass value to firebase
     /*

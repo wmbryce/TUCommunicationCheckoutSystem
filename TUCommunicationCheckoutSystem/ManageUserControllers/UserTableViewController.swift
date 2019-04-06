@@ -43,8 +43,10 @@ class UserTableViewController: UITableViewController {
             self.users = newUsers
             os_log("Observer works", log: OSLog.default, type: .debug);
             print(self.users.count)
-            self.selectionDelegate?.UserSelected(self.users[0])
-            self.tableView.reloadData()
+            if (self.users.count > 0){
+                self.selectionDelegate?.UserSelected(self.users[0])
+                self.tableView.reloadData()
+            }
         })
         
         UserTableView.delegate = self

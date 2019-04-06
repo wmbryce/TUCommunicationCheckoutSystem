@@ -161,14 +161,15 @@
 		4C1CE01A21EEA6F8000C45CD /* TUCommunicationCheckoutSystem */ = {
 			isa = PBXGroup;
 			children = (
-				4C452D1B22483474008D8601 /* ManageUserControllers */,
 				4C1CE01B21EEA6F8000C45CD /* AppDelegate.swift */,
 				4C1CE01F21EEA6F8000C45CD /* Main.storyboard */,
 				E05CAF1B22483FCF00D78186 /* CheckinoutViewController.swift */,
 				4C464275224410D00045498F /* LoginViewController.swift */,
 				4C16E14E223854DD0058B14F /* MainMenuViewController.swift */,
-				4C3D9909223C0A92008CAFA3 /* DataStructures */,
+				4CD5702A225936EB0025037F /* CheckInOutControllers */,
+				4C452D1B22483474008D8601 /* ManageUserControllers */,
 				4C3D9907223C0A51008CAFA3 /* ManageInventoryControllers */,
+				4C3D9909223C0A92008CAFA3 /* DataStructures */,
 				4C1CE02521EEA6FD000C45CD /* Assets.xcassets */,
 				4C1CE02721EEA6FD000C45CD /* LaunchScreen.storyboard */,
 				4C1CE02A21EEA6FD000C45CD /* Info.plist */,
@@ -238,6 +239,13 @@
 				0E86D8CC67B6DCBD9C52CAFA /* Pods_TUCommunicationCheckoutSystemUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4CD5702A225936EB0025037F /* CheckInOutControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CheckInOutControllers;
 			sourceTree = "<group>";
 		};
 		EE7A677BCAD593380C03DDF9 /* Pods */ = {
