@@ -56,10 +56,10 @@ class UserTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    @IBAction func unwindToInventoryTableViewController(_ sender: UIStoryboardSegue){
+    @IBAction func unwindToUserTableViewController(_ sender: UIStoryboardSegue){
         if let sourceViewController = sender.source as? AddUserViewController, let
             newUser = sourceViewController.newUser {
-            if checkForValidUser(testUserID:newUser.ID_number){
+            if checkForValidUser(testUserID:newUser.ID_number, testEmail: newUser.email){
                 os_log("Recieved Proper User ViewController.", log: OSLog.default, type: .debug)
                 let userRef = self.ref.child(newUser.ID_number.lowercased())
                 userRef.setValue(newUser.toAnyObject())
@@ -171,18 +171,28 @@ class UserTableViewController: UITableViewController {
     }
     
     // Make sure new users are valid
-    func checkForValidUser(testUserID:String) -> Bool{
-        if Int(testUserID) == nil || (100000000 < Int(testUserID) ?? 0 ) || ( 999999 > (Int(testUserID) ?? 0)){
+    func checkForValidUser(testUserID:String, testEmail:String) -> Bool{
+        /*if Int(testUserID) == nil || (100000000 > Int(testUserID) ?? 0 ) || ( 99999 < (Int(testUserID) ?? 0)){
             ThrowError(reason: "User number must be a 7 digit integer")
             return false
-        }
-        for i in users{
+        }*/
+        /*if (testEmail.hasSuffix("@trinity.edu")) || (testEmail.hasSuffix("@Trinity.edu")){
+            //is valid email
+        }else{
+            ThrowError(reason: "Invalid Email. User must have a Trinity.edu email")
+            return false
+        }*/
+        /*for i in users{
             if testUserID == i.ID_number{
                 ThrowError(reason: "That user ID number is already in use")
                 return false
             }
+            if testEmail == i.email{
+                ThrowError(reason: "That email is already in use")
+                return false
+            }
             
-        }
+        }*/
         return true
     }
     func ThrowError(reason:String) {

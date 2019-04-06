@@ -17,23 +17,13 @@ class AddUserViewController: UIViewController {
     @IBOutlet weak var IDNumberInput: UITextField!
     @IBOutlet weak var EmailInput: UITextField!
     @IBOutlet weak var CourseInput: UITextField!
-    @IBOutlet weak var PasswordInput: UITextField!
-    //@IBOutlet weak var Item4Input: UITextField!
-    //@IBOutlet weak var Item5Input: UITextField!
-    //@IBOutlet weak var Item6Input: UITextField!
+    //@IBOutlet weak var PasswordInput: UITextField!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         NameInput.delegate = self as? UITextFieldDelegate
-        //NameInput.delegate = self
-        /*Item1Input.delegate = (self as! UITextFieldDelegate)
-         Item2Input.delegate = (self as! UITextFieldDelegate)
-         Item3Input.delegate = (self as! UITextFieldDelegate)
-         Item4Input.delegate = (self as! UITextFieldDelegate)
-         Item5Input.delegate = (self as! UITextFieldDelegate)
-         Item6Input.delegate = (self as! UITextFieldDelegate)*/
-        updateSaveButtonState()
         
         // Do any additional setup after loading the view.
     }
@@ -41,8 +31,9 @@ class AddUserViewController: UIViewController {
     @IBAction func CancelButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-      @IBOutlet weak var AddUser: UIButton!
 
+    @IBOutlet weak var AddUser: UIBarButtonItem!
+    
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
         super.prepare(for: segue, sender: sender)
         
@@ -56,23 +47,15 @@ class AddUserViewController: UIViewController {
         let IDNumber = IDNumberInput.text ?? ""
         let Email = EmailInput.text ?? ""
         let Course = CourseInput.text ?? ""
-        let Password = PasswordInput.text ?? ""
+        //let Password = PasswordInput.text ?? ""
         
-        newUser = User(Id_num:IDNumber, name:Name, entry_email:Email, classId:Course, isAdmin:false, authorized:false, password:Password)
-        
-    }
-    func formattedDate() -> String{
-        let currentDate = Date()
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        formatter.dateStyle = .short
-        return formatter.string(from: currentDate)
+        newUser = User(Id_num:IDNumber, name:Name, entry_email:Email, classId:Course, isAdmin:false, authorized:false, password:"")
         
     }
     
     private func updateSaveButtonState() {
         //let text = NameInput.text ?? ""
-        AddUser.isEnabled = !(NameInput.text?.isEmpty ?? true)
+        //AddUser.isEnabled = !(NameInput.text?.isEmpty ?? true)
         //AddItem.isEnabled = true
     }
     
