@@ -55,14 +55,24 @@ class UserTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    /*@IBAction func unwindToInventoryTableViewController(_ sender: UIStoryboardSegue){
+        if let sourceViewController = sender.source as? AddUserViewController, let
+            newKit = sourceViewController.newKit {
+            if checkForValidKitNumber(testKit: ""){
+                os_log("Recieved Proper ViewController.", log: OSLog.default, type: .debug)
+                let newIndexPath = IndexPath(row: kits.count, section:0)
+                kits.append(newKit)
+                tableView.insertRows(at: [newIndexPath],with: .automatic)
+                //saveKits()
+            }
+            else {
+                os_log("Kit is invalid", log: OSLog.default, type: .debug)
+            }
+        }
+    }*/
 
     // MARK: - Table view data source
-
-  //  override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-    //    return 0
-   // }
-
    //override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
    //     return 0
@@ -113,10 +123,10 @@ class UserTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+/*    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
-    }
+    }*/
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
