@@ -56,21 +56,20 @@ class UserTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    /*@IBAction func unwindToInventoryTableViewController(_ sender: UIStoryboardSegue){
+    @IBAction func unwindToInventoryTableViewController(_ sender: UIStoryboardSegue){
         if let sourceViewController = sender.source as? AddUserViewController, let
-            newKit = sourceViewController.newKit {
-            if checkForValidKitNumber(testKit: ""){
-                os_log("Recieved Proper ViewController.", log: OSLog.default, type: .debug)
-                let newIndexPath = IndexPath(row: kits.count, section:0)
-                kits.append(newKit)
-                tableView.insertRows(at: [newIndexPath],with: .automatic)
+            newUser = sourceViewController.newUser {
+            if checkForValidUser(testUserID:newUser.ID_number){
+                os_log("Recieved Proper User ViewController.", log: OSLog.default, type: .debug)
+                let userRef = self.ref.child(newUser.ID_number.lowercased())
+                userRef.setValue(newUser.toAnyObject())
                 //saveKits()
             }
             else {
                 os_log("Kit is invalid", log: OSLog.default, type: .debug)
             }
         }
-    }*/
+    }
 
     // MARK: - Table view data source
    //override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -88,7 +87,7 @@ class UserTableViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func AddUser(_ sender: Any) {
+/*    @IBAction func AddUser(_ sender: Any) {
         let alert = UIAlertController(title: "Add New User",
                                       message: "Please enter the user indentification number",
                                       preferredStyle: .alert)
@@ -123,7 +122,7 @@ class UserTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-/*    override func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }*/
@@ -135,7 +134,7 @@ class UserTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell", for: indexPath) as? UserTableViewCell else { fatalError("The dequeued cell is not an instance of InventoryTableViewCell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as? UserTableViewCell else { fatalError("The dequeued cell is not an instance of InventoryTableViewCell")
             
         }
         os_log(" successfully dequeued cell now trying to set them.", log: OSLog.default, type: .debug)
