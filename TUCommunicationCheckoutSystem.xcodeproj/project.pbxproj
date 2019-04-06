@@ -163,7 +163,6 @@
 			children = (
 				4C1CE01B21EEA6F8000C45CD /* AppDelegate.swift */,
 				4C1CE01F21EEA6F8000C45CD /* Main.storyboard */,
-				E05CAF1B22483FCF00D78186 /* CheckinoutViewController.swift */,
 				4C464275224410D00045498F /* LoginViewController.swift */,
 				4C16E14E223854DD0058B14F /* MainMenuViewController.swift */,
 				4CD5702A225936EB0025037F /* CheckInOutControllers */,
@@ -244,6 +243,7 @@
 		4CD5702A225936EB0025037F /* CheckInOutControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E05CAF1B22483FCF00D78186 /* CheckinoutViewController.swift */,
 			);
 			path = CheckInOutControllers;
 			sourceTree = "<group>";

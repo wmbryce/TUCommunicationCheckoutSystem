@@ -86,7 +86,7 @@ class UserTableViewController: UITableViewController {
     }
     
     @IBAction func BackButton(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
 /*    @IBAction func AddUser(_ sender: Any) {

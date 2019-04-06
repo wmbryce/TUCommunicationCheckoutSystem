@@ -32,9 +32,7 @@ class InventoryTableViewController: UITableViewController {
             for child in snapshot.children {
             print(child)
                 if let snapshot2 = child as? DataSnapshot{
-                    print("here")
                     if let newKit = Kit(snapshot: snapshot2){
-                        print("appends Kit")
                         newKits.append(newKit)
                 }
             }
@@ -43,8 +41,11 @@ class InventoryTableViewController: UITableViewController {
             self.kits = newKits
             os_log("Observer works", log: OSLog.default, type: .debug);
             print(self.kits.count)
-            self.selectionDelegate?.kitSelected(self.kits[0])
-            self.tableView.reloadData()
+            if (self.kits.count > 0) {
+                self.selectionDelegate?.kitSelected(self.kits[0])
+                self.tableView.reloadData()
+                
+            }
         })
 
         InventoryTableView.delegate = self
@@ -65,12 +66,12 @@ class InventoryTableViewController: UITableViewController {
     }
     
     @IBAction func BackButton(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
     @IBAction func AddKit(_ sender: Any) {
         let alert = UIAlertController(title: "Add New Kit",
-                                      message: "Please enter the kit indentification number",
+                                      message: "Please enter the kit identification number",
                                       preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
