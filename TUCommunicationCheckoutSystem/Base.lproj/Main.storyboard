@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -519,7 +519,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add User" id="hLE-m3-aHb">
                             <connections>
-                                <action selector="AddUser:" destination="f3x-i2-vRL" id="AR0-uY-xYK"/>
+                                <segue destination="VVj-cn-EQw" kind="popoverPresentation" popoverAnchorBarButtonItem="hLE-m3-aHb" id="Mry-v0-eEL">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -535,18 +537,22 @@
         <!--Add User View Controller-->
         <scene sceneID="zZM-B1-axR">
             <objects>
-                <viewController title="Add User View Controller" id="VVj-cn-EQw" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nSI-PP-eY3">
-                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                <viewController title="Add User View Controller" id="VVj-cn-EQw" customClass="AddUserViewController" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nSI-PP-eY3" customClass="ADBannerView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eFZ-bo-qZn">
-                                <rect key="frame" x="0.0" y="0.0" width="1112" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Add User" id="L70-25-SZg">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="aLH-gP-SYp"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Done" id="hPZ-F1-K5u"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="aLH-gP-SYp">
+                                            <connections>
+                                                <action selector="CancelButton:" destination="VVj-cn-EQw" id="g4a-l7-IKa"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="hPZ-F1-K5u"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -606,10 +612,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yy1-zD-by5">
+                                <rect key="frame" x="29" y="392" width="94" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="jking2019" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="lvE-Ra-J6V" userLabel="Password Input">
+                                <rect key="frame" x="121" y="390" width="187" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="m0V-pz-SUe"/>
                     </view>
+                    <connections>
+                        <outlet property="CourseInput" destination="zuF-yP-goe" id="omN-1C-17l"/>
+                        <outlet property="EmailInput" destination="z86-EC-Pn3" id="ycS-na-vXO"/>
+                        <outlet property="IDNumberInput" destination="ShM-hO-P7H" id="Bdo-yQ-6XU"/>
+                        <outlet property="NameInput" destination="rLN-aT-28q" id="whG-Tr-h2f"/>
+                        <outlet property="PasswordInput" destination="lvE-Ra-J6V" id="HeV-hM-nvl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSS-YY-iUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
