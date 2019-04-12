@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Enr-tx-etk">
-                                <rect key="frame" x="514.5" y="402" width="83.5" height="30"/>
+                                <rect key="frame" x="389.5" y="402" width="334" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="roo-U8-2D6"/>
                                 </constraints>
@@ -28,20 +28,20 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="niJ-Pg-R5g">
-                                <rect key="frame" x="514.5" y="457" width="83.5" height="30"/>
+                                <rect key="frame" x="389.5" y="457" width="334" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8B-Mu-dme">
-                                <rect key="frame" x="514.5" y="512" width="83.5" height="30"/>
+                                <rect key="frame" x="389.5" y="512" width="334" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2E-LE-qZH">
-                                <rect key="frame" x="514.5" y="567" width="83.5" height="30"/>
+                                <rect key="frame" x="389.5" y="567" width="334" height="30"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <state key="normal" title="Sign up">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -958,7 +958,7 @@
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="ManuallyKitEntry:" destination="5iH-jP-jjY" eventType="touchUpInside" id="5d8-Pd-Veb"/>
+                                    <action selector="manualKitEntry:" destination="5iH-jP-jjY" eventType="touchUpInside" id="mM5-rL-HOv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tw-0N-rZQ">
@@ -1002,10 +1002,10 @@
             </objects>
             <point key="canvasLocation" x="1311.6906474820144" y="-1765.4676258992806"/>
         </scene>
-        <!--View Controller-->
+        <!--CheckItems-->
         <scene sceneID="4wm-Vh-ojA">
             <objects>
-                <viewController id="Sai-eo-ohc" sceneMemberID="viewController">
+                <viewController id="Sai-eo-ohc" userLabel="CheckItems" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pss-wv-0I9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1021,16 +1021,44 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kit Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVD-aE-wZj">
-                                <rect key="frame" x="114" y="99" width="146" height="36"/>
+                                <rect key="frame" x="114" y="72" width="146" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3If-uT-Ash">
-                                <rect key="frame" x="67" y="237" width="240" height="128"/>
+                                <rect key="frame" x="44" y="139" width="286" height="433"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="75" id="CFJ-ZK-8qg" customClass="CheckItemsTableViewCell" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="286" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CFJ-ZK-8qg" id="Sbl-TM-oUV">
+                                            <rect key="frame" x="0.0" y="0.0" width="286" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mNW-84-fZc">
+                                                    <rect key="frame" x="15" y="22" width="46" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ItemName Or ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XN3-I5-pvN">
+                                                    <rect key="frame" x="98" y="27" width="139" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="CheckButton" destination="mNW-84-fZc" id="7gF-mi-QQs"/>
+                                            <outlet property="NameOrID" destination="XN3-I5-pvN" id="o29-Ou-ytO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1039,7 +1067,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CI4-Vt-f0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2128" y="-1765"/>
+            <point key="canvasLocation" x="2087.5899280575541" y="-1765.4676258992806"/>
         </scene>
     </scenes>
     <resources>

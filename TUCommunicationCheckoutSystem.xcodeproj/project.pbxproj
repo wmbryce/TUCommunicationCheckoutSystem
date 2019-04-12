@@ -18,6 +18,7 @@
 		4C1CE02921EEA6FD000C45CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CE02721EEA6FD000C45CD /* LaunchScreen.storyboard */; };
 		4C1CE03421EEA6FD000C45CD /* TUCommunicationCheckoutSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE03321EEA6FD000C45CD /* TUCommunicationCheckoutSystemTests.swift */; };
 		4C1CE03F21EEA6FD000C45CD /* TUCommunicationCheckoutSystemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CE03E21EEA6FD000C45CD /* TUCommunicationCheckoutSystemUITests.swift */; };
+		4C3341832260FBE2003FDDE0 /* CheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3341822260FBE2003FDDE0 /* CheckButton.swift */; };
 		4C3D9904223BF355008CAFA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C3D9903223BF355008CAFA3 /* GoogleService-Info.plist */; };
 		4C3D9905223BF355008CAFA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C3D9903223BF355008CAFA3 /* GoogleService-Info.plist */; };
 		4C3D9906223BF355008CAFA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C3D9903223BF355008CAFA3 /* GoogleService-Info.plist */; };
@@ -33,6 +34,8 @@
 		4CA5D1992203C16B0090784C /* include in Resources */ = {isa = PBXBuildFile; fileRef = 4CA5D1982203C16B0090784C /* include */; };
 		4CB2143D220CD38E00FBD719 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB2143C220CD38E00FBD719 /* User.swift */; };
 		4CBFDE8A2227882100A94137 /* KitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBFDE892227882000A94137 /* KitDetailsViewController.swift */; };
+		4CD5702C225A400E0025037F /* CheckItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD5702B225A400D0025037F /* CheckItemsViewController.swift */; };
+		4CD5702E225A40C30025037F /* CheckItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD5702D225A40C30025037F /* CheckItemsTableViewCell.swift */; };
 		4CDA88F42224EA26009B0F4F /* InventoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */; };
 		4CDA88F62224EA7D009B0F4F /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */; };
 		4CDA88F82225B63C009B0F4F /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */; };
@@ -78,6 +81,7 @@
 		4C1CE03A21EEA6FD000C45CD /* TUCommunicationCheckoutSystemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TUCommunicationCheckoutSystemUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C1CE03E21EEA6FD000C45CD /* TUCommunicationCheckoutSystemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TUCommunicationCheckoutSystemUITests.swift; sourceTree = "<group>"; };
 		4C1CE04021EEA6FD000C45CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C3341822260FBE2003FDDE0 /* CheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
 		4C3D9903223BF355008CAFA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C452D1C224834BE008D8601 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 		4C452D1E224834DE008D8601 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 		4CA5D1982203C16B0090784C /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
 		4CB2143C220CD38E00FBD719 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4CBFDE892227882000A94137 /* KitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitDetailsViewController.swift; sourceTree = "<group>"; };
+		4CD5702B225A400D0025037F /* CheckItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemsViewController.swift; sourceTree = "<group>"; };
+		4CD5702D225A40C30025037F /* CheckItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemsTableViewCell.swift; sourceTree = "<group>"; };
 		4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewController.swift; sourceTree = "<group>"; };
 		4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
 		4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 			children = (
 				4C1CE01B21EEA6F8000C45CD /* AppDelegate.swift */,
 				4C1CE01F21EEA6F8000C45CD /* Main.storyboard */,
+				4C3341822260FBE2003FDDE0 /* CheckButton.swift */,
 				4C464275224410D00045498F /* LoginViewController.swift */,
 				4C16E14E223854DD0058B14F /* MainMenuViewController.swift */,
 				4CD5702A225936EB0025037F /* CheckInOutControllers */,
@@ -244,6 +251,8 @@
 			isa = PBXGroup;
 			children = (
 				E05CAF1B22483FCF00D78186 /* CheckinoutViewController.swift */,
+				4CD5702B225A400D0025037F /* CheckItemsViewController.swift */,
+				4CD5702D225A40C30025037F /* CheckItemsTableViewCell.swift */,
 			);
 			path = CheckInOutControllers;
 			sourceTree = "<group>";
@@ -517,6 +526,9 @@
 				4C1CE01C21EEA6F8000C45CD /* AppDelegate.swift in Sources */,
 				4C452D2322483580008D8601 /* MasterManageUserViewController.swift in Sources */,
 				4C452D1D224834BE008D8601 /* UserTableViewController.swift in Sources */,
+				4CD5702C225A400E0025037F /* CheckItemsViewController.swift in Sources */,
+				4CD5702E225A40C30025037F /* CheckItemsTableViewCell.swift in Sources */,
+				4C3341832260FBE2003FDDE0 /* CheckButton.swift in Sources */,
 				4C464276224410D00045498F /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

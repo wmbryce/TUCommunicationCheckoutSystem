@@ -31,12 +31,12 @@ class CheckinoutViewController: UIViewController {
             self.kits = newKits
             print("kits successfully initalized")
         })
-        ConnectUGrokit()
+        //ConnectUGrokit()
     }
     
     //Button Functionality
     
-    @IBAction func ManuallyKitEntry(_ sender: UIButton) {
+    @IBAction func manualKitEntry(_ sender: Any) {
         let alert = UIAlertController(title: "Check Kit",
                                       message: "Please enter the kit identification number",
                                       preferredStyle: .alert)
@@ -45,18 +45,22 @@ class CheckinoutViewController: UIViewController {
             // 1
             guard let textField = alert.textFields?.first,
                 let newkitNumber = textField.text else { return }
+            //print(self.kits)
+            //print("here part 2")
+            //print(newkitNumber)
             if self.checkForValidKitNumber(testKit:newkitNumber){
+                
                 //Here is where app should transition to next ViewController
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel",
-                                             style: .cancel)
-            
+                                         style: .cancel)
+        
         alert.addTextField()
-            
+        
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
-            
+        
         present(alert, animated: true, completion: nil)
     }
 
@@ -64,7 +68,7 @@ class CheckinoutViewController: UIViewController {
         dismiss(animated: false, completion: nil)
     }
     //Transition to Kit Item Check
-    func transitToItemCheck(kitNumber:String){
+    func transitToItemCheck(kitToCheck:Kit){
         
     }
     
@@ -105,16 +109,16 @@ class CheckinoutViewController: UIViewController {
     
     // Extra Functions
     func checkForValidKitNumber(testKit:String) -> Bool{
-        for i in kits{
+        print("here")
+        for i in self.kits{
+            //print(testKit, "compared with ", i.kitNumber)
             if testKit == i.kitNumber{
                 
                 return true
-            } else{
-                ThrowError(reason: "That kit number does not exist")
-                return false
             }
         }
-        ThrowError(reason: "Kit test failed")
+        print("what the fuck is happening")
+        ThrowError(reason: "That kit number does not exist")
         return false
     }
     
