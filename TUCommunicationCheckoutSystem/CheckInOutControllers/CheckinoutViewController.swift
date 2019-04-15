@@ -9,10 +9,16 @@
 import UIKit
 import Firebase
 
+protocol checkKitSelectionDelegate:class {
+    func checkKitItems(_ checkKit: Kit)
+}
+
 class CheckinoutViewController: UIViewController {
     
     let ref = Database.database().reference(withPath: "kits")
+    weak var passingDelegate:checkKitSelectionDelegate?
     var kits = [Kit]()
+    var kitToCheck:Kit? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +36,13 @@ class CheckinoutViewController: UIViewController {
             
             self.kits = newKits
             print("kits successfully initalized")
+            
         })
         //ConnectUGrokit()
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
     
     //Button Functionality
@@ -43,15 +54,21 @@ class CheckinoutViewController: UIViewController {
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             // 1
-            guard let textField = alert.textFields?.first,
+            guard let textField = alert.textFields?.first,      
                 let newkitNumber = textField.text else { return }
             //print(self.kits)
             //print("here part 2")
             //print(newkitNumber)
-            if self.checkForValidKitNumber(testKit:newkitNumber){
-                
-                //Here is where app should transition to next ViewController
+            for i in self.kits{
+                //print(testKit, "compared with ", i.kitNumber)
+                if newkitNumber == i.kitNumber{
+                    self.passingDelegate?.checkKitItems(i)
+                    //let checkItems = CheckItemsViewController()
+                    //self.present(checkItems,animated: true, completion: nil)
+                    
+                }
             }
+            self.ThrowError(reason: "That kit number does not exist")
         }
         let cancelAction = UIAlertAction(title: "Cancel",
                                          style: .cancel)
