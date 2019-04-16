@@ -2,7 +2,6 @@
 //  CheckinoutViewController.swift
 //  TUCommunicationCheckoutSystem
 //
-//  Created by Suarez IPhone on 3/24/19.
 //  Copyright © 2019 CheckoutGurus. All rights reserved.
 //
 
@@ -41,18 +40,35 @@ class CheckinoutViewController: UIViewController {
         //ConnectUGrokit()
         
     }
+    
+    @IBAction func unwindToCheckOutViewController(_ sender: UIStoryboardSegue){
+//        if let sourceViewController = sender.source as? AddUserViewController, let
+//            newUser = sourceViewController.newUser {
+//            if checkForValidUser(testUserID:newUser.ID_number, testEmail: newUser.email){
+//                os_log("Recieved Proper User ViewController.", log: OSLog.default, type: .debug)
+//                let userRef = self.ref.child(newUser.ID_number.lowercased())
+//                userRef.setValue(newUser.toAnyObject())
+//                //saveKits()
+//            }
+//            else {
+//                os_log("Kit is invalid", log: OSLog.default, type: .debug)
+//            }
+//        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         
     }
     
     //Button Functionality
     
+
     @IBAction func manualKitEntry(_ sender: Any) {
         let alert = UIAlertController(title: "Check Kit",
                                       message: "Please enter the kit identification number",
                                       preferredStyle: .alert)
         
-        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+        let saveAction = UIAlertAction(title: "Check", style: .default) { _ in
             // 1
             guard let textField = alert.textFields?.first,      
                 let newkitNumber = textField.text else { return }
@@ -134,7 +150,6 @@ class CheckinoutViewController: UIViewController {
                 return true
             }
         }
-        print("what the fuck is happening")
         ThrowError(reason: "That kit number does not exist")
         return false
     }

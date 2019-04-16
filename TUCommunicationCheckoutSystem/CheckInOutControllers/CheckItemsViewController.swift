@@ -16,6 +16,10 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
 
     @IBOutlet weak var tableOfItems: UITableView!
     
+    @IBAction func Cancel(_ sender: Any) {
+    dismiss(animated: true, completion: nil)
+    }
+    
     let ref = Database.database().reference(withPath: "kits")
     var kits = [Kit]()
     
@@ -42,9 +46,9 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
             }
             
             self.kits = newKits
+            self.kitToCheck = self.kits.popLast()
             print("kits successfully initalized")
         })
-        kitToCheck = kits.popLast()
         // Do any additional setup after loading the view.
     }
     
