@@ -80,16 +80,16 @@ class InventoryTableViewController: UITableViewController {
                 let newkitNumber = textField.text else { return }
             if self.checkForValidKitNumber(testKit:newkitNumber){
                 //Create new kit
-                let Item1 = Int(newkitNumber + "0001")
-                let Item2 = Int(newkitNumber + "0002")
-                let Item3 = Int(newkitNumber + "0003")
-                let Item4 = Int(newkitNumber + "0004")
-                let Item5 = Int(newkitNumber + "0005")
-                let Item6 = Int(newkitNumber + "0006")
+                let Item1 = newkitNumber + "0001"
+                let Item2 = newkitNumber + "0002"
+                let Item3 = newkitNumber + "0003"
+                let Item4 = newkitNumber + "0004"
+                let Item5 = newkitNumber + "0005"
+                let Item6 = newkitNumber + "0006"
                 let Items = [Item1,Item2,Item3,Item4,Item5,Item6]
                 let Checkin_out_Date = self.formatedDate(dateInfo:Date() as NSDate)
                 
-                let newKit = Kit(kitNumber: newkitNumber, items: Items as! Array<Int>, checkIn: Checkin_out_Date as String, checkOut: Checkin_out_Date as String, lastUsers: ["None"], available: true)
+                let newKit = Kit(kitNumber: newkitNumber, items: Items as! Array<String>, checkIn: Checkin_out_Date as String, checkOut: Checkin_out_Date as String, lastUsers: ["None"], available: true)
                 //Add new kit to database
                 let kitRef = self.ref.child(newkitNumber.lowercased())
                 kitRef.setValue(newKit.toAnyObject())

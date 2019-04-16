@@ -37,7 +37,7 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         ref.observe(.value, with: { snapshot in
             var newKits: [Kit] = []
             for child in snapshot.children {
-                print(child)
+                //print(child)
                 if let snapshot2 = child as? DataSnapshot{
                     if let newKit = Kit(snapshot: snapshot2){
                         newKits.append(newKit)
@@ -47,20 +47,21 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
             
             self.kits = newKits
             self.kitToCheck = self.kits.popLast()
-            print("kits successfully initalized")
+            print("kits successfully initalized in Check Items Controller")
         })
         // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(kitToCheck?.items.count)
         return kitToCheck?.items.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? CheckItemsTableViewCell else { fatalError("The dequeued cell is not an instance of InventoryTableViewCell")
         }
-        
-        let currentItem = String(kitToCheck?.items[indexPath.row] as! Int)
+        print("error isn't in the first part of dequeue cell")
+        let currentItem = kitToCheck?.items[indexPath.row] ?? "error"
         let present = false
         cell.setLabels(found: present, Name: currentItem)
         //os_log("setting the labels works", log: OSLog.default, type: .debug)
@@ -71,6 +72,7 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     func refreshItemCheck(){
         KitTitle.text = "Kit " + (kitToCheck?.kitNumber ?? "error")
         
+        tableOfItems.reloadData()
     }
     
 

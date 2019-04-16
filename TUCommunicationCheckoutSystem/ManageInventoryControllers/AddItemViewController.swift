@@ -53,22 +53,21 @@ class AddItemViewController: UIViewController {
                 return
         }
         let kitNumber = NumberInput.text ?? ""
-        let Item1 = Int(Item1Input.text ?? "")
-        let Item2 = Int(Item2Input.text ?? "")
-        let Item3 = Int(Item3Input.text ?? "")
-        let Item4 = Int(Item4Input.text ?? "")
-        let Item5 = Int(Item5Input.text ?? "")
-        let Item6 = Int(Item6Input.text ?? "")
+        let Item1 = Item1Input.text ?? ""
+        let Item2 = Item2Input.text ?? ""
+        let Item3 = Item3Input.text ?? ""
+        let Item4 = Item4Input.text ?? ""
+        let Item5 = Item5Input.text ?? ""
+        let Item6 = Item6Input.text ?? ""
         let Items = [Item1,Item2,Item3,Item4,Item5,Item6]
         let Checkin_out_Date = formattedDate()
         
-        newKit = Kit(kitNumber: kitNumber, items: Items as! Array<Int>, checkIn: Checkin_out_Date, checkOut: Checkin_out_Date, lastUsers: [], available: true)
+        newKit = Kit(kitNumber: kitNumber, items: Items as! Array<String>, checkIn: Checkin_out_Date, checkOut: Checkin_out_Date, lastUsers: [], available: true)
         
     }
     func formattedDate() -> String{
         let currentDate = Date()
         let formatter = DateFormatter()
-        formatter.timeStyle = .short
         formatter.dateStyle = .short
         return formatter.string(from: currentDate)
         
