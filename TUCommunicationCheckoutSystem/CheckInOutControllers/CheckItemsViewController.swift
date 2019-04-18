@@ -16,6 +16,8 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
 
     @IBOutlet weak var tableOfItems: UITableView!
     
+    @IBOutlet weak var nextButton: UIBarButtonItem!
+    
     @IBAction func Cancel(_ sender: Any) {
     dismiss(animated: true, completion: nil)
     }
@@ -55,6 +57,25 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue:UIStoryboardSegue, sender: Any?){
+        super.prepare(for: segue, sender: sender)
+        
+        // configure the destination view controller only when the save button is pressed.
+        guard let CheckOutAgreementViewController = segue.destination as? CheckOutAgreementViewController
+            else {
+                print("Check Out Cancelled" )
+                return
+        }
+        let cells = self.tableOfItems.visibleCells as! Array<CheckItemsTableViewCell>
+        for cell in cells {
+            itemsFound.append(cell.getFoundValue())
+        }
+        print("Does this run for every transition?")
+        CheckOutAgreementViewController.actionKit = kitToCheck
+        CheckOutAgreementViewController.itemsFound = itemsFound
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let numberOfItems = kitToCheck?.items.count ?? 0
         return numberOfItems
@@ -67,7 +88,7 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         let currentItem = kitToCheck?.items[indexPath.row] ?? "error"
         let present = false
         cell.setLabels(found: present, Name: currentItem)
-        itemsFound.append(cell.getFoundValue())
+        
         //os_log("setting the labels works", log: OSLog.default, type: .debug)
         return cell
     }
@@ -102,15 +123,17 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         return descriptionText
     }
     
-    func determineStatus() -> String{
+    func setStatus(){
         guard let CheckoutDate = kitToCheck?.checkOut,
                   let CheckinDate  = kitToCheck?.checkIn,
                   let available = kitToCheck?.available
             else {
                 fatalError()
         }
+        if available {
+            
+        }
 
-        return "a"
     }
 
     /*
