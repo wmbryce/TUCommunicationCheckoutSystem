@@ -27,6 +27,9 @@ class CheckButton: UIButton {
         self.addTarget(self, action:#selector(buttonClicked(sender:)), for: UIControl.Event.touchUpInside)
         self.isChecked = false
     }
+    func getValue() -> Bool{
+        return isChecked
+    }
     
     @objc func buttonClicked(sender: UIButton) {
         if sender == self {

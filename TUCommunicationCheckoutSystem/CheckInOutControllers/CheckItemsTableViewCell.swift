@@ -22,7 +22,11 @@ class CheckItemsTableViewCell: UITableViewCell {
         
         // Initialization code
     }
-
+    
+    func getFoundValue() -> Bool {
+        return foundButton.getValue()
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         

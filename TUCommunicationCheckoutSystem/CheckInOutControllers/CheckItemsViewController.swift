@@ -20,6 +20,8 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     dismiss(animated: true, completion: nil)
     }
     
+    var itemsFound = [Bool]()
+    
     let ref = Database.database().reference(withPath: "kits")
     var kits = [Kit]()
     
@@ -34,6 +36,7 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         super.viewDidLoad()
         tableOfItems.delegate = self
         tableOfItems.dataSource = self
+        tableOfItems.allowsSelection = false;
         ref.observe(.value, with: { snapshot in
             var newKits: [Kit] = []
             for child in snapshot.children {
@@ -53,8 +56,8 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(kitToCheck?.items.count)
-        return kitToCheck?.items.count ?? 0
+        let numberOfItems = kitToCheck?.items.count ?? 0
+        return numberOfItems
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,6 +67,7 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         let currentItem = kitToCheck?.items[indexPath.row] ?? "error"
         let present = false
         cell.setLabels(found: present, Name: currentItem)
+        itemsFound.append(cell.getFoundValue())
         //os_log("setting the labels works", log: OSLog.default, type: .debug)
         return cell
     }
@@ -71,10 +75,43 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     
     func refreshItemCheck(){
         KitTitle.text = "Kit " + (kitToCheck?.kitNumber ?? "error")
+        let Description = (kitToCheck?.checkIn)! + (kitToCheck?.checkOut)!
         
+        DescriptionLabel.text = generateDescription()
         tableOfItems.reloadData()
     }
     
+    func generateDescription() -> String {
+        var descriptionText = ""
+        var currentUser = "error"
+        if kitToCheck?.available == true {
+            let checkOutdate = kitToCheck?.checkOut as! String
+            descriptionText = "The kit is available for check out\nIt was last checked out on " + checkOutdate
+        }
+        else{
+            
+            let users = kitToCheck?.lastUsers
+            if users?.count ?? 0 > 0{
+                currentUser = users?[0] ?? "error"
+            } else {
+                currentUser = "error"
+            }
+            descriptionText = "This kit is currently checked out by " + currentUser
+        }
+        print(descriptionText)
+        return descriptionText
+    }
+    
+    func determineStatus() -> String{
+        guard let CheckoutDate = kitToCheck?.checkOut,
+                  let CheckinDate  = kitToCheck?.checkIn,
+                  let available = kitToCheck?.available
+            else {
+                fatalError()
+        }
+
+        return "a"
+    }
 
     /*
     // MARK: - Navigation
@@ -85,6 +122,7 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         // Pass the selected object to the new view controller.
     }
     */
+    
 
 }
 
