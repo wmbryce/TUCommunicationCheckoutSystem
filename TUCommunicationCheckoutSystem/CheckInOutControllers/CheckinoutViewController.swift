@@ -19,6 +19,9 @@ class CheckinoutViewController: UIViewController {
     var kits = [Kit]()
     var kitToCheck:Kit? = nil
     
+    @IBAction func TestButton(_ sender: Any) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,6 +59,21 @@ class CheckinoutViewController: UIViewController {
 //        }
     }
     
+    override func prepare(for segue:UIStoryboardSegue, sender: Any?){
+        super.prepare(for: segue, sender: sender)
+        
+        // configure the destination view controller only when the save button is pressed.
+        print("does the program prepare at all?")
+        guard let NavCheckViewController = segue.destination as? NavCheckoutViewController,
+            let checkItemsView = NavCheckViewController.viewControllers.first as? CheckItemsViewController
+            else {
+                print("Other Transit no action necessary" )
+                return
+        }
+        print("preparing for dat seg doe")
+        checkItemsView.kitOfAction = kitToCheck
+    }
+
    
 
     @IBAction func manualKitEntry(_ sender: Any) {
@@ -73,10 +91,11 @@ class CheckinoutViewController: UIViewController {
             for i in self.kits{
                 //print(testKit, "compared with ", i.kitNumber)
                 if newkitNumber == i.kitNumber{
-                    self.passingDelegate?.checkKitItems(i)
+                    //self.passingDelegate?.checkKitItems(i)
+                    self.kitToCheck = i
+                    self.performSegue(withIdentifier: "TransitToCheckItems", sender: self)
                     //let checkItems = CheckItemsViewController()
                     //self.present(checkItems,animated: true, completion: nil)
-                    
                 }
             }
             self.ThrowError(reason: "That kit number does not exist")

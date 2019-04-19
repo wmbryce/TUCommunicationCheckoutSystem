@@ -27,11 +27,11 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     let ref = Database.database().reference(withPath: "kits")
     var kits = [Kit]()
     
-    var kitToCheck: Kit? {
-        didSet{
-            refreshItemCheck()
-        }
-    }
+    var kitOfAction: Kit?
+        //didSet{
+        // refreshItemCheck()
+        //}
+    
     
     
     override func viewDidLoad() {
@@ -39,6 +39,9 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         tableOfItems.delegate = self
         tableOfItems.dataSource = self
         tableOfItems.allowsSelection = false;
+        if kitOfAction != nil {
+            refreshItemCheck()
+        }
         ref.observe(.value, with: { snapshot in
             var newKits: [Kit] = []
             for child in snapshot.children {
@@ -51,9 +54,10 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
             }
             
             self.kits = newKits
-            self.kitToCheck = self.kits.popLast()
+            //self.kitOfAction = self.kits.popLast()
             print("kits successfully initalized in Check Items Controller")
         })
+        
         // Do any additional setup after loading the view.
     }
     
@@ -71,13 +75,13 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
             itemsFound.append(cell.getFoundValue())
         }
         print("Does this run for every transition?")
-        CheckOutAgreementViewController.actionKit = kitToCheck
+        CheckOutAgreementViewController.actionKit = kitOfAction
         CheckOutAgreementViewController.itemsFound = itemsFound
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numberOfItems = kitToCheck?.items.count ?? 0
+        let numberOfItems = kitOfAction?.items.count ?? 0
         return numberOfItems
     }
     
@@ -85,7 +89,7 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? CheckItemsTableViewCell else { fatalError("The dequeued cell is not an instance of InventoryTableViewCell")
         }
         print("error isn't in the first part of dequeue cell")
-        let currentItem = kitToCheck?.items[indexPath.row] ?? "error"
+        let currentItem = kitOfAction?.items[indexPath.row] ?? "error"
         let present = false
         cell.setLabels(found: present, Name: currentItem)
         
@@ -95,8 +99,8 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     
     
     func refreshItemCheck(){
-        KitTitle.text = "Kit " + (kitToCheck?.kitNumber ?? "error")
-        let Description = (kitToCheck?.checkIn)! + (kitToCheck?.checkOut)!
+        KitTitle.text = "Kit " + (kitOfAction?.kitNumber ?? "error")
+        let Description = (kitOfAction?.checkIn)! + (kitOfAction?.checkOut)!
         
         DescriptionLabel.text = generateDescription()
         tableOfItems.reloadData()
@@ -105,13 +109,13 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     func generateDescription() -> String {
         var descriptionText = ""
         var currentUser = "error"
-        if kitToCheck?.available == true {
-            let checkOutdate = kitToCheck?.checkOut as! String
+        if kitOfAction?.available == true {
+            let checkOutdate = kitOfAction?.checkOut as! String
             descriptionText = "The kit is available for check out\nIt was last checked out on " + checkOutdate
         }
         else{
             
-            let users = kitToCheck?.lastUsers
+            let users = kitOfAction?.lastUsers
             if users?.count ?? 0 > 0{
                 currentUser = users?[0] ?? "error"
             } else {
@@ -124,9 +128,9 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     }
     
     func setStatus(){
-        guard let CheckoutDate = kitToCheck?.checkOut,
-                  let CheckinDate  = kitToCheck?.checkIn,
-                  let available = kitToCheck?.available
+        guard let CheckoutDate = kitOfAction?.checkOut,
+                  let CheckinDate  = kitOfAction?.checkIn,
+                  let available = kitOfAction?.available
             else {
                 fatalError()
         }
@@ -151,6 +155,6 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
 
 extension CheckItemsViewController: checkKitSelectionDelegate{
     func checkKitItems(_ checkKit: Kit) {
-        kitToCheck = checkKit
+        kitOfAction = checkKit
     }
 }

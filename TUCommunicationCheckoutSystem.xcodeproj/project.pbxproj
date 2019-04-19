@@ -40,6 +40,7 @@
 		4CDA88F42224EA26009B0F4F /* InventoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */; };
 		4CDA88F62224EA7D009B0F4F /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */; };
 		4CDA88F82225B63C009B0F4F /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */; };
+		4CFF6493226A42FA0023B58E /* NavCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF6492226A42FA0023B58E /* NavCheckoutViewController.swift */; };
 		D5724D7FC900D9E94BE81ABC /* Pods_TUCommunicationCheckoutSystemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C1DF249FC9C4DC0D1CF66C /* Pods_TUCommunicationCheckoutSystemTests.framework */; };
 		E05CAF1C22483FCF00D78186 /* CheckinoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05CAF1B22483FCF00D78186 /* CheckinoutViewController.swift */; };
 		F447CC132251797700F2F7DD /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F447CC122251797700F2F7DD /* AddUserViewController.swift */; };
@@ -102,6 +103,7 @@
 		4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewController.swift; sourceTree = "<group>"; };
 		4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
 		4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		4CFF6492226A42FA0023B58E /* NavCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavCheckoutViewController.swift; sourceTree = "<group>"; };
 		5ECF079612EDCA56098C1B16 /* Pods-TUCommunicationCheckoutSystemUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TUCommunicationCheckoutSystemUITests.release.xcconfig"; path = "Target Support Files/Pods-TUCommunicationCheckoutSystemUITests/Pods-TUCommunicationCheckoutSystemUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6A0FFED52701B0094329432C /* Pods-TUCommunicationCheckoutSystemTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TUCommunicationCheckoutSystemTests.release.xcconfig"; path = "Target Support Files/Pods-TUCommunicationCheckoutSystemTests/Pods-TUCommunicationCheckoutSystemTests.release.xcconfig"; sourceTree = "<group>"; };
 		9DB983B19CD0C6D0A1933367 /* Pods-TUCommunicationCheckoutSystemUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TUCommunicationCheckoutSystemUITests.debug.xcconfig"; path = "Target Support Files/Pods-TUCommunicationCheckoutSystemUITests/Pods-TUCommunicationCheckoutSystemUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -253,8 +255,9 @@
 			isa = PBXGroup;
 			children = (
 				E05CAF1B22483FCF00D78186 /* CheckinoutViewController.swift */,
-				4C5032DF2268D2A400C3BBBD /* CheckOutAgreementViewController.swift */,
+				4CFF6492226A42FA0023B58E /* NavCheckoutViewController.swift */,
 				4CD5702B225A400D0025037F /* CheckItemsViewController.swift */,
+				4C5032DF2268D2A400C3BBBD /* CheckOutAgreementViewController.swift */,
 				4CD5702D225A40C30025037F /* CheckItemsTableViewCell.swift */,
 			);
 			path = CheckInOutControllers;
@@ -531,6 +534,7 @@
 				4C452D2322483580008D8601 /* MasterManageUserViewController.swift in Sources */,
 				4C452D1D224834BE008D8601 /* UserTableViewController.swift in Sources */,
 				4CD5702C225A400E0025037F /* CheckItemsViewController.swift in Sources */,
+				4CFF6493226A42FA0023B58E /* NavCheckoutViewController.swift in Sources */,
 				4CD5702E225A40C30025037F /* CheckItemsTableViewCell.swift in Sources */,
 				4C3341832260FBE2003FDDE0 /* CheckButton.swift in Sources */,
 				4C464276224410D00045498F /* LoginViewController.swift in Sources */,

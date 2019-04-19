@@ -747,10 +747,10 @@
             </objects>
             <point key="canvasLocation" x="2743.705035971223" y="-686.33093525179856"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Nav Checkout View Controller-->
         <scene sceneID="RlD-hf-YDx">
             <objects>
-                <navigationController autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="pageSheet" id="UcX-lH-gOm" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CheckItemsNav" autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="pageSheet" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UcX-lH-gOm" customClass="NavCheckoutViewController" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -764,7 +764,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DE7-8y-uZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2067" y="-1541"/>
+            <point key="canvasLocation" x="2067" y="-2555"/>
         </scene>
         <!--Check Items-->
         <scene sceneID="POR-ja-chw">
@@ -1156,21 +1156,6 @@
                                     <action selector="Back:" destination="smL-d0-tmM" eventType="touchUpInside" id="CA8-3k-AZF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wku-sv-GEs">
-                                <rect key="frame" x="356" y="60" width="400" height="100"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="400" id="NO0-Ro-uaY"/>
-                                    <constraint firstAttribute="height" constant="100" id="fEv-EN-Hbi"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="ItemCheckTest">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="UcX-lH-gOm" kind="presentation" id="M9V-du-Xbi"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Scan an Item..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAw-3V-2WD">
                                 <rect key="frame" x="324" y="260" width="464" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
@@ -1180,7 +1165,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Wku-sv-GEs" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="631-fw-xKO"/>
                             <constraint firstItem="Gjl-av-Gp2" firstAttribute="top" secondItem="ZSK-rL-OSd" secondAttribute="bottom" constant="50" id="MIb-ax-j9O"/>
                             <constraint firstItem="Gjl-av-Gp2" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="Q7d-qe-sXe"/>
                             <constraint firstItem="Gjl-av-Gp2" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="Qpb-d7-Dox"/>
@@ -1190,15 +1174,16 @@
                             <constraint firstItem="ZSK-rL-OSd" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="gBr-bw-FgL"/>
                             <constraint firstItem="ZSK-rL-OSd" firstAttribute="top" secondItem="cAw-3V-2WD" secondAttribute="bottom" constant="125" id="mvG-qC-fcy"/>
                             <constraint firstItem="ZSK-rL-OSd" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="neo-TQ-Y4Y"/>
-                            <constraint firstItem="cAw-3V-2WD" firstAttribute="top" secondItem="Wku-sv-GEs" secondAttribute="bottom" constant="100" id="tLE-lr-q9B"/>
-                            <constraint firstItem="Wku-sv-GEs" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="xzs-yi-MdC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="x9K-W1-fpS"/>
                     </view>
+                    <connections>
+                        <segue destination="UcX-lH-gOm" kind="presentation" identifier="TransitToCheckItems" id="Qyj-Ic-IrZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nef-HA-7BG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1329" y="-1541"/>
+            <point key="canvasLocation" x="1335" y="-1547"/>
         </scene>
         <!--Manage Inventory Split View Controller-->
         <scene sceneID="AGo-Da-7kv">
