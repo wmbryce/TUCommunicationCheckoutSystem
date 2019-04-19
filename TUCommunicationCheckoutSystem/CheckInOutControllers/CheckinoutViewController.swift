@@ -56,12 +56,7 @@ class CheckinoutViewController: UIViewController {
 //        }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
-    
-    //Button Functionality
-    
+   
 
     @IBAction func manualKitEntry(_ sender: Any) {
         let alert = UIAlertController(title: "Check Kit",
