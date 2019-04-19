@@ -39,7 +39,6 @@
 		4CD5702E225A40C30025037F /* CheckItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD5702D225A40C30025037F /* CheckItemsTableViewCell.swift */; };
 		4CDA88F42224EA26009B0F4F /* InventoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */; };
 		4CDA88F62224EA7D009B0F4F /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */; };
-		4CDA88F82225B63C009B0F4F /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */; };
 		4CFF6493226A42FA0023B58E /* NavCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF6492226A42FA0023B58E /* NavCheckoutViewController.swift */; };
 		4CFF6495226A55EF0023B58E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF6494226A55EF0023B58E /* Item.swift */; };
 		D5724D7FC900D9E94BE81ABC /* Pods_TUCommunicationCheckoutSystemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C1DF249FC9C4DC0D1CF66C /* Pods_TUCommunicationCheckoutSystemTests.framework */; };
@@ -103,7 +102,6 @@
 		4CD5702D225A40C30025037F /* CheckItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckItemsTableViewCell.swift; sourceTree = "<group>"; };
 		4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewController.swift; sourceTree = "<group>"; };
 		4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
-		4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		4CFF6492226A42FA0023B58E /* NavCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavCheckoutViewController.swift; sourceTree = "<group>"; };
 		4CFF6494226A55EF0023B58E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		5ECF079612EDCA56098C1B16 /* Pods-TUCommunicationCheckoutSystemUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TUCommunicationCheckoutSystemUITests.release.xcconfig"; path = "Target Support Files/Pods-TUCommunicationCheckoutSystemUITests/Pods-TUCommunicationCheckoutSystemUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 				4C16E0CC22288DDA0058B14F /* MasterManageInventoryViewController.swift */,
 				4CDA88F32224EA26009B0F4F /* InventoryTableViewController.swift */,
 				4CDA88F52224EA7D009B0F4F /* InventoryTableViewCell.swift */,
-				4CDA88F72225B63C009B0F4F /* AddItemViewController.swift */,
 				4CBFDE892227882000A94137 /* KitDetailsViewController.swift */,
 			);
 			path = ManageInventoryControllers;
@@ -529,7 +526,6 @@
 				E05CAF1C22483FCF00D78186 /* CheckinoutViewController.swift in Sources */,
 				4C452D1F224834DE008D8601 /* UserTableViewCell.swift in Sources */,
 				4CDA88F62224EA7D009B0F4F /* InventoryTableViewCell.swift in Sources */,
-				4CDA88F82225B63C009B0F4F /* AddItemViewController.swift in Sources */,
 				4C5032E02268D2A400C3BBBD /* CheckOutAgreementViewController.swift in Sources */,
 				4C16E14F223854DD0058B14F /* MainMenuViewController.swift in Sources */,
 				4CB2143D220CD38E00FBD719 /* User.swift in Sources */,

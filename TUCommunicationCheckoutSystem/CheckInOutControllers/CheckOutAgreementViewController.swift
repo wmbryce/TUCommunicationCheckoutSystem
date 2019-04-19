@@ -38,12 +38,14 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? CheckItemsTableViewCell else { fatalError("The dequeued cell is not an instance of InventoryTableViewCell")
         }
-        let currentItem = actionKit?.items[indexPath.row] ?? "error"
+        let currentItemName = actionKit?.items[indexPath.row][0] ?? "error"
+        let currentItemID = actionKit?.items[indexPath.row][1] ?? "error"
         let present = itemsFound[indexPath.row]
         //if present == false{
         //    cell.
         //}
-        cell.setLabels(found: present, Name: currentItem)
+        print(present,currentItemName,currentItemID)
+        cell.setLabels(found: present, Name: currentItemName, Number: currentItemID)
         return cell
     }
     

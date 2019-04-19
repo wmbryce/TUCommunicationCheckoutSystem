@@ -34,17 +34,17 @@ class KitDetailsViewController: UIViewController {
         loadViewIfNeeded()
         let name = kitOfInterest?.kitNumber
         TitleKitNameLabel.text = "Kit " + name!
-        let ID_1 = kitOfInterest?.items[0]
+        let ID_1 = kitOfInterest?.items[0][0]
         Item1ID.text = String(ID_1!)
-        let ID_2 = kitOfInterest?.items[1]
+        let ID_2 = kitOfInterest?.items[1][0]
         Item2ID.text = String(ID_2!)
-        let ID_3 = kitOfInterest?.items[2]
+        let ID_3 = kitOfInterest?.items[2][0]
         Item3ID.text = String(ID_3!)
-        let ID_4 = kitOfInterest?.items[3]
+        let ID_4 = kitOfInterest?.items[3][0]
         Item4ID.text = String(ID_4!)
-        let ID_5 = kitOfInterest?.items[4]
+        let ID_5 = kitOfInterest?.items[4][0]
         Item5ID.text = String(ID_5!)
-        let ID_6 = kitOfInterest?.items[5]
+        let ID_6 = kitOfInterest?.items[5][0]
         Item6ID.text = String(ID_6!)
         
             

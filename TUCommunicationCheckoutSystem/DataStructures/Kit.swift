@@ -15,13 +15,13 @@ struct Kit {
     let ref:DatabaseReference?
     let key: String
     var kitNumber: String
-    var items: Array<String>
+    var items: Array<Array<String>>
     var checkIn: String
     var checkOut: String
     var lastUsers: Array<String>
     var available: Bool
     
-    init(kitNumber:String, items:Array<String>, checkIn: String, checkOut: String, lastUsers: Array<String>, available: Bool){
+    init(kitNumber:String, items:Array<Array<String>>, checkIn: String, checkOut: String, lastUsers: Array<String>, available: Bool){
         self.ref = nil
         self.key = ""
         self.kitNumber = kitNumber
@@ -36,7 +36,7 @@ struct Kit {
         guard
             let value = snapshot.value as? [String: AnyObject],
             let number = value["number"] as? String,
-            let items = value["items"] as? Array<String>,
+            let items = value["items"] as? Array<Array<String>>,
             let checkIn = value["checkIn"] as? String,
             let checkOut = value["checkOut"] as? String,
             let lastUsers = value["LastUsers"] as? Array<String>,

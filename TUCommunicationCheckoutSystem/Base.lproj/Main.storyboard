@@ -790,7 +790,7 @@
                                     <constraint firstAttribute="height" constant="393" id="6DC-3u-9jM"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="fBB-4c-ltE" customClass="CheckItemsTableViewCell" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="fBB-4c-ltE" customClass="CheckItemsTableViewCell" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="440" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fBB-4c-ltE" id="sEX-lA-2jZ">
@@ -800,8 +800,20 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJB-1y-9Pz" customClass="CheckButton" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="15.5" width="30" height="34"/>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ItemName Or ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pF-1d-Fdi">
-                                                    <rect key="frame" x="80" y="20.5" width="139" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pF-1d-Fdi" userLabel="Name">
+                                                    <rect key="frame" x="80" y="20.5" width="200" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="Q64-l8-lsQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDnumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ku-h7-IAr">
+                                                    <rect key="frame" x="300" y="20.5" width="125" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="NXa-vT-8xm"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -810,11 +822,14 @@
                                             <constraints>
                                                 <constraint firstItem="1pF-1d-Fdi" firstAttribute="centerY" secondItem="sEX-lA-2jZ" secondAttribute="centerY" id="D3e-f4-hG9"/>
                                                 <constraint firstItem="KJB-1y-9Pz" firstAttribute="leading" secondItem="sEX-lA-2jZ" secondAttribute="leadingMargin" id="DUr-Vr-74l"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2Ku-h7-IAr" secondAttribute="trailing" id="jtY-qU-bir"/>
                                                 <constraint firstItem="1pF-1d-Fdi" firstAttribute="leading" secondItem="KJB-1y-9Pz" secondAttribute="trailing" constant="35" id="kzl-KD-nRr"/>
+                                                <constraint firstItem="2Ku-h7-IAr" firstAttribute="centerY" secondItem="1pF-1d-Fdi" secondAttribute="centerY" id="u87-2x-0vF"/>
                                                 <constraint firstItem="KJB-1y-9Pz" firstAttribute="centerY" secondItem="sEX-lA-2jZ" secondAttribute="centerY" id="vqp-lK-Irj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="IDnumber" destination="2Ku-h7-IAr" id="ay7-7c-ZZp"/>
                                             <outlet property="NameOrID" destination="1pF-1d-Fdi" id="8cu-4l-t66"/>
                                             <outlet property="foundButton" destination="KJB-1y-9Pz" id="8F0-E5-Atb"/>
                                         </connections>
@@ -939,33 +954,48 @@
                                     <constraint firstAttribute="height" constant="300" id="Q4y-6b-huo"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="50" id="dAu-cZ-e0f" customClass="CheckItemsTableViewCell" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="ZZP-57-DHm" customClass="CheckItemsTableViewCell" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dAu-cZ-e0f" id="I5G-q5-tsh">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZZP-57-DHm" id="36F-RL-K5R">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDV-6p-Dn0" customClass="CheckButton" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="8" width="30" height="34"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtz-pE-d3y" customClass="CheckButton" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="15.5" width="30" height="34"/>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ItemName Or ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lw-Wt-IZt">
-                                                    <rect key="frame" x="80" y="13" width="139" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2B-8y-Yd5" userLabel="Name">
+                                                    <rect key="frame" x="80" y="20.5" width="200" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="Y9b-PN-5eB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDnumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYO-f3-ycH">
+                                                    <rect key="frame" x="460" y="20.5" width="125" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="sSB-ZG-Fto"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="7lw-Wt-IZt" firstAttribute="leading" secondItem="eDV-6p-Dn0" secondAttribute="trailing" constant="35" id="2FH-GM-4V3"/>
-                                                <constraint firstItem="eDV-6p-Dn0" firstAttribute="centerY" secondItem="I5G-q5-tsh" secondAttribute="centerY" id="6Rk-ih-T4S"/>
-                                                <constraint firstItem="7lw-Wt-IZt" firstAttribute="centerY" secondItem="I5G-q5-tsh" secondAttribute="centerY" id="QRv-CL-SSj"/>
-                                                <constraint firstItem="eDV-6p-Dn0" firstAttribute="leading" secondItem="I5G-q5-tsh" secondAttribute="leadingMargin" id="pyx-9S-Vcc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="AYO-f3-ycH" secondAttribute="trailing" id="0kC-at-j2p"/>
+                                                <constraint firstItem="B2B-8y-Yd5" firstAttribute="centerY" secondItem="36F-RL-K5R" secondAttribute="centerY" id="4aC-96-Zf0"/>
+                                                <constraint firstItem="B2B-8y-Yd5" firstAttribute="leading" secondItem="qtz-pE-d3y" secondAttribute="trailing" constant="35" id="Hme-q8-onm"/>
+                                                <constraint firstItem="qtz-pE-d3y" firstAttribute="centerY" secondItem="36F-RL-K5R" secondAttribute="centerY" id="Nd2-Uo-qxE"/>
+                                                <constraint firstItem="qtz-pE-d3y" firstAttribute="leading" secondItem="36F-RL-K5R" secondAttribute="leadingMargin" id="Ypo-Vl-fMy"/>
+                                                <constraint firstItem="AYO-f3-ycH" firstAttribute="centerY" secondItem="B2B-8y-Yd5" secondAttribute="centerY" id="beN-OG-ECa"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="NameOrID" destination="7lw-Wt-IZt" id="6Je-Tq-f2Y"/>
-                                            <outlet property="foundButton" destination="eDV-6p-Dn0" id="yl2-2u-dCd"/>
+                                            <outlet property="IDnumber" destination="AYO-f3-ycH" id="2C9-wk-FKC"/>
+                                            <outlet property="NameOrID" destination="B2B-8y-Yd5" id="Oej-eJ-5ym"/>
+                                            <outlet property="foundButton" destination="qtz-pE-d3y" id="GXz-Qo-Qsk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

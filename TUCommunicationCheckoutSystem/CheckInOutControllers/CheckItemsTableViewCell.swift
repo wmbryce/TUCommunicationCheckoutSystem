@@ -14,7 +14,7 @@ class CheckItemsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var foundButton: CheckButton!
     @IBOutlet weak var NameOrID: UILabel!
-    
+    @IBOutlet weak var IDnumber: UILabel!
     
     
     override func awakeFromNib() {
@@ -32,9 +32,11 @@ class CheckItemsTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    func setLabels (found: Bool, Name: String){
+    func setLabels (found: Bool, Name: String, Number:String){
+        print(found,Name,Number)
         foundButton.isChecked = found
         NameOrID.text = Name
+        IDnumber.text = Number
     }
     
 

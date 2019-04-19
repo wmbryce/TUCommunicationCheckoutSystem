@@ -87,9 +87,13 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? CheckItemsTableViewCell else { fatalError("The dequeued cell is not an instance of InventoryTableViewCell")
         }
         print("error isn't in the first part of dequeue cell")
-        let currentItem = kitOfAction?.items[indexPath.row] ?? "error"
+        let currentItemName = kitOfAction?.items[indexPath.row][0] ?? "error"
+        let currentItemID = kitOfAction?.items[indexPath.row][1] ?? "error"
         let present = false
-        cell.setLabels(found: present, Name: currentItem)
+        cell.setLabels(found: present, Name: currentItemName, Number: currentItemID)
+        //if present == false{
+        //    cell.
+        //}
         
         //os_log("setting the labels works", log: OSLog.default, type: .debug)
         return cell
