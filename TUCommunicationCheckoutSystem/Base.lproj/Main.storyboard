@@ -880,6 +880,7 @@
                         <outlet property="DescriptionLabel" destination="9of-hk-XqT" id="fWq-pi-o0x"/>
                         <outlet property="KitTitle" destination="SzU-If-DI8" id="bkc-Bw-Zom"/>
                         <outlet property="nextButton" destination="gtP-V5-xIz" id="gPD-9t-Qx9"/>
+                        <outlet property="statusLabel" destination="Q0j-vE-bRo" id="Ls2-YD-v4i"/>
                         <outlet property="tableOfItems" destination="xEe-Hk-agz" id="ueI-Jd-Qet"/>
                     </connections>
                 </viewController>

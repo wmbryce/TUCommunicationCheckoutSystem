@@ -18,6 +18,8 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     
     @IBOutlet weak var nextButton: UIBarButtonItem!
     
+    @IBOutlet weak var statusLabel: UILabel!
+    
     @IBAction func Cancel(_ sender: Any) {
     dismiss(animated: true, completion: nil)
     }
@@ -28,11 +30,6 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     var kits = [Kit]()
     
     var kitOfAction: Kit?
-        //didSet{
-        // refreshItemCheck()
-        //}
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +38,7 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         tableOfItems.allowsSelection = false;
         if kitOfAction != nil {
             refreshItemCheck()
+            setStatus()
         }
         ref.observe(.value, with: { snapshot in
             var newKits: [Kit] = []
@@ -135,9 +133,12 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
                 fatalError()
         }
         if available {
-            
+            statusLabel.backgroundColor = UIColor(red: 0/255, green: 200/255, blue: 50/255, alpha: 1.0)
+            statusLabel.text = "Available for Checkout"
+        } else{
+            statusLabel.backgroundColor = UIColor(red: 200/255, green: 0/255, blue: 50/255, alpha: 1.0)
+            statusLabel.text = "Unavaiable of Checkout"
         }
-
     }
 
     /*
