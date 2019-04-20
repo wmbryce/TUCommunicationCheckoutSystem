@@ -11,16 +11,24 @@ import Firebase
 
 class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let kitsRef = Database.database().reference(withPath: "kits")
-    let usersRef = Database.database().reference(withPath: "users")
+    let kitsRef = Database.database().reference(withPath:"kits")
+    let usersRef = Database.database().reference(withPath:"users")
     var actionKit:Kit? = nil
     var itemsFound = [Bool]()
     var fees = 0
+    
     @IBOutlet weak var EquipmentList: UITableView!
-    
     @IBOutlet weak var CheckoutDateLabel: UILabel!
-    
     @IBOutlet weak var equipmentLabel: UILabel!
+    
+    @IBOutlet weak var AmountLabel: UILabel!
+    @IBOutlet weak var CheckInLabel: UILabel!
+    @IBOutlet weak var CheckOutLabel: UILabel!
+    @IBOutlet weak var DueDateLabel: UILabel!
+    
+    @IBOutlet weak var UserEmail: UITextField!
+    @IBOutlet weak var UserIdNumber: UITextField!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +52,21 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         //if present == false{
         //    cell.
         //}
-        print(present,currentItemName,currentItemID)
+        //print(present,currentItemName,currentItemID)
         cell.setLabels(found: present, Name: currentItemName, Number: currentItemID)
         return cell
+    }
+    
+    func setFees_and_date () {
+        if (actionKit?.available)! {
+            CheckInLabel.text = "Check in date: - "
+            let checkOutdate = Date()
+            CheckOutLabel.text = "Check out date: "
+            DueDateLabel.text = "Due date: "
+        } else {
+            
+        }
+        
     }
     
 

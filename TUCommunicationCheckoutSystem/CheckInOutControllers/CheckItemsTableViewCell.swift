@@ -33,7 +33,7 @@ class CheckItemsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setLabels (found: Bool, Name: String, Number:String){
-        print(found,Name,Number)
+        //print(found,Name,Number)
         foundButton.isChecked = found
         NameOrID.text = Name
         IDnumber.text = Number

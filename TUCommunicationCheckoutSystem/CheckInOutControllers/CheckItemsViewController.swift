@@ -138,10 +138,10 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         }
         if available {
             statusLabel.backgroundColor = UIColor(red: 0/255, green: 200/255, blue: 50/255, alpha: 1.0)
-            statusLabel.text = "Available for Checkout"
+            statusLabel.text = "Available for Check out"
         } else{
             statusLabel.backgroundColor = UIColor(red: 200/255, green: 0/255, blue: 50/255, alpha: 1.0)
-            statusLabel.text = "Unavaiable of Checkout"
+            statusLabel.text = "Available for Check in"
         }
     }
 

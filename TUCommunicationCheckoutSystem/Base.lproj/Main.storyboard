@@ -92,8 +92,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaZ-vZ-90P">
-                                <rect key="frame" x="278" y="174.5" width="556" height="125"/>
+                                <rect key="frame" x="306" y="212" width="500" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="nOn-7c-lSt"/>
+                                    <constraint firstAttribute="width" constant="500" id="t8T-Nc-k3f"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Check-In/Check-Out">
@@ -104,8 +108,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mby-RZ-6hZ">
-                                <rect key="frame" x="278" y="534.5" width="556" height="125"/>
+                                <rect key="frame" x="306" y="522" width="500" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="VMc-mZ-QGQ"/>
+                                    <constraint firstAttribute="height" constant="100" id="VkB-1e-qap"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Manage Users">
@@ -116,8 +124,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TO1-9x-cuk">
-                                <rect key="frame" x="278" y="354.5" width="556" height="125"/>
+                                <rect key="frame" x="306" y="367" width="500" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="3ag-UC-39q"/>
+                                    <constraint firstAttribute="height" constant="100" id="CKa-sS-NiI"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Manage Inventory">
@@ -130,16 +142,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mby-RZ-6hZ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="1e1-HD-rP0"/>
                             <constraint firstItem="TO1-9x-cuk" firstAttribute="centerX" secondItem="aaZ-vZ-90P" secondAttribute="centerX" id="2Vl-S6-rxM"/>
-                            <constraint firstItem="TO1-9x-cuk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="Dqm-RI-YJD"/>
-                            <constraint firstItem="mby-RZ-6hZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="OIv-2q-1w0"/>
                             <constraint firstItem="aaZ-vZ-90P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PzB-bg-HtC"/>
-                            <constraint firstItem="aaZ-vZ-90P" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="fzf-zn-wmx"/>
                             <constraint firstItem="TO1-9x-cuk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gVZ-ht-gOR"/>
                             <constraint firstItem="TO1-9x-cuk" firstAttribute="top" secondItem="aaZ-vZ-90P" secondAttribute="bottom" constant="55" id="mZZ-6H-ZAX"/>
-                            <constraint firstItem="aaZ-vZ-90P" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="ohY-9C-Lge"/>
-                            <constraint firstItem="TO1-9x-cuk" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="rvX-7W-bxa"/>
                             <constraint firstItem="mby-RZ-6hZ" firstAttribute="top" secondItem="TO1-9x-cuk" secondAttribute="bottom" constant="55" id="uC2-Pv-bIi"/>
                             <constraint firstItem="mby-RZ-6hZ" firstAttribute="centerX" secondItem="TO1-9x-cuk" secondAttribute="centerX" id="xFO-Z8-XNB"/>
                         </constraints>
@@ -764,7 +770,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DE7-8y-uZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2067" y="-2555"/>
+            <point key="canvasLocation" x="2067" y="-1547"/>
         </scene>
         <!--Check Items-->
         <scene sceneID="POR-ja-chw">
@@ -1115,8 +1121,14 @@
                         <viewLayoutGuide key="safeArea" id="zjL-RT-zaC"/>
                     </view>
                     <connections>
+                        <outlet property="AmountLabel" destination="JJT-F7-8t1" id="Bkm-Tm-s7O"/>
+                        <outlet property="CheckInLabel" destination="UDA-Bl-Lhj" id="GBd-9Y-pg3"/>
+                        <outlet property="CheckOutLabel" destination="FIy-K9-DMK" id="VGD-ud-7bB"/>
                         <outlet property="CheckoutDateLabel" destination="FIy-K9-DMK" id="2oe-j1-eNy"/>
+                        <outlet property="DueDateLabel" destination="ECb-vN-Yor" id="aHf-bi-R1J"/>
                         <outlet property="EquipmentList" destination="g45-1d-Tcg" id="apS-Ln-5Lt"/>
+                        <outlet property="UserEmail" destination="GoY-OP-N1f" id="vut-KW-u4p"/>
+                        <outlet property="UserIdNumber" destination="Abz-qc-7bv" id="sSZ-m5-p8y"/>
                         <outlet property="equipmentLabel" destination="HKM-bw-jfm" id="EBi-ix-9Go"/>
                     </connections>
                 </viewController>
@@ -1202,7 +1214,6 @@
                             <constraint firstItem="cAw-3V-2WD" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="T6V-f4-IYL"/>
                             <constraint firstItem="cAw-3V-2WD" firstAttribute="centerY" secondItem="5jW-0s-cGr" secondAttribute="centerY" constant="-127" id="Vp1-3y-C6l"/>
                             <constraint firstItem="cAw-3V-2WD" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="cp8-Hx-w5d"/>
-                            <constraint firstItem="ZSK-rL-OSd" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="gBr-bw-FgL"/>
                             <constraint firstItem="ZSK-rL-OSd" firstAttribute="top" secondItem="cAw-3V-2WD" secondAttribute="bottom" constant="125" id="mvG-qC-fcy"/>
                             <constraint firstItem="ZSK-rL-OSd" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="neo-TQ-Y4Y"/>
                         </constraints>
