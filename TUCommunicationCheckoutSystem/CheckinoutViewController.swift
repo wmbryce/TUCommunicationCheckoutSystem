@@ -47,13 +47,6 @@ class CheckinoutViewController: UIViewController {
     }
     
     func read(){
-        
-        //    let inventory = Ugi.singleton().startInventory(self as! UgiInventoryDelegate, with:UgiRfidConfiguration.config(withInventoryType: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE))
-        
-        //     Ugi.singleton().activeInventory?.stop {
-        //         // Code to run when inventory is stopped
-        //     }
-        
         //  Ugi.singleton().closeConnection()
         //    Ugi.singleton().activeInventory?.tags.forEach { (tag) in
         //        inven[i] = getkitnum(help: tag)
