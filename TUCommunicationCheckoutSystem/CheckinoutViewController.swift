@@ -10,25 +10,13 @@ import UIKit
 
 class CheckinoutViewController: UIViewController {
 
-    var inven: Array<String> = []
+    var inven: Array<String> = ["a"]
     var i: Int = 0
-    
+    var pause: Int = 0
+    var whatkit: Int = 0 //This tells me what kit I have. Although this wil probably need to be a global variable
     override func viewDidLoad() {
         super.viewDidLoad()
         Ugi.singleton().openConnection()
-        
-   //    let inventory = Ugi.singleton().startInventory(self as! UgiInventoryDelegate, with:UgiRfidConfiguration.config(withInventoryType: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE))
-
-        Ugi.singleton().activeInventory?.stop {
-            // Code to run when inventory is stopped
-        }
-        
-        Ugi.singleton().closeConnection()
-        Ugi.singleton().activeInventory?.tags.forEach { (tag) in
-            inven[i] = getkitnum(help: tag)
-        }
-
-        // Do any additional setup after loading the view.
     }
     
     func getkitnum(help:UgiTag) -> String{
@@ -46,7 +34,48 @@ class CheckinoutViewController: UIViewController {
         return helped
     }
     
-
+    func testkit(tags: [String]) -> Bool{
+        return true
+    }
+    
+    func checkinven(item: String){
+        
+    }
+    
+    func matchkit(tags: [String]){
+        
+    }
+    
+    func read(){
+        
+        //    let inventory = Ugi.singleton().startInventory(self as! UgiInventoryDelegate, with:UgiRfidConfiguration.config(withInventoryType: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE))
+        
+        //     Ugi.singleton().activeInventory?.stop {
+        //         // Code to run when inventory is stopped
+        //     }
+        
+        //  Ugi.singleton().closeConnection()
+        //    Ugi.singleton().activeInventory?.tags.forEach { (tag) in
+        //        inven[i] = getkitnum(help: tag)
+        //        i+=1
+        //    }
+        if(Ugi.singleton().activeInventory?.tags.count ?? 0>0){
+            inven.append(getkitnum(help: (Ugi.singleton().activeInventory?.tags[0])!))
+            print(inven)
+        }
+        if (inven.count == 6){
+            if(testkit(tags: inven)){
+                //Here I will move to another screen that gives the proper kit.
+            }
+            else{
+                //Here we will move onto an error screen about not having the right tags for a kit.
+            }
+        }
+        else{
+            //Here move to error screen about not having enough tags (have a function to match to theoretical kit with missing parts.)
+        }
+        // Do any additional setup after loading the view.
+    }
     /*
     // MARK: - Navigation
 
