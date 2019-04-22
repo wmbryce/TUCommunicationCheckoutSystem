@@ -37,6 +37,7 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         equipmentLabel.text = "Equipment: Kit " + (actionKit?.kitNumber ?? "0")
         // Do any additional setup after loading the view.
     }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let numberOfItems = actionKit?.items.count ?? 0

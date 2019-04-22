@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 
+
 protocol checkKitSelectionDelegate:class {
     func checkKitItems(_ checkKit: Kit)
 }
@@ -19,6 +20,9 @@ class CheckinoutViewController: UIViewController {
     var kits = [Kit]()
     var kitToCheck:Kit? = nil
     
+    @IBAction func TestScan(_ sender: Any) {
+        readUGrokit()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +42,8 @@ class CheckinoutViewController: UIViewController {
             print("kits successfully initalized")
             
         })
-        ConnectUGrokit()
         
+        print("made it in")
     }
     
     @IBAction func unwindToCheckOutViewController(_ sender: UIStoryboardSegue){
@@ -118,22 +122,17 @@ class CheckinoutViewController: UIViewController {
     }
     
     // U Grokit Functionality
-    func ConnectUGrokit(){
-        var inven: Array<String> = []
-        let i: Int = 0
-        Ugi.singleton().openConnection()
-        
+    func readUGrokit(){
+        let inventory: UgiInventory? = Ugi.singleton().activeInventory
+        if inventory != nil{
+            print(getkitnum(help:(inventory!.tags[0])))
+        }
         //    let inventory = Ugi.singleton().startInventory(self as! UgiInventoryDelegate, with:UgiRfidConfiguration.config(withInventoryType: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE))
-        
-        Ugi.singleton().activeInventory?.stop {
+        print("Inventory was nil")
+        //if (Ugi.singleton().activeInventory?.tags.count ?? 0 > 0 ){
             // Code to run when inventory is stopped
-        }
-        
-        Ugi.singleton().closeConnection()
-        Ugi.singleton().activeInventory?.tags.forEach { (tag) in
-            inven[i] = getkitnum(help: tag)
-        }
-        
+            
+        //}
         // Do any additional setup after loading the view.
     }
     
