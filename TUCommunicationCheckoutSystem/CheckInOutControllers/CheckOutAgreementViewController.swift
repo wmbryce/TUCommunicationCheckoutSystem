@@ -59,7 +59,7 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
     
     func setFees_and_date () {
         if (actionKit?.available)! {
-            CheckInLabel.text = "Check in date: - "
+            CheckInLabel.text = "Check in date: --/--/-- "
             let checkOutdate = Date()
             CheckOutLabel.text = "Check out date: "
             DueDateLabel.text = "Due date: "

@@ -19,9 +19,7 @@ class CheckinoutViewController: UIViewController {
     var kits = [Kit]()
     var kitToCheck:Kit? = nil
     
-    @IBAction func TestButton(_ sender: Any) {
-        
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +38,7 @@ class CheckinoutViewController: UIViewController {
             print("kits successfully initalized")
             
         })
-        //ConnectUGrokit()
+        ConnectUGrokit()
         
     }
     
