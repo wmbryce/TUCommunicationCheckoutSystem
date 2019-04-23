@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.59" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.45"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -796,7 +796,7 @@
                                     <constraint firstAttribute="height" constant="393" id="6DC-3u-9jM"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="fBB-4c-ltE" customClass="CheckItemsTableViewCell" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="fBB-4c-ltE" customClass="CheckItemsTableViewCell" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="440" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fBB-4c-ltE" id="sEX-lA-2jZ">
@@ -816,7 +816,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDnumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ku-h7-IAr">
-                                                    <rect key="frame" x="300" y="20.5" width="125" height="24"/>
+                                                    <rect key="frame" x="154" y="20.5" width="125" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="125" id="NXa-vT-8xm"/>
                                                     </constraints>
@@ -960,7 +960,7 @@
                                     <constraint firstAttribute="height" constant="300" id="Q4y-6b-huo"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="ZZP-57-DHm" customClass="CheckItemsTableViewCell" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="ZZP-57-DHm" customClass="CheckItemsTableViewCell" customModule="TUCommunicationCheckoutSystem" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZZP-57-DHm" id="36F-RL-K5R">
@@ -980,7 +980,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDnumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYO-f3-ycH">
-                                                    <rect key="frame" x="460" y="20.5" width="125" height="24"/>
+                                                    <rect key="frame" x="182" y="20.5" width="125" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="125" id="sSB-ZG-Fto"/>
                                                     </constraints>
@@ -1205,32 +1205,51 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFK-2F-1HE">
-                                <rect key="frame" x="388" y="70" width="400" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFK-2F-1HE">
+                                <rect key="frame" x="356" y="43" width="400" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="Lfk-g9-g4Y"/>
                                     <constraint firstAttribute="height" constant="100" id="j1n-nE-CXz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Test Scan">
+                                <state key="normal" title="Start Scan">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="TestScan:" destination="smL-d0-tmM" eventType="touchUpInside" id="bxe-eW-WqT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDz-MF-fJE">
+                                <rect key="frame" x="356" y="173" width="400" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="f25-6j-WRG"/>
+                                    <constraint firstAttribute="height" constant="100" id="fbH-vY-lP8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="End Scan">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="EndScan:" destination="smL-d0-tmM" eventType="touchUpInside" id="1B0-Zc-a9m"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Gjl-av-Gp2" firstAttribute="top" secondItem="ZSK-rL-OSd" secondAttribute="bottom" constant="50" id="MIb-ax-j9O"/>
+                            <constraint firstItem="KDz-MF-fJE" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="MRV-Zo-cik"/>
                             <constraint firstItem="Gjl-av-Gp2" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="Q7d-qe-sXe"/>
+                            <constraint firstItem="wFK-2F-1HE" firstAttribute="top" secondItem="x9K-W1-fpS" secondAttribute="top" constant="23" id="QSc-9B-qv4"/>
                             <constraint firstItem="Gjl-av-Gp2" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="Qpb-d7-Dox"/>
                             <constraint firstItem="cAw-3V-2WD" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="T6V-f4-IYL"/>
                             <constraint firstItem="cAw-3V-2WD" firstAttribute="centerY" secondItem="5jW-0s-cGr" secondAttribute="centerY" constant="-127" id="Vp1-3y-C6l"/>
                             <constraint firstItem="cAw-3V-2WD" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="cp8-Hx-w5d"/>
                             <constraint firstItem="ZSK-rL-OSd" firstAttribute="top" secondItem="cAw-3V-2WD" secondAttribute="bottom" constant="125" id="mvG-qC-fcy"/>
                             <constraint firstItem="ZSK-rL-OSd" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="neo-TQ-Y4Y"/>
+                            <constraint firstItem="KDz-MF-fJE" firstAttribute="top" secondItem="wFK-2F-1HE" secondAttribute="bottom" constant="30" id="sG5-Rs-kab"/>
+                            <constraint firstItem="wFK-2F-1HE" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="yXo-PL-fKJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="x9K-W1-fpS"/>
                     </view>

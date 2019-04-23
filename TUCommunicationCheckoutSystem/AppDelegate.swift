@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     override init() {
         Ugi.createSingleton()
-        Ugi.singleton().openConnection()
+        //Ugi.singleton().openConnection()
     }
     
  /*   func applicationWillTerminate(application: UIApplication) {
