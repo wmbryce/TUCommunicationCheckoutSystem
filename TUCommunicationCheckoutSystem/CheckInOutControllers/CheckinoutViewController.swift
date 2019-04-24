@@ -3,7 +3,7 @@
 //  TUCommunicationCheckoutSystem
 //
 //  Copyright © 2019 CheckoutGurus. All rights reserved.
-// 
+//
 
 import UIKit
 import Firebase
@@ -147,6 +147,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
         }
         print("preparing for dat seg doe")
         checkItemsView.kitOfAction = kitToCheck
+        checkItemsView.inventory = Ugi.singleton().activeInventory
     }
 
    
@@ -222,6 +223,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
         print("The Tag is" , tagToString)
         if(firstblood==0){
             Ugi.singleton().activeInventory?.pause()
+            Ugi.singleton().activeInventory?.stop()
             clearerstring()
             firstblood=1
         }
