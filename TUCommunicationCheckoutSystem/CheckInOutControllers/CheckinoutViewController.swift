@@ -27,6 +27,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
     weak var passingDelegate:checkKitSelectionDelegate?
     var kits = [Kit]()
     var kitToCheck:Kit? = nil
+    var kitchecknum: String = ""
     var timer: Timer = Timer()
     var inventoryType: UgiInventoryTypes = UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE
     var specialFunction: Int = SPECIAL_FUNCTION_NONE
@@ -34,10 +35,12 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
     var displayedTags: [UgiTag] = []
     var tagToCellMap: [UgiTag : UgiTagCell] = [:]
     var tagToDetailString: [UgiTag : NSMutableString] = [:]
+    var tagToString: [String] = []
     
     
     @IBAction func EndScan(_ sender: Any) {
         Ugi.singleton().closeConnection()
+        clearerstring()
     }
     func end_scan(){
         Ugi.singleton().closeConnection()
@@ -201,12 +204,20 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
                            withDetailedPerReadData detailedPerReadData: [UgiDetailedPerReadData]?) {
         self.displayedTags.append(tag)
         self.tagToDetailString[tag] = NSMutableString()
-        //self.tagToDetailString[tag]?.deleteCharacters(in: NSMakeRange(0, 19))
-        print("The Tag is " , tagToDetailString)
+        self.tagToString.append(tag.epc.toString())
+        print("The Tag is" , tagToString)
     }
     
     func clearerstring(){
-        
+        var i = self.tagToString.count - 1
+        while(i>=0){
+            self.tagToString[i] = String(self.tagToString[i].dropFirst(19))
+            print("Cleaned Tags are" , self.tagToString[i])
+            i=i-1
+        }
+       // self.kitToCheck = Kit(kitNumber: String(self.tagToString[0].dropLast(2)), items: [tagToString], checkIn: "help", checkOut: "help", lastUsers: ["help"], available: true)
+        kitchecknum = String(self.tagToString[0].dropLast(2))
+        print("Kit to Check" , kitchecknum)
     }
     
     func getkitnum(help:UgiTag) -> String{
