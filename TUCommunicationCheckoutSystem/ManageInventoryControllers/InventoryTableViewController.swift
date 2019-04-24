@@ -80,12 +80,12 @@ class InventoryTableViewController: UITableViewController {
                 let newkitNumber = textField.text else { return }
             if self.checkForValidKitNumber(testKit:newkitNumber){
                 //Create new kit
-                let Item1 = ["Camera", newkitNumber + "0001"]
-                let Item2 = ["Microphone", newkitNumber + "0002"]
-                let Item3 = ["Headphones", newkitNumber + "0003"]
-                let Item4 = ["Charge Cord", newkitNumber + "0004"]
-                let Item5 = ["Computer Cord", newkitNumber + "0005"]
-                let Item6 = ["Microphone Cord", newkitNumber + "0006"]
+                let Item1 = ["Camera", newkitNumber + "01"]
+                let Item2 = ["Microphone", newkitNumber + "02"]
+                let Item3 = ["Headphones", newkitNumber + "03"]
+                let Item4 = ["Charge Cord", newkitNumber + "04"]
+                let Item5 = ["Computer Cord", newkitNumber + "05"]
+                let Item6 = ["Microphone Cord", newkitNumber + "06"]
                 let Items = [Item1,Item2,Item3,Item4,Item5,Item6]
                 let Checkin_out_Date = self.formatedDate(dateInfo:Date() as NSDate)
                 
