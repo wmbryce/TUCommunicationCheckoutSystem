@@ -218,21 +218,12 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
        // self.kitToCheck = Kit(kitNumber: String(self.tagToString[0].dropLast(2)), items: [tagToString], checkIn: "help", checkOut: "help", lastUsers: ["help"], available: true)
         kitchecknum = String(self.tagToString[0].dropLast(2))
         print("Kit to Check" , kitchecknum)
-    }
-    
-    func getkitnum(help:UgiTag) -> String{
-        // var helped = String(help)
-        var helped = help.hfName
-        print(helped)
-        var i = helped.count
-        i=i-1
-        while(i>6){
-            helped.removeFirst()
-            i=i-1
+        i = self.kits.count-1
+        while(i>=0){
+            if(kitchecknum == self.kits[i].kitNumber){
+                self.kitToCheck = self.kits[i]
+            }
         }
-        // helped = helped.replacingOccurrences(of: "0", with: "", options: NSString.CompareOptions.literal, range: nil)
-        print(helped)
-        return helped
     }
     
     // Extra Functions
