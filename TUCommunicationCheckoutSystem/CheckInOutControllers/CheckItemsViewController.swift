@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, UgiInventoryDelegate {
     
     @IBOutlet weak var KitTitle: UILabel!
     @IBOutlet weak var DescriptionLabel: UILabel!
@@ -25,9 +25,13 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     }
     
     var itemsFound = [Bool]()
-    
+    var tagToString: [String] = []
     let ref = Database.database().reference(withPath: "kits")
     var kits = [Kit]()
+    var inventoryType: UgiInventoryTypes = UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE
+    var specialFunction: Int = SPECIAL_FUNCTION_NONE
+    var reset = 0
+    var inventory: UgiInventory?
     
     var kitOfAction: Kit?
     
@@ -59,6 +63,43 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func StartScan(_ sender: Any) {
+        self.tagToString.removeAll()
+        var config: UgiRfidConfiguration
+        if self.specialFunction == SPECIAL_FUNCTION_READ_RF_MICRON_MAGNUS_SENSOR_CODE {
+            config = UgiRfMicron.config(
+                toReadMagnusSensorValue: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE,
+                withTagModel: SPECIAL_FUNCTION_RF_MICRON_MAGNUS_TYPE,
+                withRssiLimitType: SPECIAL_FUNCTION_RF_MICRON_MAGNUS_LIMIT_TYPE,
+                withLimitRssiThreshold: SPECIAL_FUNCTION_RF_MICRON_MAGNUS_LIMIT_THRESHOLD)
+        }
+        else if self.specialFunction == SPECIAL_FUNCTION_READ_RF_MICRON_MAGNUS_TEMPERATURE {
+            config = UgiRfMicron.config(toReadMagnusTemperature: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE)
+        }
+        else {
+            config = UgiRfidConfiguration.config(withInventoryType: self.inventoryType)
+            if self.specialFunction == SPECIAL_FUNCTION_READ_USER_MEMORY {
+                config.minUserBytes = 4
+                config.maxUserBytes = 128
+            }
+            else if self.specialFunction == SPECIAL_FUNCTION_READ_TID_MEMORY {
+                config.minTidBytes = 4
+                config.maxTidBytes = 128
+            }
+        }
+        if(reset == 0){
+            Ugi.singleton().startInventory(self, with: config)
+            reset = 1
+        } else{
+            Ugi.singleton().activeInventory?.resumeInventory()
+        }
+        //inventory?.resumeInventory()
+    }
+    
+    @IBAction func EndScan(_ sender: Any) {
+        inventory?.pause()
+    }
+    
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
         super.prepare(for: segue, sender: sender)
         
@@ -86,7 +127,7 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? CheckItemsTableViewCell else { fatalError("The dequeued cell is not an instance of InventoryTableViewCell")
         }
-        print("error isn't in the first part of dequeue cell")
+      //  print("error isn't in the first part of dequeue cell")
         let currentItemName = kitOfAction?.items[indexPath.row][0] ?? "error"
         let currentItemID = kitOfAction?.items[indexPath.row][1] ?? "error"
         let present = false
@@ -144,6 +185,26 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
             statusLabel.text = "Available for Check in"
         }
     }
+    
+    func inventoryTagFound(_ tag: UgiTag,
+                           withDetailedPerReadData detailedPerReadData: [UgiDetailedPerReadData]?) {
+      //  self.displayedTags.append(tag)
+      //  self.tagToDetailString[tag] = NSMutableString()
+        self.tagToString.append(tag.epc.toString())
+        clearerstring()
+        //   self.inventory?.pause()
+        print("The Tag is" , tagToString)
+        print("inventoryTagFound")
+    }
+    
+    func clearerstring(){
+        let i = self.tagToString.count - 1
+      //  while(i>=0){
+            self.tagToString[i] = String(self.tagToString[i].dropFirst(23))
+            print("Cleaned Tag is Item" , self.tagToString[i])
+      //      i=i-1
+      //  }
+    }
 
     /*
     // MARK: - Navigation
@@ -162,4 +223,6 @@ extension CheckItemsViewController: checkKitSelectionDelegate{
     func checkKitItems(_ checkKit: Kit) {
         kitOfAction = checkKit
     }
+    
+    
 }
