@@ -26,27 +26,34 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
     let ref = Database.database().reference(withPath: "kits")
     weak var passingDelegate:checkKitSelectionDelegate?
     var kits = [Kit]()
-    var kitToCheck:Kit? = nil
+    var kitToCheck:Kit?{
+        didSet{
+            self.performSegue(withIdentifier: "TransitToCheckItems", sender: self)
+        }
+    }
     var kitchecknum: String = ""
     var timer: Timer = Timer()
     var inventoryType: UgiInventoryTypes = UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE
     var specialFunction: Int = SPECIAL_FUNCTION_NONE
-    
+    var inventory: UgiInventory?
     var displayedTags: [UgiTag] = []
     var tagToCellMap: [UgiTag : UgiTagCell] = [:]
     var tagToDetailString: [UgiTag : NSMutableString] = [:]
     var tagToString: [String] = []
+    var firstblood = 0
+    var reset = 0
     
     
     @IBAction func EndScan(_ sender: Any) {
-        Ugi.singleton().closeConnection()
+      //  Ugi.singleton().closeConnection()
         clearerstring()
     }
     func end_scan(){
         Ugi.singleton().closeConnection()
     }
     @IBAction func TestScan(_ sender: Any) {
-        Ugi.singleton().openConnection()
+        firstblood = 0
+        self.tagToString.removeAll()
         self.displayedTags.removeAll()
         self.tagToCellMap.removeAll()
         self.tagToDetailString.removeAll()
@@ -72,8 +79,12 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
                 config.maxTidBytes = 128
             }
         }
-        
-        Ugi.singleton().startInventory(self, with: config)
+        if(reset == 0){
+            Ugi.singleton().startInventory(self, with: config)
+            reset = 1
+        } else{
+            Ugi.singleton().activeInventory?.resumeInventory()
+        }
       //  self.updateCountAndTime()
       /*  if !config.reportSubsequentFinds {
             self.timer = Timer.scheduledTimer(timeInterval: 1,
@@ -87,6 +98,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Ugi.singleton().openConnection()
         
         ref.observe(.value, with: { snapshot in
             var newKits: [Kit] = []
@@ -156,7 +168,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
                 if newkitNumber == i.kitNumber{
                     //self.passingDelegate?.checkKitItems(i)
                     self.kitToCheck = i
-                    self.performSegue(withIdentifier: "TransitToCheckItems", sender: self)
+                    
                     //let checkItems = CheckItemsViewController()
                     //self.present(checkItems,animated: true, completion: nil)
                 }
@@ -184,15 +196,16 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
     
     // U Grokit Functionality
     func readUGrokit(){
-        let inventory: UgiInventory? = Ugi.singleton().activeInventory
-        if inventory != nil{
+      //  self.inventory = Ugi.singleton().activeInventory
+       //if self.inventory != nil{
             //print(getkitnum(help:(inventory!.tags[0])))
             print("Invintory not nill")
-            print(inventory?.tags)
-        }
-        else{
+            //print(self.inventory?.tags)
+       // }
+       //
+      //  else{
         print("Inventory was nil")
-        }
+      //  }
         //if (Ugi.singleton().activeInventory?.tags.count ?? 0 > 0 ){
             // Code to run when inventory is stopped
             
@@ -205,7 +218,13 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
         self.displayedTags.append(tag)
         self.tagToDetailString[tag] = NSMutableString()
         self.tagToString.append(tag.epc.toString())
+     //   self.inventory?.pause()
         print("The Tag is" , tagToString)
+        if(firstblood==0){
+            Ugi.singleton().activeInventory?.pause()
+            clearerstring()
+            firstblood=1
+        }
     }
     
     func clearerstring(){
@@ -223,7 +242,10 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
             if(kitchecknum == self.kits[i].kitNumber){
                 self.kitToCheck = self.kits[i]
             }
+            i=i-1
         }
+        checkForValidKitNumber(testKit: kitchecknum)
+        //print("kitToCheck" , self.kitToCheck?.kitNumber)
     }
     
     // Extra Functions
