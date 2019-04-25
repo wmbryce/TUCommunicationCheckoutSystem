@@ -145,10 +145,10 @@ class InventoryTableViewController: UITableViewController {
     
     func availableString(available:Bool) -> String {
         if available {
-            return "available"
+            return "Available"
         }
         else {
-            return "unavailable"
+            return "Unavailable"
         }
     }
     func formatedDate(dateInfo:NSDate) -> String {

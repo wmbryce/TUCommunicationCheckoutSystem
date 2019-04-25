@@ -13,7 +13,7 @@ protocol checkKitSelectionDelegate:class {
     func checkKitItems(_ checkKit: Kit)
 }
 
-class CheckinoutViewController: UIViewController {
+class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
     
     let ref = Database.database().reference(withPath: "kits")
     weak var passingDelegate:checkKitSelectionDelegate?

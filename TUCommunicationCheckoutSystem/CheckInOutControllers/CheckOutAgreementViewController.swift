@@ -35,6 +35,7 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         EquipmentList.delegate = self
         EquipmentList.dataSource = self
         equipmentLabel.text = "Equipment: Kit " + (actionKit?.kitNumber ?? "0")
+        setFees_and_date ()
         // Do any additional setup after loading the view.
     }
 
@@ -61,13 +62,54 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
     func setFees_and_date () {
         if (actionKit?.available)! {
             CheckInLabel.text = "Check in date: --/--/-- "
-            let checkOutdate = Date()
-            CheckOutLabel.text = "Check out date: "
-            DueDateLabel.text = "Due date: "
+            let checkOutdate = formatedDate(dateInfo: Date())
+            CheckOutLabel.text = "Check out date: " + checkOutdate
+            DueDateLabel.text = "Due date: " + calcdueDate(checkOutDate: checkOutdate)
         } else {
+            CheckInLabel.text = "Check in date: " + formatedDate(dateInfo: Date())
+            let checkOutdate = actionKit?.checkOut
+            CheckOutLabel.text = "Check out date: " + checkOutdate!
+            let dueDate =  calcdueDate(checkOutDate: checkOutdate!)
+            DueDateLabel.text = "Due date: " + dueDate
+            
+            let dueDateNum = convertStringToDate(workString: dueDate)
+            
+            //let diff = dueDateNum.interval(ofComponent: .day, fromDate: Date())
+            //print(diff)
+
             
         }
         
+    }
+    
+    func calcdueDate(checkOutDate:String) -> String {
+        
+        let checkOutDateDate = convertStringToDate(workString: checkOutDate)
+        let tenDays = (432000.0 * 2)
+        let dueDateFinal = checkOutDateDate.addingTimeInterval(tenDays)
+        
+        return formatedDate(dateInfo: dueDateFinal)
+    }
+    
+    func convertStringToDate(workString:String)-> Date {
+        let splitCheckout = workString.split(separator: "/")
+        let CheckOutmonth = Int(splitCheckout[0])
+        let CheckOutday = Int(splitCheckout[1])
+        let CheckOutyear = Int(splitCheckout[2])
+        var Components = DateComponents()
+        Components.day = CheckOutday
+        Components.month = CheckOutmonth
+        Components.year = CheckOutyear
+        
+        let userCalendar = Calendar.current // user calendar
+        let finalDate = userCalendar.date(from: Components)
+        return finalDate ?? Date()
+    }
+    
+    func formatedDate(dateInfo:Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        return formatter.string(from: dateInfo as Date)
     }
     
 
