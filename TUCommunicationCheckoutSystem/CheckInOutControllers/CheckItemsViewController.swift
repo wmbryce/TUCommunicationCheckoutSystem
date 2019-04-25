@@ -32,8 +32,18 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     var specialFunction: Int = SPECIAL_FUNCTION_NONE
     var reset = 0
     var inventory: UgiInventory?
+    var complete = 0
     
-    var kitOfAction: Kit?
+    var kitOfAction: Kit?{
+        didSet{
+            itemsFound = []
+            for i in kitOfAction?.items ?? [] {
+                itemsFound.append(false)
+            }
+            print(itemsFound)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +140,7 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
       //  print("error isn't in the first part of dequeue cell")
         let currentItemName = kitOfAction?.items[indexPath.row][0] ?? "error"
         let currentItemID = kitOfAction?.items[indexPath.row][1] ?? "error"
-        let present = false
+        let present = itemsFound[indexPath.row]
         cell.setLabels(found: present, Name: currentItemName, Number: currentItemID)
         //if present == false{
         //    cell.
@@ -190,18 +200,34 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
                            withDetailedPerReadData detailedPerReadData: [UgiDetailedPerReadData]?) {
       //  self.displayedTags.append(tag)
       //  self.tagToDetailString[tag] = NSMutableString()
+        
         self.tagToString.append(tag.epc.toString())
-        clearerstring()
+        clearerstring(tag: tag.epc.toString())
         //   self.inventory?.pause()
-        print("The Tag is" , tagToString)
-        print("inventoryTagFound")
+        tableOfItems.reloadData()
+        for i in itemsFound{
+            if(i == true){
+                complete = complete + 1
+            }
+        }
+        if(complete == 6){
+            Ugi.singleton().activeInventory?.stop()
+        }else{
+            complete = 0
+        }
     }
     
-    func clearerstring(){
-        let i = self.tagToString.count - 1
+    func clearerstring( tag: String){
+        var tags = tag
+        //let i = self.tagToString.count - 1
       //  while(i>=0){
-            self.tagToString[i] = String(self.tagToString[i].dropFirst(23))
-            print("Cleaned Tag is Item" , self.tagToString[i])
+            //self.tagToString[i] = String(self.tagToString[i].dropFirst(22))
+        tags = String(tag.dropFirst(19))
+            print("Cleaned Tag is Item" , tags)
+            if kitOfAction?.kitNumber == String(tags.dropLast(2)){
+                itemsFound[(Int(String(tags.dropFirst(4))) ?? 1) - 1] = true
+                }
+        
       //      i=i-1
       //  }
     }
