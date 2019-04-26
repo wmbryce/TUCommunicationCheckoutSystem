@@ -13,6 +13,7 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
     
     let kitsRef = Database.database().reference(withPath:"kits")
     let usersRef = Database.database().reference(withPath:"users")
+    var users:[User] = []
     var actionKit:Kit? = nil
     var itemsFound = [Bool]()
     var fees = 0
@@ -30,13 +31,31 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
     @IBOutlet weak var UserIdNumber: UITextField!
 
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         EquipmentList.delegate = self
         EquipmentList.dataSource = self
         equipmentLabel.text = "Equipment: Kit " + (actionKit?.kitNumber ?? "0")
-        setFees_and_date ()
+        
         // Do any additional setup after loading the view.
+        usersRef.observe(.value, with: { snapshot in
+            var newUsers: [User] = []
+            for child in snapshot.children {
+                print(child)
+                if let snapshot2 = child as? DataSnapshot{
+                    print("here")
+                    if let newUser = User(snapshot: snapshot2){
+                        print("appends User")
+                        newUsers.append(newUser)
+                    }
+                }
+            }
+            
+            self.users = newUsers
+            print(self.users.count)
+            
+        })
     }
 
     
@@ -58,8 +77,13 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         cell.setLabels(found: present, Name: currentItemName, Number: currentItemID)
         return cell
     }
+        
+    @IBAction func CheckIDandEmail(_ sender: Any) {
+        print("hello")
+        
+    }
     
-    func setFees_and_date () {
+    func setFees_and_date() {
         if (actionKit?.available)! {
             CheckInLabel.text = "Check in date: --/--/-- "
             let checkOutdate = formatedDate(dateInfo: Date())
@@ -74,8 +98,8 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
             
             let dueDateNum = convertStringToDate(workString: dueDate)
             
-            //let diff = dueDateNum.interval(ofComponent: .day, fromDate: Date())
-            //print(diff)
+            let diff = dueDateNum.timeIntervalSince(Date())
+            print(diff)
 
             
         }
