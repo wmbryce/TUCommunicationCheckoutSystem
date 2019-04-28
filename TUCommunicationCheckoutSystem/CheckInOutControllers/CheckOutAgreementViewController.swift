@@ -15,6 +15,8 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
     let usersRef = Database.database().reference(withPath:"users")
     var users:[User] = []
     var actionKit:Kit? = nil
+    var checkOutDate = ""
+    var checkInDate = ""
     var itemsFound = [Bool]()
     var fees = 0
     
@@ -37,7 +39,7 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         EquipmentList.delegate = self
         EquipmentList.dataSource = self
         equipmentLabel.text = "Equipment: Kit " + (actionKit?.kitNumber ?? "0")
-        
+        setFees_and_date()
         // Do any additional setup after loading the view.
         usersRef.observe(.value, with: { snapshot in
             var newUsers: [User] = []
@@ -80,20 +82,54 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         
     @IBAction func CheckIDandEmail(_ sender: Any) {
         print("hello")
+        let checkEmail = UserEmail.text
+        let checkID = UserIdNumber.text
         
+        for checkUser in users{
+            if checkUser.ID_number == checkID{
+                if checkUser.email == checkEmail{
+                    if (actionKit?.available)!{
+                        kitsRef.child((actionKit?.kitNumber)!).updateChildValues(["checkOut": checkOutDate,"checkIn":checkInDate,"avaliable":false,"LastUsers":([checkID!] + (actionKit?.lastUsers)!)]) {
+                        (error:Error?, ref:DatabaseReference) in
+                        if let error = error {
+                            print("Authorized data could not be saved: \(error).")
+                        } else {
+                            print("Check out data saved successfully!")
+                            
+                        }
+                    
+                        }}                    else {
+                        
+                        kitsRef.child((actionKit?.kitNumber)!).updateChildValues(["checkIn":checkInDate,"avaliable":true]) {
+                            (error:Error?, ref:DatabaseReference) in
+                            if let error = error {
+                                print("Authorized data could not be saved: \(error).")
+                            } else {
+                                print("Check in data saved successfully!")
+                            }
+                        }
+                    }
+                    
+                    performSegue(withIdentifier: "UnwindToCheckOutView", sender: self)
+                }
+            }
+        }
+        ThrowError(reason: "That ID number and email do not exist in our database")
     }
     
     func setFees_and_date() {
         if (actionKit?.available)! {
-            CheckInLabel.text = "Check in date: --/--/-- "
-            let checkOutdate = formatedDate(dateInfo: Date())
-            CheckOutLabel.text = "Check out date: " + checkOutdate
-            DueDateLabel.text = "Due date: " + calcdueDate(checkOutDate: checkOutdate)
+            checkInDate = "--/--/--"
+            CheckInLabel.text = "Check in date: " + checkInDate
+            checkOutDate = formatedDate(dateInfo: Date())
+            CheckOutLabel.text = "Check out date: " + checkOutDate
+            DueDateLabel.text = "Due date: " + calcdueDate(checkOut: checkOutDate)
         } else {
-            CheckInLabel.text = "Check in date: " + formatedDate(dateInfo: Date())
-            let checkOutdate = actionKit?.checkOut
-            CheckOutLabel.text = "Check out date: " + checkOutdate!
-            let dueDate =  calcdueDate(checkOutDate: checkOutdate!)
+            checkInDate = formatedDate(dateInfo: Date())
+            CheckInLabel.text = "Check in date: " + checkInDate
+            checkOutDate = (actionKit?.checkOut)!
+            CheckOutLabel.text = "Check out date: " + checkOutDate
+            let dueDate =  calcdueDate(checkOut: checkOutDate)
             DueDateLabel.text = "Due date: " + dueDate
             
             let dueDateNum = convertStringToDate(workString: dueDate)
@@ -106,9 +142,9 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         
     }
     
-    func calcdueDate(checkOutDate:String) -> String {
+    func calcdueDate(checkOut:String) -> String {
         
-        let checkOutDateDate = convertStringToDate(workString: checkOutDate)
+        let checkOutDateDate = convertStringToDate(workString: checkOut)
         let tenDays = (432000.0 * 2)
         let dueDateFinal = checkOutDateDate.addingTimeInterval(tenDays)
         
@@ -136,7 +172,15 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         return formatter.string(from: dateInfo as Date)
     }
     
-
+    func ThrowError(reason:String) {
+        let alert = UIAlertController(title: "Invaild Information",
+                                      message: reason,
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

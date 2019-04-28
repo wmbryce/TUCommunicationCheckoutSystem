@@ -43,6 +43,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
     var tagToString: [String] = []
     var firstblood = 0
     var reset = 0
+    var silence = UgiGeigerCounterSound(frequency: 1046, durationMsec: 2, clickRate: 3, maxClicksPerSecond: 3, historyDepthMsec: 0)
     
     
     @IBAction func EndScan(_ sender: Any) {
@@ -81,6 +82,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
             }
         }
         if(reset == 0){
+            Ugi.singleton().setGeigerCounterSound(&silence)
             Ugi.singleton().startInventory(self, with: config)
             reset = 1
         } else{
