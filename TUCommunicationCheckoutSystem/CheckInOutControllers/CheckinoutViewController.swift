@@ -8,6 +8,15 @@
 import UIKit
 import Firebase
 
+let SPECIAL_FUNCTION_NONE = 0
+let SPECIAL_FUNCTION_READ_USER_MEMORY = 1
+let SPECIAL_FUNCTION_READ_TID_MEMORY = 2
+let SPECIAL_FUNCTION_READ_RF_MICRON_MAGNUS_SENSOR_CODE = 3
+let SPECIAL_FUNCTION_RF_MICRON_MAGNUS_TYPE = UgiRfMicronMagnusModels.UGI_RF_MICRON_MAGNUS_MODEL_402
+let SPECIAL_FUNCTION_RF_MICRON_MAGNUS_LIMIT_TYPE = UgiRfMicronMagnusRssiLimitTypes.UGI_RF_MICRON_MAGNUS_LIMIT_TYPE_LESS_THAN_OR_EQUAL
+let SPECIAL_FUNCTION_RF_MICRON_MAGNUS_LIMIT_THRESHOLD: Int32 = 31
+let SPECIAL_FUNCTION_READ_RF_MICRON_MAGNUS_TEMPERATURE = 4
+let UGI_IVENTORY_SOUNDS_GEIGER_COUNTER = 1
 
 protocol checkKitSelectionDelegate:class {
     func checkKitItems(_ checkKit: Kit)
@@ -18,19 +27,84 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
     let ref = Database.database().reference(withPath: "kits")
     weak var passingDelegate:checkKitSelectionDelegate?
     var kits = [Kit]()
-    var kitToCheck:Kit? = nil
+    var kitToCheck:Kit?{
+        didSet{
+            self.performSegue(withIdentifier: "TransitToCheckItems", sender: self)
+        }
+    }
+    var kitchecknum: String = ""
+    var timer: Timer = Timer()
+    var inventoryType: UgiInventoryTypes = UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE
+    var specialFunction: Int = SPECIAL_FUNCTION_NONE
+    var inventory: UgiInventory?
+    var displayedTags: [UgiTag] = []
+    var tagToCellMap: [UgiTag : UgiTagCell] = [:]
+    var tagToDetailString: [UgiTag : NSMutableString] = [:]
+    var tagToString: [String] = []
+    var firstblood = 0
+    var reset = 0
     
+    
+    @IBAction func EndScan(_ sender: Any) {
+      //  Ugi.singleton().closeConnection()
+        clearerstring()
+    }
+    func end_scan(){
+        Ugi.singleton().closeConnection()
+    }
     @IBAction func TestScan(_ sender: Any) {
+        firstblood = 0
+        self.tagToString.removeAll()
+        self.displayedTags.removeAll()
+        self.tagToCellMap.removeAll()
+        self.tagToDetailString.removeAll()
+        var config: UgiRfidConfiguration
+        if self.specialFunction == SPECIAL_FUNCTION_READ_RF_MICRON_MAGNUS_SENSOR_CODE {
+            config = UgiRfMicron.config(
+                toReadMagnusSensorValue: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE,
+                withTagModel: SPECIAL_FUNCTION_RF_MICRON_MAGNUS_TYPE,
+                withRssiLimitType: SPECIAL_FUNCTION_RF_MICRON_MAGNUS_LIMIT_TYPE,
+                withLimitRssiThreshold: SPECIAL_FUNCTION_RF_MICRON_MAGNUS_LIMIT_THRESHOLD)
+        }
+        else if self.specialFunction == SPECIAL_FUNCTION_READ_RF_MICRON_MAGNUS_TEMPERATURE {
+            config = UgiRfMicron.config(toReadMagnusTemperature: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE)
+        }
+        else {
+            config = UgiRfidConfiguration.config(withInventoryType: self.inventoryType)
+            if self.specialFunction == SPECIAL_FUNCTION_READ_USER_MEMORY {
+                config.minUserBytes = 4
+                config.maxUserBytes = 128
+            }
+            else if self.specialFunction == SPECIAL_FUNCTION_READ_TID_MEMORY {
+                config.minTidBytes = 4
+                config.maxTidBytes = 128
+            }
+        }
+        if(reset == 0){
+            Ugi.singleton().startInventory(self, with: config)
+            reset = 1
+        } else{
+            Ugi.singleton().activeInventory?.resumeInventory()
+        }
+      //  self.updateCountAndTime()
+      /*  if !config.reportSubsequentFinds {
+            self.timer = Timer.scheduledTimer(timeInterval: 1,
+                                              target: self,
+                                              selector: #selector(ViewController.updateCountAndTime),
+                                              userInfo: nil,
+                                              repeats: true)
+        }*/
         readUGrokit()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Ugi.singleton().openConnection()
         
         ref.observe(.value, with: { snapshot in
             var newKits: [Kit] = []
             for child in snapshot.children {
-                print(child)
+             //   print(child)
                 if let snapshot2 = child as? DataSnapshot{
                     if let newKit = Kit(snapshot: snapshot2){
                         newKits.append(newKit)
@@ -39,7 +113,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
             }
             
             self.kits = newKits
-            print("kits successfully initalized")
+        //    print("kits successfully initalized")
             
         })
         
@@ -74,6 +148,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
         }
         print("preparing for dat seg doe")
         checkItemsView.kitOfAction = kitToCheck
+        checkItemsView.inventory = Ugi.singleton().activeInventory
     }
 
    
@@ -95,7 +170,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
                 if newkitNumber == i.kitNumber{
                     //self.passingDelegate?.checkKitItems(i)
                     self.kitToCheck = i
-                    self.performSegue(withIdentifier: "TransitToCheckItems", sender: self)
+                    
                     //let checkItems = CheckItemsViewController()
                     //self.present(checkItems,animated: true, completion: nil)
                 }
@@ -123,12 +198,16 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
     
     // U Grokit Functionality
     func readUGrokit(){
-        let inventory: UgiInventory? = Ugi.singleton().activeInventory
-        if inventory != nil{
-            print(getkitnum(help:(inventory!.tags[0])))
-        }
-        //    let inventory = Ugi.singleton().startInventory(self as! UgiInventoryDelegate, with:UgiRfidConfiguration.config(withInventoryType: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE))
+      //  self.inventory = Ugi.singleton().activeInventory
+       //if self.inventory != nil{
+            //print(getkitnum(help:(inventory!.tags[0])))
+            print("Invintory not nill")
+            //print(self.inventory?.tags)
+       // }
+       //
+      //  else{
         print("Inventory was nil")
+      //  }
         //if (Ugi.singleton().activeInventory?.tags.count ?? 0 > 0 ){
             // Code to run when inventory is stopped
             
@@ -136,19 +215,40 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
         // Do any additional setup after loading the view.
     }
     
-    func getkitnum(help:UgiTag) -> String{
-        // var helped = String(help)
-        var helped = help.hfName
-        print(helped)
-        var i = helped.count
-        i=i-1
-        while(i>6){
-            helped.removeFirst()
+    func inventoryTagFound(_ tag: UgiTag,
+                           withDetailedPerReadData detailedPerReadData: [UgiDetailedPerReadData]?) {
+        self.displayedTags.append(tag)
+        self.tagToDetailString[tag] = NSMutableString()
+        self.tagToString.append(tag.epc.toString())
+     //   self.inventory?.pause()
+        print("The Tag is" , tagToString)
+        if(firstblood==0){
+            Ugi.singleton().activeInventory?.pause()
+            Ugi.singleton().activeInventory?.stop()
+            clearerstring()
+            firstblood=1
+        }
+    }
+    
+    func clearerstring(){
+        var i = self.tagToString.count - 1
+        while(i>=0){
+            self.tagToString[i] = String(self.tagToString[i].dropFirst(19))
+            print("Cleaned Tags are" , self.tagToString[i])
             i=i-1
         }
-        // helped = helped.replacingOccurrences(of: "0", with: "", options: NSString.CompareOptions.literal, range: nil)
-        print(helped)
-        return helped
+       // self.kitToCheck = Kit(kitNumber: String(self.tagToString[0].dropLast(2)), items: [tagToString], checkIn: "help", checkOut: "help", lastUsers: ["help"], available: true)
+        kitchecknum = String(self.tagToString[0].dropLast(2))
+        print("Kit to Check" , kitchecknum)
+        i = self.kits.count-1
+        while(i>=0){
+            if(kitchecknum == self.kits[i].kitNumber){
+                self.kitToCheck = self.kits[i]
+            }
+            i=i-1
+        }
+        checkForValidKitNumber(testKit: kitchecknum)
+        //print("kitToCheck" , self.kitToCheck?.kitNumber)
     }
     
     // Extra Functions
