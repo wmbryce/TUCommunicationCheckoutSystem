@@ -16,7 +16,8 @@ let SPECIAL_FUNCTION_RF_MICRON_MAGNUS_TYPE = UgiRfMicronMagnusModels.UGI_RF_MICR
 let SPECIAL_FUNCTION_RF_MICRON_MAGNUS_LIMIT_TYPE = UgiRfMicronMagnusRssiLimitTypes.UGI_RF_MICRON_MAGNUS_LIMIT_TYPE_LESS_THAN_OR_EQUAL
 let SPECIAL_FUNCTION_RF_MICRON_MAGNUS_LIMIT_THRESHOLD: Int32 = 31
 let SPECIAL_FUNCTION_READ_RF_MICRON_MAGNUS_TEMPERATURE = 4
-let UGI_IVENTORY_SOUNDS_GEIGER_COUNTER = 1
+let UGI_IVENTORY_SOUNDS_GEIGER_COUNTER = 0
+
 
 protocol checkKitSelectionDelegate:class {
     func checkKitItems(_ checkKit: Kit)
@@ -42,7 +43,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
     var tagToString: [String] = []
     var firstblood = 0
     var reset = 0
-    
+    var silence = UgiGeigerCounterSound(frequency: 1046,durationMsec: 2,clickRate: 3,maxClicksPerSecond: 3,historyDepthMsec: 0)
     
     @IBAction func EndScan(_ sender: Any) {
       //  Ugi.singleton().closeConnection()
@@ -80,6 +81,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
             }
         }
         if(reset == 0){
+            Ugi.singleton().setGeigerCounterSound(&silence)
             Ugi.singleton().startInventory(self, with: config)
             reset = 1
         } else{
@@ -99,7 +101,6 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         Ugi.singleton().openConnection()
-        
         ref.observe(.value, with: { snapshot in
             var newKits: [Kit] = []
             for child in snapshot.children {
