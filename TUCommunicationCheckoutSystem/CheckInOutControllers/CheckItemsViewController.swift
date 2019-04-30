@@ -33,6 +33,7 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     var reset = 0
     var inventory: UgiInventory?
     var complete = 0
+    var scanning = false
     
     var kitOfAction: Kit?{
         didSet{
@@ -76,7 +77,19 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func StartScan(_ sender: Any) {
+    @IBAction func StartScan(_ sender: UIButton) {
+        let color = scanning ? UIColor .white : .black
+        let title = scanning ? "Stop Searching" : "Search for Items"
+        let backgroundColor = scanning ? UIColor .black : .white
+        
+        print(title)
+        sender.layer.borderWidth = 2.0
+        sender.setTitle(title, for:.normal)
+        sender.backgroundColor = backgroundColor
+        sender.setTitleColor(color, for: .normal)
+        
+        sender.setTitle("Search for Items", for:.normal)
+        
         self.tagToString.removeAll()
         var config: UgiRfidConfiguration
         if self.specialFunction == SPECIAL_FUNCTION_READ_RF_MICRON_MAGNUS_SENSOR_CODE {
@@ -100,12 +113,17 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
                 config.maxTidBytes = 128
             }
         }
-        if(reset == 0){
-            Ugi.singleton().startInventory(self, with: config)
-            reset = 1
-        } else{
-            Ugi.singleton().activeInventory?.resumeInventory()
+        if !scanning{
+            if(reset == 0){
+                Ugi.singleton().startInventory(self, with: config)
+                reset = 1
+            } else{
+                Ugi.singleton().activeInventory?.resumeInventory()
+            }
+        } else {
+            inventory?.pause()
         }
+        scanning = !scanning
         //inventory?.resumeInventory()
     }
     

@@ -770,12 +770,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESP-52-Yg5">
-                                <rect key="frame" x="197" y="605" width="216" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESP-52-Yg5">
+                                <rect key="frame" x="197" y="603.5" width="440" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="440" id="HoX-5D-2rI"/>
+                                    <constraint firstAttribute="height" constant="100" id="PrV-t2-bzZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Start Scan">
+                                <state key="normal" title="Search for Items">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -801,26 +804,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1k-aL-0s1">
-                                <rect key="frame" x="438" y="605" width="199" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="End Scan">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="EndScan:" destination="hNn-7t-KlY" eventType="touchUpInside" id="uF8-oy-VVg"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ESP-52-Yg5" firstAttribute="centerX" secondItem="h35-Rl-xKM" secondAttribute="centerX" id="0Ks-qE-QYr"/>
                             <constraint firstItem="xEe-Hk-agz" firstAttribute="centerX" secondItem="SzU-If-DI8" secondAttribute="centerX" id="1cO-om-JUt"/>
                             <constraint firstItem="SzU-If-DI8" firstAttribute="centerX" secondItem="h35-Rl-xKM" secondAttribute="centerX" id="AMS-il-Gj7"/>
                             <constraint firstItem="xEe-Hk-agz" firstAttribute="leading" secondItem="KrN-09-OqC" secondAttribute="leading" constant="197" id="Dep-aU-cce"/>
                             <constraint firstItem="xEe-Hk-agz" firstAttribute="centerY" secondItem="h35-Rl-xKM" secondAttribute="centerY" id="DlO-WB-rUB"/>
                             <constraint firstItem="SzU-If-DI8" firstAttribute="centerX" secondItem="xEe-Hk-agz" secondAttribute="centerX" id="Dob-iG-ImZ"/>
+                            <constraint firstItem="ESP-52-Yg5" firstAttribute="top" secondItem="xEe-Hk-agz" secondAttribute="bottom" constant="25" id="Nc7-rC-4Wi"/>
                             <constraint firstItem="SzU-If-DI8" firstAttribute="top" secondItem="KrN-09-OqC" secondAttribute="top" constant="39" id="bJt-2M-NCb"/>
                             <constraint firstItem="SzU-If-DI8" firstAttribute="leading" secondItem="KrN-09-OqC" secondAttribute="leading" constant="283" id="ihd-Jt-ueE"/>
                             <constraint firstItem="9of-hk-XqT" firstAttribute="top" secondItem="SzU-If-DI8" secondAttribute="bottom" constant="8" id="l4l-Nw-Er6"/>
