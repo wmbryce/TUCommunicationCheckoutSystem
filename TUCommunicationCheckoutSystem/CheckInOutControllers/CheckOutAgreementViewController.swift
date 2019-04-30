@@ -19,7 +19,9 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
     var checkInDate = ""
     var itemsFound = [Bool]()
     var fees = 0
+    let fines = [-1,-1,20,10,0,20]
     
+    @IBOutlet weak var ItemsMissingLabel: UILabel!
     @IBOutlet weak var EquipmentList: UITableView!
     @IBOutlet weak var CheckoutDateLabel: UILabel!
     @IBOutlet weak var equipmentLabel: UILabel!
@@ -40,6 +42,7 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         EquipmentList.dataSource = self
         equipmentLabel.text = "Equipment: Kit " + (actionKit?.kitNumber ?? "0")
         setFees_and_date()
+        checkForMissingItems()
         // Do any additional setup after loading the view.
         usersRef.observe(.value, with: { snapshot in
             var newUsers: [User] = []
@@ -139,7 +142,37 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
 
             
         }
-        
+    }
+    
+    func checkForMissingItems(){
+        var count = 0
+        let workingItems = actionKit?.items
+        var stringOfMissingItems:String = ""
+        for itemStatus in itemsFound {
+            if !(itemStatus){
+                //create string of missing items to output to label
+                if stringOfMissingItems.isEmpty{
+                    stringOfMissingItems = workingItems![count][0]
+                } else{
+                    stringOfMissingItems += ", " + workingItems![count][0]
+                }
+                //calculate Fine for missing items
+                let feeForItem = fines[count]
+                if feeForItem == -1{
+                    //Put Critical warning here
+                    ThrowWarning(reason: "Critical items are missing from kit!")
+                } else {
+                    fees += feeForItem
+                }
+            }
+            count += 1
+        }
+        if stringOfMissingItems.isEmpty{
+            ItemsMissingLabel.text = "All items are accounted for!"
+        } else {
+            ItemsMissingLabel.text = "The following items were not found: " + stringOfMissingItems
+        }
+        AmountLabel.text = amountDueGenerator()
     }
     
     func calcdueDate(checkOut:String) -> String {
@@ -172,8 +205,22 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         return formatter.string(from: dateInfo as Date)
     }
     
+    func amountDueGenerator() -> String {
+        return "Amount Due: $" + String(fees) + ".00"
+    }
+    
     func ThrowError(reason:String) {
         let alert = UIAlertController(title: "Invaild Information",
+                                      message: reason,
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func ThrowWarning(reason:String) {
+        let alert = UIAlertController(title: "Warning",
                                       message: reason,
                                       preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel",

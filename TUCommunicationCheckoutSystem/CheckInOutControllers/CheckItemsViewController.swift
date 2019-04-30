@@ -43,6 +43,9 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
             print(itemsFound)
         }
     }
+    @IBAction func NextButton(_ sender: Any) {
+        
+    }
     
     
     override func viewDidLoad() {
@@ -120,8 +123,10 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
                 return
         }
         let cells = self.tableOfItems.visibleCells as! Array<CheckItemsTableViewCell>
+        var count = 0
         for cell in cells {
-            itemsFound.append(cell.getFoundValue())
+            itemsFound[count] = cell.getFoundValue()
+            count += 1
         }
         print("Does this run for every transition?")
         CheckOutAgreementViewController.actionKit = kitOfAction
