@@ -37,7 +37,7 @@ class UserTableViewController: UITableViewController {
                         print("appends User")
                         newUsers.append(newUser)
                     }
-            }
+                }
             }
             
             self.users = newUsers
@@ -168,7 +168,7 @@ class UserTableViewController: UITableViewController {
     func formatedDate(dateInfo:NSDate) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
-        formatter.timeStyle = .short
+        //formatter.timeStyle = .short
         return formatter.string(from: dateInfo as Date)
     }
     

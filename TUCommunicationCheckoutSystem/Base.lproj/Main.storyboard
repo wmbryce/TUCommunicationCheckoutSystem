@@ -269,11 +269,17 @@
                     <connections>
                         <outlet property="AvailabilityLabel" destination="n8f-ka-KId" id="qEM-i2-513"/>
                         <outlet property="Item1ID" destination="Q2b-VO-Ttb" id="1AR-O8-bVB"/>
+                        <outlet property="Item1Name" destination="754-9B-Vy9" id="WJP-xE-jqx"/>
                         <outlet property="Item2ID" destination="7Tg-bn-veD" id="8yJ-wL-XQq"/>
+                        <outlet property="Item2Name" destination="dME-Wn-jqI" id="FUb-qT-dB9"/>
                         <outlet property="Item3ID" destination="EgX-Jr-JXi" id="NUQ-ys-Sa0"/>
+                        <outlet property="Item3Name" destination="Nk3-Ob-TCQ" id="RYn-GW-BlQ"/>
                         <outlet property="Item4ID" destination="Fck-sd-dBw" id="7JM-sJ-Ag2"/>
+                        <outlet property="Item4Name" destination="MDy-2n-UFa" id="XOI-xa-I99"/>
                         <outlet property="Item5ID" destination="InQ-fA-g8q" id="rCl-In-nFE"/>
+                        <outlet property="Item5Name" destination="bC0-VF-AwW" id="b2W-Lg-1Zc"/>
                         <outlet property="Item6ID" destination="lVx-kf-UX3" id="Whn-Sg-Qcq"/>
+                        <outlet property="Item6Name" destination="Ru2-ye-GFd" id="0FZ-ut-Yec"/>
                         <outlet property="TitleKitNameLabel" destination="fLG-Gr-4pY" id="DS7-D7-8Sg"/>
                         <outlet property="checkInDate" destination="wNc-iA-nBZ" id="IaP-Im-jPk"/>
                         <outlet property="checkOutDate" destination="ShE-K0-m8Q" id="MgY-1y-scA"/>
@@ -1006,8 +1012,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Amount due: $10.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJT-F7-8t1">
-                                <rect key="frame" x="551" y="631" width="200" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount due: $10.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJT-F7-8t1">
+                                <rect key="frame" x="562" y="631" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="MYX-Qk-kL0"/>
                                     <constraint firstAttribute="height" constant="30" id="RbH-eg-rgn"/>
@@ -1042,13 +1048,25 @@
                                     <constraint firstAttribute="width" constant="750" id="ufY-Lf-jdG"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date: 4/30/19" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MX-rS-2Xf" userLabel="OverdueLabel">
+                                <rect key="frame" x="551" y="593" width="150" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="x0g-DQ-KxI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="4MX-rS-2Xf" firstAttribute="leading" secondItem="UDA-Bl-Lhj" secondAttribute="trailing" constant="39" id="0gt-U2-DBw"/>
                             <constraint firstItem="zjL-RT-zaC" firstAttribute="bottom" secondItem="lXW-eU-fqy" secondAttribute="bottom" constant="30" id="1mU-kV-uxr"/>
+                            <constraint firstItem="4MX-rS-2Xf" firstAttribute="top" secondItem="GQ6-CX-VAh" secondAttribute="bottom" constant="2" id="3jy-i5-oZD"/>
                             <constraint firstItem="Lbs-I4-93T" firstAttribute="width" secondItem="6hL-Pq-jIk" secondAttribute="width" id="5eg-4y-Uep"/>
                             <constraint firstItem="g45-1d-Tcg" firstAttribute="centerY" secondItem="Nh2-gs-ant" secondAttribute="centerY" constant="26" id="8WF-Ip-svo"/>
                             <constraint firstItem="GQ6-CX-VAh" firstAttribute="centerX" secondItem="Nh2-gs-ant" secondAttribute="centerX" id="9iB-yl-JJO"/>
+                            <constraint firstItem="JJT-F7-8t1" firstAttribute="top" secondItem="4MX-rS-2Xf" secondAttribute="bottom" constant="8" id="Cb7-nK-lWq"/>
                             <constraint firstItem="Lbs-I4-93T" firstAttribute="top" secondItem="6hL-Pq-jIk" secondAttribute="bottom" constant="60" id="JRw-aR-oOj"/>
                             <constraint firstItem="JJT-F7-8t1" firstAttribute="centerY" secondItem="ECb-vN-Yor" secondAttribute="centerY" id="NDi-R2-4Qq"/>
                             <constraint firstItem="nw4-WY-YMN" firstAttribute="centerX" secondItem="Nh2-gs-ant" secondAttribute="centerX" id="Rdw-d2-hvu"/>
@@ -1085,6 +1103,7 @@
                         <outlet property="DueDateLabel" destination="ECb-vN-Yor" id="aHf-bi-R1J"/>
                         <outlet property="EquipmentList" destination="g45-1d-Tcg" id="apS-Ln-5Lt"/>
                         <outlet property="ItemsMissingLabel" destination="GQ6-CX-VAh" id="q6q-yk-52J"/>
+                        <outlet property="OverdueLabel" destination="4MX-rS-2Xf" id="DB0-SA-OEz"/>
                         <outlet property="UserEmail" destination="GoY-OP-N1f" id="vut-KW-u4p"/>
                         <outlet property="UserIdNumber" destination="Abz-qc-7bv" id="sSZ-m5-p8y"/>
                         <outlet property="equipmentLabel" destination="HKM-bw-jfm" id="EBi-ix-9Go"/>

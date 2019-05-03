@@ -84,7 +84,7 @@ class InventoryTableViewController: UITableViewController {
                 let Item2 = ["Microphone", newkitNumber + "02"]
                 let Item3 = ["Headphones", newkitNumber + "03"]
                 let Item4 = ["Charge Cord", newkitNumber + "04"]
-                let Item5 = ["Computer Cord", newkitNumber + "05"]
+                let Item5 = ["User Manual", newkitNumber + "05"]
                 let Item6 = ["Microphone Cord", newkitNumber + "06"]
                 let Items = [Item1,Item2,Item3,Item4,Item5,Item6]
                 let Checkin_out_Date = self.formatedDate(dateInfo:Date() as NSDate)
@@ -154,7 +154,7 @@ class InventoryTableViewController: UITableViewController {
     func formatedDate(dateInfo:NSDate) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
-        formatter.timeStyle = .short
+        //formatter.timeStyle = .short
         return formatter.string(from: dateInfo as Date)
     }
     

@@ -19,7 +19,7 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
     var checkInDate = ""
     var itemsFound = [Bool]()
     var fees = 0
-    let fines = [-1,-1,20,10,0,20]
+    let fines = [-1,-1,20,10,2,20]
     
     @IBOutlet weak var ItemsMissingLabel: UILabel!
     @IBOutlet weak var EquipmentList: UITableView!
@@ -30,10 +30,12 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
     @IBOutlet weak var CheckInLabel: UILabel!
     @IBOutlet weak var CheckOutLabel: UILabel!
     @IBOutlet weak var DueDateLabel: UILabel!
+    @IBOutlet weak var OverdueLabel: UILabel!
     
     @IBOutlet weak var UserEmail: UITextField!
     @IBOutlet weak var UserIdNumber: UITextField!
 
+    
     
     
     override func viewDidLoad() {
@@ -47,18 +49,18 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         usersRef.observe(.value, with: { snapshot in
             var newUsers: [User] = []
             for child in snapshot.children {
-                print(child)
+                //print(child)
                 if let snapshot2 = child as? DataSnapshot{
-                    print("here")
+                    //print("here")
                     if let newUser = User(snapshot: snapshot2){
-                        print("appends User")
+                        //print("appends User")
                         newUsers.append(newUser)
                     }
                 }
             }
             
             self.users = newUsers
-            print(self.users.count)
+            //print(self.users.count)
             
         })
     }
@@ -128,7 +130,8 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
             CheckOutLabel.text = "Check out date: " + checkOutDate
             DueDateLabel.text = "Due date: " + calcdueDate(checkOut: checkOutDate)
         } else {
-            checkInDate = formatedDate(dateInfo: Date())
+            let checkInDateReal = Date()
+            checkInDate = formatedDate(dateInfo: checkInDateReal)
             CheckInLabel.text = "Check in date: " + checkInDate
             checkOutDate = (actionKit?.checkOut)!
             CheckOutLabel.text = "Check out date: " + checkOutDate
@@ -136,11 +139,11 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
             DueDateLabel.text = "Due date: " + dueDate
             
             let dueDateNum = convertStringToDate(workString: dueDate)
+            let calendar = Calendar.current
             
-            let diff = dueDateNum.timeIntervalSince(Date())
-            print(diff)
-
+            let diff = calendar.compare(checkInDateReal, to: dueDateNum, toGranularity: .day)
             
+            OverdueLabel.text = ("This kit is " + String(diff.rawValue) + " days overdue!")
         }
     }
     
@@ -178,10 +181,12 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
     func calcdueDate(checkOut:String) -> String {
         
         let checkOutDateDate = convertStringToDate(workString: checkOut)
+        print(formatedDate(dateInfo: checkOutDateDate))
         let tenDays = (432000.0 * 2)
         let dueDateFinal = checkOutDateDate.addingTimeInterval(tenDays)
-        
-        return formatedDate(dateInfo: dueDateFinal)
+        let formattedDueDate = formatedDate(dateInfo: dueDateFinal)
+        print(formattedDueDate)
+        return formattedDueDate
     }
     
     func convertStringToDate(workString:String)-> Date {
@@ -189,6 +194,8 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         let CheckOutmonth = Int(splitCheckout[0])
         let CheckOutday = Int(splitCheckout[1])
         let CheckOutyear = Int(splitCheckout[2])
+        print("Checkout year:", CheckOutyear)
+        print("Split Chechout: ", splitCheckout)
         var Components = DateComponents()
         Components.day = CheckOutday
         Components.month = CheckOutmonth
