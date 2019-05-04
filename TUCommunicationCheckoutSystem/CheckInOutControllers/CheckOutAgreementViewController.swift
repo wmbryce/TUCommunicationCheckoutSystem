@@ -138,14 +138,60 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
             let dueDate =  calcdueDate(checkOut: checkOutDate)
             DueDateLabel.text = "Due date: " + dueDate
             
-            let dueDateNum = convertStringToDate(workString: dueDate)
-            let calendar = Calendar.current
-            
-            let diff = calendar.compare(checkInDateReal, to: dueDateNum, toGranularity: .day)
-            
-            OverdueLabel.text = ("This kit is " + String(diff.rawValue) + " days overdue!")
+            let diff = daysBetween(dueDate: dueDate,checkInDate: checkInDate)
+            if diff > 0{
+                let newFee = (10*diff)
+                let UserText = ("This kit is " + String(diff) + " days overdue. You will be charged $" + String(newFee) + ".00")
+                print(UserText)
+                OverdueLabel.text = UserText
+                fees += newFee
+            } else {
+                OverdueLabel.text = ("It is still before kit due date")
+            }
         }
     }
+    
+    func daysBetween(dueDate:String,checkInDate:String) -> Int{
+        let splitDueDate = dueDate.split(separator: "/")
+        let dueMonth = Int(splitDueDate[0])!
+        let dueDay = Int(splitDueDate[1])!
+        //let dueYear = Int(splitDueDate[2])!
+        
+        let splitCheckIn = checkInDate.split(separator: "/")
+        let checkInMonth = Int(splitCheckIn[0])!
+        let checkInDay = Int(splitCheckIn[1])!
+        //let checkInYear = Int(splitCheckIn[2])!
+        
+        let longMonths = [1,3,5,7,8,10,12]
+        let shortMonths = [4,6,9,11]
+        
+        var daysApart = 0
+        //Compare Months
+        //equal Months
+        if dueMonth == checkInMonth{
+            daysApart += dueDay - checkInDay
+        }//Overdue greater months
+        else if dueMonth < checkInMonth {
+            if longMonths.contains(dueMonth){
+                daysApart += 31 - dueDay
+            } else if shortMonths.contains(dueMonth){
+                daysApart += 30 - dueDay + checkInDay
+            } else {
+                daysApart += 28 - dueDay + checkInDay
+            }
+        } //Not overdue
+        else if checkInMonth < dueMonth {
+            if longMonths.contains(checkInMonth){
+                daysApart += -31 + checkInDay - dueDay
+            } else if shortMonths.contains(checkInMonth){
+                daysApart += -30 + checkInDay - dueDay
+            } else {
+                daysApart += -28 + checkInDay - dueDay
+            }
+        }
+        return daysApart
+    }
+    
     
     func checkForMissingItems(){
         var count = 0
