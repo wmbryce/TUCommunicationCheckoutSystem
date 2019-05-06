@@ -42,6 +42,7 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         super.viewDidLoad()
         EquipmentList.delegate = self
         EquipmentList.dataSource = self
+        EquipmentList.allowsSelection = false;
         equipmentLabel.text = "Equipment: Kit " + (actionKit?.kitNumber ?? "0")
         setFees_and_date()
         checkForMissingItems()
@@ -81,7 +82,7 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         //    cell.
         //}
         //print(present,currentItemName,currentItemID)
-        cell.setLabels(found: present, Name: currentItemName, Number: currentItemID)
+        cell.setLabels(found: present, canCheck: false, Name: currentItemName, Number: currentItemID)
         return cell
     }
         

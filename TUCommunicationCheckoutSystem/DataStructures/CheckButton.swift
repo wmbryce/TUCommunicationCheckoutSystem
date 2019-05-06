@@ -12,7 +12,7 @@ class CheckButton: UIButton {
     
     let checkedImage = UIImage(named: "Checked")! as UIImage
     let uncheckedImage = UIImage(named: "Unchecked")! as UIImage
-    let checkDisabled = false
+    var checkEnabled = true
     
     var isChecked: Bool = false {
         didSet{
@@ -33,7 +33,7 @@ class CheckButton: UIButton {
     }
     
     @objc func buttonClicked(sender: UIButton) {
-        if sender == self && !checkDisabled {
+        if sender == self && checkEnabled {
             isChecked = !isChecked
         }
     }

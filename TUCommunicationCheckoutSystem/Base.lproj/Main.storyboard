@@ -1183,21 +1183,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFK-2F-1HE">
-                                <rect key="frame" x="356" y="43" width="400" height="100"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="400" id="Lfk-g9-g4Y"/>
-                                    <constraint firstAttribute="height" constant="100" id="j1n-nE-CXz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Start Scan">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="TestScan:" destination="smL-d0-tmM" eventType="touchUpInside" id="bxe-eW-WqT"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDz-MF-fJE">
                                 <rect key="frame" x="356" y="173" width="400" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1213,20 +1198,35 @@
                                     <action selector="EndScan:" destination="smL-d0-tmM" eventType="touchUpInside" id="1B0-Zc-a9m"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFK-2F-1HE">
+                                <rect key="frame" x="356" y="315" width="400" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="Lfk-g9-g4Y"/>
+                                    <constraint firstAttribute="height" constant="100" id="j1n-nE-CXz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Start Scan">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="TestScan:" destination="smL-d0-tmM" eventType="touchUpInside" id="bxe-eW-WqT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Gjl-av-Gp2" firstAttribute="top" secondItem="ZSK-rL-OSd" secondAttribute="bottom" constant="50" id="MIb-ax-j9O"/>
                             <constraint firstItem="KDz-MF-fJE" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="MRV-Zo-cik"/>
                             <constraint firstItem="Gjl-av-Gp2" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="Q7d-qe-sXe"/>
-                            <constraint firstItem="wFK-2F-1HE" firstAttribute="top" secondItem="x9K-W1-fpS" secondAttribute="top" constant="23" id="QSc-9B-qv4"/>
+                            <constraint firstItem="wFK-2F-1HE" firstAttribute="top" secondItem="x9K-W1-fpS" secondAttribute="top" constant="295" id="QSc-9B-qv4"/>
                             <constraint firstItem="Gjl-av-Gp2" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="Qpb-d7-Dox"/>
                             <constraint firstItem="cAw-3V-2WD" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="T6V-f4-IYL"/>
                             <constraint firstItem="cAw-3V-2WD" firstAttribute="centerY" secondItem="5jW-0s-cGr" secondAttribute="centerY" constant="-127" id="Vp1-3y-C6l"/>
                             <constraint firstItem="cAw-3V-2WD" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="cp8-Hx-w5d"/>
                             <constraint firstItem="ZSK-rL-OSd" firstAttribute="top" secondItem="cAw-3V-2WD" secondAttribute="bottom" constant="125" id="mvG-qC-fcy"/>
                             <constraint firstItem="ZSK-rL-OSd" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="neo-TQ-Y4Y"/>
-                            <constraint firstItem="KDz-MF-fJE" firstAttribute="top" secondItem="wFK-2F-1HE" secondAttribute="bottom" constant="30" id="sG5-Rs-kab"/>
+                            <constraint firstItem="KDz-MF-fJE" firstAttribute="top" secondItem="wFK-2F-1HE" secondAttribute="bottom" constant="-242" id="sG5-Rs-kab"/>
                             <constraint firstItem="wFK-2F-1HE" firstAttribute="centerX" secondItem="5jW-0s-cGr" secondAttribute="centerX" id="yXo-PL-fKJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="x9K-W1-fpS"/>

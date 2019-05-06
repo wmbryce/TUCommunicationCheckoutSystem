@@ -164,7 +164,7 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         let currentItemName = kitOfAction?.items[indexPath.row][0] ?? "error"
         let currentItemID = kitOfAction?.items[indexPath.row][1] ?? "error"
         let present = itemsFound[indexPath.row]
-        cell.setLabels(found: present, Name: currentItemName, Number: currentItemID)
+        cell.setLabels(found: present, canCheck: true, Name: currentItemName, Number: currentItemID)
         //if present == false{
         //    cell.
         //}

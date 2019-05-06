@@ -41,63 +41,57 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
     var tagToCellMap: [UgiTag : UgiTagCell] = [:]
     var tagToDetailString: [UgiTag : NSMutableString] = [:]
     var tagToString: [String] = []
-    var firstblood = 0
+    var previousActivation = 0
     var reset = 0
+    var scanning = false
     var silence = UgiGeigerCounterSound(frequency: 1046, durationMsec: 2, clickRate: 3, maxClicksPerSecond: 3, historyDepthMsec: 0)
+    //var powerSetting = UgiSingleFindRampPowerModes
+    //Need to change power settings
     
     
-    @IBAction func EndScan(_ sender: Any) {
-      //  Ugi.singleton().closeConnection()
-        clearerstring()
-    }
-    func end_scan(){
-        Ugi.singleton().closeConnection()
-    }
-    @IBAction func TestScan(_ sender: Any) {
-        firstblood = 0
-        self.tagToString.removeAll()
-        self.displayedTags.removeAll()
-        self.tagToCellMap.removeAll()
-        self.tagToDetailString.removeAll()
-        var config: UgiRfidConfiguration
-        if self.specialFunction == SPECIAL_FUNCTION_READ_RF_MICRON_MAGNUS_SENSOR_CODE {
-            config = UgiRfMicron.config(
-                toReadMagnusSensorValue: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE,
-                withTagModel: SPECIAL_FUNCTION_RF_MICRON_MAGNUS_TYPE,
-                withRssiLimitType: SPECIAL_FUNCTION_RF_MICRON_MAGNUS_LIMIT_TYPE,
-                withLimitRssiThreshold: SPECIAL_FUNCTION_RF_MICRON_MAGNUS_LIMIT_THRESHOLD)
-        }
-        else if self.specialFunction == SPECIAL_FUNCTION_READ_RF_MICRON_MAGNUS_TEMPERATURE {
-            config = UgiRfMicron.config(toReadMagnusTemperature: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE)
-        }
-        else {
-            config = UgiRfidConfiguration.config(withInventoryType: self.inventoryType)
-            if self.specialFunction == SPECIAL_FUNCTION_READ_USER_MEMORY {
-                config.minUserBytes = 4
-                config.maxUserBytes = 128
+    func Scan(_ sender: Any) {
+        if !scanning {
+            previousActivation = 0
+            self.tagToString.removeAll()
+            self.displayedTags.removeAll()
+            self.tagToCellMap.removeAll()
+            self.tagToDetailString.removeAll()
+            var config: UgiRfidConfiguration
+            if self.specialFunction == SPECIAL_FUNCTION_READ_RF_MICRON_MAGNUS_SENSOR_CODE {
+                config = UgiRfMicron.config(
+                    toReadMagnusSensorValue: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE,
+                    withTagModel: SPECIAL_FUNCTION_RF_MICRON_MAGNUS_TYPE,
+                    withRssiLimitType: SPECIAL_FUNCTION_RF_MICRON_MAGNUS_LIMIT_TYPE,
+                    withLimitRssiThreshold: SPECIAL_FUNCTION_RF_MICRON_MAGNUS_LIMIT_THRESHOLD)
             }
-            else if self.specialFunction == SPECIAL_FUNCTION_READ_TID_MEMORY {
-                config.minTidBytes = 4
-                config.maxTidBytes = 128
+            else if self.specialFunction == SPECIAL_FUNCTION_READ_RF_MICRON_MAGNUS_TEMPERATURE {
+                config = UgiRfMicron.config(toReadMagnusTemperature: UgiInventoryTypes.UGI_INVENTORY_TYPE_LOCATE_DISTANCE)
             }
+            else {
+                config = UgiRfidConfiguration.config(withInventoryType: self.inventoryType)
+                if self.specialFunction == SPECIAL_FUNCTION_READ_USER_MEMORY {
+                    config.minUserBytes = 4
+                    config.maxUserBytes = 128
+                }
+                else if self.specialFunction == SPECIAL_FUNCTION_READ_TID_MEMORY {
+                    config.minTidBytes = 4
+                    config.maxTidBytes = 128
+                }
+            }
+            if(reset == 0){
+                Ugi.singleton().setGeigerCounterSound(&silence)
+                Ugi.singleton().startInventory(self, with: config)
+                reset = 1
+            } else{
+                Ugi.singleton().activeInventory?.resumeInventory()
+            }
+            scanning = true
+        } else {
+            Ugi.singleton().activeInventory?.pause()
+            scanning = false
         }
-        if(reset == 0){
-            Ugi.singleton().setGeigerCounterSound(&silence)
-            Ugi.singleton().startInventory(self, with: config)
-            reset = 1
-        } else{
-            Ugi.singleton().activeInventory?.resumeInventory()
-        }
-      //  self.updateCountAndTime()
-      /*  if !config.reportSubsequentFinds {
-            self.timer = Timer.scheduledTimer(timeInterval: 1,
-                                              target: self,
-                                              selector: #selector(ViewController.updateCountAndTime),
-                                              userInfo: nil,
-                                              repeats: true)
-        }*/
-        readUGrokit()
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -193,30 +187,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
     @IBAction func Back(_ sender: Any) {
         dismiss(animated: false, completion: nil)
     }
-    //Transition to Kit Item Check
-    func transitToItemCheck(kitToCheck:Kit){
-        
-    }
-    
-    // U Grokit Functionality
-    func readUGrokit(){
-      //  self.inventory = Ugi.singleton().activeInventory
-       //if self.inventory != nil{
-            //print(getkitnum(help:(inventory!.tags[0])))
-            print("Invintory not nill")
-            //print(self.inventory?.tags)
-       // }
-       //
-      //  else{
-        print("Inventory was nil")
-      //  }
-        //if (Ugi.singleton().activeInventory?.tags.count ?? 0 > 0 ){
-            // Code to run when inventory is stopped
-            
-        //}
-        // Do any additional setup after loading the view.
-    }
-    
+ 
     func inventoryTagFound(_ tag: UgiTag,
                            withDetailedPerReadData detailedPerReadData: [UgiDetailedPerReadData]?) {
         self.displayedTags.append(tag)
@@ -224,11 +195,11 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
         self.tagToString.append(tag.epc.toString())
      //   self.inventory?.pause()
         print("The Tag is" , tagToString)
-        if(firstblood==0){
+        if(previousActivation==0){
             Ugi.singleton().activeInventory?.pause()
             Ugi.singleton().activeInventory?.stop()
             clearerstring()
-            firstblood=1
+            previousActivation=1
         }
     }
     
@@ -245,11 +216,11 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
         i = self.kits.count-1
         while(i>=0){
             if(kitchecknum == self.kits[i].kitNumber){
-                self.kitToCheck = self.kits[i]
+                self.kitToCheck = self.kits[i] //sets kitToCheck which triggers transition
             }
             i=i-1
         }
-        checkForValidKitNumber(testKit: kitchecknum)
+        //checkForValidKitNumber(testKit: kitchecknum)
         //print("kitToCheck" , self.kitToCheck?.kitNumber)
     }
     
