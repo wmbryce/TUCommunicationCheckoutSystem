@@ -26,7 +26,7 @@ class UserTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //TableView.allowsMultipleSelectionDuringEditing = false
-        
+        ref.keepSynced(true)
         ref.observe(.value, with: { snapshot in
             var newUsers: [User] = []
             for child in snapshot.children {

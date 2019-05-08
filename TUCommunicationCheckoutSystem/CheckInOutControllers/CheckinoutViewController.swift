@@ -22,7 +22,7 @@ protocol checkKitSelectionDelegate:class {
     func checkKitItems(_ checkKit: Kit)
 }
 
-class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
+class CheckinoutViewController: UgiViewController, UgiInventoryDelegate {
     
     let ref = Database.database().reference(withPath: "kits")
     weak var passingDelegate:checkKitSelectionDelegate?
@@ -47,11 +47,37 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
     var silence = UgiGeigerCounterSound(frequency: 1046, durationMsec: 2, clickRate: 3, maxClicksPerSecond: 3, historyDepthMsec: 0)
     //var powerSetting = UgiSingleFindRampPowerModes
     //Need to change power settings
+    @IBOutlet weak var connectionStatusUGrokIt: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.titleView!.batteryStatusIndicatorDisplayVersionInfoOnTouch = true
+        self.displayDialogIfDisconnected = true
+        ref.keepSynced(true)
+        ref.observe(.value, with: { snapshot in
+            var newKits: [Kit] = []
+            for child in snapshot.children {
+                //   print(child)
+                if let snapshot2 = child as? DataSnapshot{
+                    if let newKit = Kit(snapshot: snapshot2){
+                        newKits.append(newKit)
+                    }
+                }
+            }
+            self.kits = newKits
+        })
+    }
     
     
-    func Scan(_ sender: Any) {
+    
+    @IBAction func ScanButton(_ sender: Any) {
+        Scan()
+    }
+    
+    
+    func Scan() {
+        print(scanning)
         if !scanning {
-            previousActivation = 0
             self.tagToString.removeAll()
             self.displayedTags.removeAll()
             self.tagToCellMap.removeAll()
@@ -85,50 +111,22 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
             } else{
                 Ugi.singleton().activeInventory?.resumeInventory()
             }
-            scanning = true
-        } else {
+            scanning = !scanning
+        }
+        else {
             Ugi.singleton().activeInventory?.pause()
-            scanning = false
+            scanning = !scanning
         }
     }
+
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        Ugi.singleton().openConnection()
-        
-        ref.observe(.value, with: { snapshot in
-            var newKits: [Kit] = []
-            for child in snapshot.children {
-             //   print(child)
-                if let snapshot2 = child as? DataSnapshot{
-                    if let newKit = Kit(snapshot: snapshot2){
-                        newKits.append(newKit)
-                    }
-                }
-            }
-            
-            self.kits = newKits
-        //    print("kits successfully initalized")
-            
-        })
-        
-        print("made it in")
-    }
+
     
     @IBAction func unwindToCheckOutViewController(_ sender: UIStoryboardSegue){
-//        if let sourceViewController = sender.source as? AddUserViewController, let
-//            newUser = sourceViewController.newUser {
-//            if checkForValidUser(testUserID:newUser.ID_number, testEmail: newUser.email){
-//                os_log("Recieved Proper User ViewController.", log: OSLog.default, type: .debug)
-//                let userRef = self.ref.child(newUser.ID_number.lowercased())
-//                userRef.setValue(newUser.toAnyObject())
-//                //saveKits()
-//            }
-//            else {
-//                os_log("Kit is invalid", log: OSLog.default, type: .debug)
-//            }
-//        }
+        print("Does this unwind even go down?")
+        let action = (kitToCheck?.available)! ? "checked out" : "checked in"
+        print(action)
+        giveConfirmation(reason: "Kit was successfully " + action)
     }
     
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
@@ -143,6 +141,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
                 return
         }
         print("preparing for dat seg doe")
+        
         checkItemsView.kitOfAction = kitToCheck
         checkItemsView.inventory = Ugi.singleton().activeInventory
     }
@@ -155,7 +154,7 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
                                       preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Check", style: .default) { _ in
-            // 1
+        var validKitFound = false
             guard let textField = alert.textFields?.first,      
                 let newkitNumber = textField.text else { return }
             //print(self.kits)
@@ -166,12 +165,15 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
                 if newkitNumber == i.kitNumber{
                     //self.passingDelegate?.checkKitItems(i)
                     self.kitToCheck = i
+                    validKitFound = true
                     
                     //let checkItems = CheckItemsViewController()
                     //self.present(checkItems,animated: true, completion: nil)
                 }
             }
-            self.ThrowError(reason: "That kit number does not exist")
+            if !validKitFound {
+                self.ThrowError(reason: "That kit number does not exist")
+            }
         }
         let cancelAction = UIAlertAction(title: "Cancel",
                                          style: .cancel)
@@ -195,12 +197,10 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
         self.tagToString.append(tag.epc.toString())
      //   self.inventory?.pause()
         print("The Tag is" , tagToString)
-        if(previousActivation==0){
-            Ugi.singleton().activeInventory?.pause()
-            Ugi.singleton().activeInventory?.stop()
-            clearerstring()
-            previousActivation=1
-        }
+        Ugi.singleton().activeInventory?.stop()
+        reset = 0
+        scanning = false
+        clearerstring()
     }
     
     func clearerstring(){
@@ -243,6 +243,15 @@ class CheckinoutViewController: UIViewController, UgiInventoryDelegate {
                                       message: reason,
                                       preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    func giveConfirmation(reason:String) {
+        let alert = UIAlertController(title: "Confirmation",
+                                      message: reason,
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Ok",
                                          style: .cancel)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)

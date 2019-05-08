@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         detailViewController.kitOfInterest = firstKit
         masterViewController.delegate = detailViewController*/
         FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
         return true
     }
 

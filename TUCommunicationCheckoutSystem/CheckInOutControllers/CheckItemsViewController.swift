@@ -21,7 +21,8 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     @IBOutlet weak var statusLabel: UILabel!
     
     @IBAction func Cancel(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
+        
+        dismiss(animated: true, completion: nil)
     }
     
     var itemsFound = [Bool]()
@@ -89,7 +90,7 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         sender.setTitleColor(color, for: .normal)
         
         sender.setTitle("Search for Items", for:.normal)
-        
+        if !scanning{
         self.tagToString.removeAll()
         var config: UgiRfidConfiguration
         if self.specialFunction == SPECIAL_FUNCTION_READ_RF_MICRON_MAGNUS_SENSOR_CODE {
@@ -124,12 +125,13 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
             inventory?.pause()
         }
         scanning = !scanning
-        //inventory?.resumeInventory()
+        }
+        else {
+            scanning = !scanning
+            Ugi.singleton().activeInventory?.pause()
+        }//inventory?.resumeInventory()
     }
-    
-    @IBAction func EndScan(_ sender: Any) {
-        inventory?.pause()
-    }
+  
     
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
         super.prepare(for: segue, sender: sender)
@@ -176,9 +178,6 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
     
     func refreshItemCheck(){
         KitTitle.text = "Kit " + (kitOfAction?.kitNumber ?? "error")
-        let Description = (kitOfAction?.checkIn)! + (kitOfAction?.checkOut)!
-        
-        DescriptionLabel.text = generateDescription()
         tableOfItems.reloadData()
     }
     
@@ -212,10 +211,10 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
         }
         if available {
             statusLabel.backgroundColor = UIColor(red: 0/255, green: 200/255, blue: 50/255, alpha: 1.0)
-            statusLabel.text = "Available for Check out"
+            statusLabel.text = "Available"
         } else{
             statusLabel.backgroundColor = UIColor(red: 200/255, green: 0/255, blue: 50/255, alpha: 1.0)
-            statusLabel.text = "Available for Check in"
+            statusLabel.text = "Checked out"
         }
     }
     
@@ -250,9 +249,6 @@ class CheckItemsViewController: UIViewController,UITableViewDataSource, UITableV
             if kitOfAction?.kitNumber == String(tags.dropLast(2)){
                 itemsFound[(Int(String(tags.dropFirst(4))) ?? 1) - 1] = true
                 }
-        
-      //      i=i-1
-      //  }
     }
 
     /*

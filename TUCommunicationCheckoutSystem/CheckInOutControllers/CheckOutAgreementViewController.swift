@@ -19,7 +19,7 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
     var checkInDate = ""
     var itemsFound = [Bool]()
     var fees = 0
-    let fines = [-1,-1,20,10,2,20]
+    let fines = [1000,200,20,10,2,20]
     
     @IBOutlet weak var ItemsMissingLabel: UILabel!
     @IBOutlet weak var EquipmentList: UITableView!
@@ -31,13 +31,13 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
     @IBOutlet weak var CheckOutLabel: UILabel!
     @IBOutlet weak var DueDateLabel: UILabel!
     @IBOutlet weak var OverdueLabel: UILabel!
+    @IBOutlet weak var OverdueFeeLabel: UILabel!
+    @IBOutlet weak var MissingItemFees: UILabel!
     
     @IBOutlet weak var UserEmail: UITextField!
     @IBOutlet weak var UserIdNumber: UITextField!
 
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         EquipmentList.delegate = self
@@ -59,10 +59,8 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
                     }
                 }
             }
-            
             self.users = newUsers
             //print(self.users.count)
-            
         })
     }
 
@@ -115,7 +113,8 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
                             }
                         }
                     }
-                    
+                    //let message = (actionKit?.available)! ? "Kit has been checked out":"Kit has been checked in"
+                    //Confirmation(reason: message)
                     performSegue(withIdentifier: "UnwindToCheckOutView", sender: self)
                 }
             }
@@ -142,12 +141,14 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
             let diff = daysBetween(dueDate: dueDate,checkInDate: checkInDate)
             if diff > 0{
                 let newFee = (10*diff)
-                let UserText = ("This kit is " + String(diff) + " days overdue. You will be charged $" + String(newFee) + ".00")
+                let UserText = (String(diff) + " days overdue!")
                 print(UserText)
                 OverdueLabel.text = UserText
+                OverdueFeeLabel.text = String(newFee) + ".00"
                 fees += newFee
             } else {
-                OverdueLabel.text = ("It is still before kit due date")
+                OverdueLabel.text = ("0 days overdue")
+                OverdueFeeLabel.text = "0.00"
             }
         }
     }
@@ -170,7 +171,7 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         //Compare Months
         //equal Months
         if dueMonth == checkInMonth{
-            daysApart += dueDay - checkInDay
+            daysApart += checkInDay - dueDay
         }//Overdue greater months
         else if dueMonth < checkInMonth {
             if longMonths.contains(dueMonth){
@@ -193,9 +194,10 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         return daysApart
     }
     
-    
     func checkForMissingItems(){
         var count = 0
+        var totalItemFees = 0
+        var missingItemCount = 0
         let workingItems = actionKit?.items
         var stringOfMissingItems:String = ""
         for itemStatus in itemsFound {
@@ -208,19 +210,23 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
                 }
                 //calculate Fine for missing items
                 let feeForItem = fines[count]
-                if feeForItem == -1{
+                if feeForItem > 80{
                     //Put Critical warning here
-                    ThrowWarning(reason: "Critical items are missing from kit!")
+                    ThrowWarning(reason: "Critical items are missing from kit! Please see manager.")
                 } else {
-                    fees += feeForItem
+                    totalItemFees += feeForItem
+                    missingItemCount += 1
                 }
             }
             count += 1
         }
         if stringOfMissingItems.isEmpty{
-            ItemsMissingLabel.text = "All items are accounted for!"
+            ItemsMissingLabel.text = "No items are missing"
+            MissingItemFees.text = "0.00"
         } else {
-            ItemsMissingLabel.text = "The following items were not found: " + stringOfMissingItems
+            ItemsMissingLabel.text = String(missingItemCount) + " items were not found"
+            MissingItemFees.text = String(totalItemFees) + ".00"
+            fees += totalItemFees
         }
         AmountLabel.text = amountDueGenerator()
     }
@@ -242,7 +248,7 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
         let CheckOutday = Int(splitCheckout[1])
         let CheckOutyear = Int(splitCheckout[2])
         print("Checkout year:", CheckOutyear)
-        print("Split Chechout: ", splitCheckout)
+        print("Split Checkout: ", splitCheckout)
         var Components = DateComponents()
         Components.day = CheckOutday
         Components.month = CheckOutmonth
@@ -278,6 +284,16 @@ class CheckOutAgreementViewController: UIViewController, UITableViewDataSource, 
                                       message: reason,
                                       preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func Confirmation(reason:String) {
+        let alert = UIAlertController(title: "Success!",
+                                      message: reason,
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Ok",
                                          style: .cancel)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)

@@ -12,7 +12,7 @@ class MainMenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Ugi.singleton().openConnection()
         // Do any additional setup after loading the view.
     }
     
